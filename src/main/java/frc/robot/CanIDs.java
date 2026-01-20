@@ -51,13 +51,13 @@ public final class CanIDs {
      */
     public static final class SwerveModuleCanIDs
     {
-        public final int DRIVE_MOTOR_ID;
-        public final int ANGLE_MOTOR_ID;
+        public final int driveMotorID;
+        public final int angleMotorID;
 
         public SwerveModuleCanIDs(int driveMotorID, int angleMotorID)
         {
-            this.ANGLE_MOTOR_ID = angleMotorID;
-            this.DRIVE_MOTOR_ID = driveMotorID;
+            this.angleMotorID = angleMotorID;
+            this.driveMotorID = driveMotorID;
         }
     }
     

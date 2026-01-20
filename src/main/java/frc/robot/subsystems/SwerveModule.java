@@ -83,14 +83,14 @@ public class SwerveModule {
         this.moduleNumber = moduleNumber;
 
         /* Angle Motor Config */
-        mAngleMotor = new SparkMax(moduleConstants.ANGLE_MOTOR_ID, MotorType.kBrushless);
+        mAngleMotor = new SparkMax(moduleConstants.angleMotorID, MotorType.kBrushless);
         
         
         mAngleMotor.configure(ANGLE_CONFIG, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
 
         /* Drive Motor Config */
-        mDriveMotor = new SparkFlex(moduleConstants.DRIVE_MOTOR_ID, MotorType.kBrushless);
+        mDriveMotor = new SparkFlex(moduleConstants.driveMotorID, MotorType.kBrushless);
         
         
         mDriveMotor.configure(DRIVE_CONFIG, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);

@@ -107,6 +107,9 @@ public class RobotContainer {
             true,
             false,
             false));
+
+    // Button to cancel running actions
+    specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
     
             
     // TODO Your Controls Here!

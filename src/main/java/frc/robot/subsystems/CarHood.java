@@ -44,7 +44,7 @@ public class CarHood extends SubsystemBase
      this.setDefaultCommand
 (
 new FunctionalCommand
-(
+( //default command
 () -> hoodedmotor.set(0),
 () -> {},
 (killed) -> {},
@@ -60,8 +60,8 @@ this)
     // This method will be called once per scheduler run
   }
 
-public Command hoodtoposition(double target, double range) 
-{
+public Command hoodtoposition(double target, double range) //puts the hood in a position
+{ 
   return new SparkPositionProfiled(hoodedmotor, target, range, this);
 }
 

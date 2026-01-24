@@ -31,9 +31,14 @@ public final class CanIDs {
 
     // TODO Put constants for your other CAN devices here
     //public static final int EXAMPLE_MOTOR_ID = 45;
-
-
-
+    public static final int SHOOTER_MOTOR_ID = 45;
+    public static final int SHOOTER_2_MOTOR_ID = 46;
+    public static final int INTAKER_MOTOR_ID = 47;
+    public static final int AGITATOR_MOTOR_ID = 48;
+    public static final int FUNNEL_MOTOR_ID = 49;
+    public static final int HOODED_MOTOR_MOTOR_ID = 50;
+    public static final int INTAKE_PIVOT_MOTOR_ID = 51;
+    public static final int HOPPER_SLIDE_MOTOR_ID = 52;
     /**
      * Utility class to hold all the CAN IDs for a swerve module.
      */
@@ -60,7 +65,15 @@ public final class CanIDs {
           Map.entry(30, "Swerve/BR/Drive"),
           Map.entry(31, "Swerve/BR/Angle"),
           Map.entry(40, "Swerve/BL/Drive"),
-          Map.entry(41, "Swerve/BL/Angle")//,
+          Map.entry(41, "Swerve/BL/Angle"),
+          Map.entry(SHOOTER_MOTOR_ID, "Shooter/motor1"),
+          Map.entry(SHOOTER_2_MOTOR_ID, "Shooter/motor2"),
+          Map.entry(INTAKER_MOTOR_ID, "Intaker/motor1"),
+          Map.entry(AGITATOR_MOTOR_ID, "Agitator/Agitator/motor1"),
+          Map.entry(FUNNEL_MOTOR_ID, "Agitator/Funnel/motor1"),
+          Map.entry(HOODED_MOTOR_MOTOR_ID, "CarHood/motor1"),
+          Map.entry(INTAKE_PIVOT_MOTOR_ID, "IntakePivot/IntakePivot/motor1"),
+          Map.entry(HOPPER_SLIDE_MOTOR_ID, "IntakePivot/Hopperslide/motor1")
           //Map.entry(EXAMPLE_MOTOR_ID, "Example/motor1")
       );
 

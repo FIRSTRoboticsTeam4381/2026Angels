@@ -42,7 +42,7 @@ public final class CanIDs {
     }
 
     // TODO Put constants for your other CAN devices here
-
+        public static final int Motur = 0;
 
 
 

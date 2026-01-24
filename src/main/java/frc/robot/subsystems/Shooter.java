@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
@@ -19,37 +20,50 @@ public class Shooter extends SubsystemBase {
 
 /** Creates a new Shooter. */
 public SparkFlex shooter;
-
+public SparkFlex shooter2;
 
   public Shooter() {
   shooter = new SparkFlex(0, MotorType.kBrushless); 
+  shooter2 = new SparkFlex(0, MotorType.kBrushless);
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
         this.smartCurrentLimit(40);
-        softLimit.forwardSoftLimit(0.25);
     }};
 
+     SparkFlexConfig shooter2Config = new SparkFlexConfig()
+    {{
+       apply(shooterConfig);
+       follow(shooter);
+       inverted(true);
+       //makes shooter 2 ther same as shooter 1
+    }};
+
+
     shooter.configure(shooterConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    shooter2.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
 
     this.setDefaultCommand(
       new FunctionalCommand(() -> shooter.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
-    
-
+  
   }
 
-
-
-
-
   @Override
-  public void periodic() {
+  public void periodic()
+  {
     // This method will be called once per scheduler run
   }
 
 
   public Command shooterShoot()
     {
-      return new InstantCommand(()-> shooter.set(0.5));
+      return new InstantCommand(()-> shooter.set(0.5), this);
+      //gives 0.5 current to the motor 
+    }
+
+    private void setVelocity(double v)
+    {
+        shooter.getClosedLoopController().setSetpoint(v, ControlType.kVelocity);
+        // keeps the speed around the same speed 
     }
 }

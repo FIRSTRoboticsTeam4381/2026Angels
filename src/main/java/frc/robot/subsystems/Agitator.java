@@ -19,12 +19,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Agitator extends SubsystemBase {
 
-
-
-
-  
-
-
   /** Creates a new Agitator. */
  public SparkFlex agitator; 
  public SparkFlex funnel; 
@@ -36,14 +30,11 @@ public class Agitator extends SubsystemBase {
   SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
       this.smartCurrentLimit(40);
-      softLimit.forwardSoftLimit(0.25);
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
       this.smartCurrentLimit(40);
-      softLimit.forwardSoftLimit(0.25);
-
   }};
 
   
@@ -51,7 +42,10 @@ public class Agitator extends SubsystemBase {
     funnel.configure(funnelConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters); 
 
    this.setDefaultCommand(
-    new FunctionalCommand(() -> agitator.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
+    new FunctionalCommand(() -> {
+      agitator.set(0);
+      funnel.set(0);
+     }, () -> {}, (killed) -> {}, () -> {return false;}, this));
    
 
     
@@ -64,14 +58,15 @@ public class Agitator extends SubsystemBase {
 
 public Command agitatorFunnelMove(){
 return new ParallelCommandGroup(
-  new InstantCommand(()-> agitator.set(0.5)),
-  new InstantCommand(()-> funnel.set(0.5))); 
+  new InstantCommand(()-> agitator.set(0.5),this),
+  new InstantCommand(()-> funnel.set(0.5),this));
+  
 }
 
 public Command agitatorMove(){
-return new InstantCommand(()-> agitator.set(0.5)); 
+  return new ParallelCommandGroup(
+  new InstantCommand(()-> agitator.set(0.5),this),
+  new InstantCommand(()-> funnel.set(0),this));
 }
-
-
 
 }

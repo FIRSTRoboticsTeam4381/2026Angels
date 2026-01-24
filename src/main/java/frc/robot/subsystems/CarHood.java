@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
+import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
@@ -30,7 +31,11 @@ public class CarHood extends SubsystemBase
   public CarHood() 
   {
     hoodedmotor = new SparkFlex(1, MotorType.kBrushless);
-    SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig();
+    SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
+      smartCurrentLimit(40);
+      closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
+      softLimit.forwardSoftLimit(100).reverseSoftLimit(0);
+    }};
 
 
 

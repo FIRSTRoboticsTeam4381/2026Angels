@@ -51,8 +51,8 @@ public class Agitator extends SubsystemBase {
     funnel.configure(funnelConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters); 
 
    this.setDefaultCommand(
-    new FunctionalCommand(() -> agitator.set(0), () -> {}, (killed) -> {}, () -> {}, this)
-   );
+    new FunctionalCommand(() -> agitator.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
+   
 
     
  }

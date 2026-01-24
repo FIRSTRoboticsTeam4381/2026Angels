@@ -24,7 +24,7 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
   
   public Intaker() 
   {
-    intakemotor = new SparkFlex(0, MotorType.kBrushless);
+    intakemotor = new SparkFlex(47, MotorType.kBrushless);
 
     SparkFlexConfig intakemotorConfig = new SparkFlexConfig()
     {{

@@ -30,7 +30,7 @@ public class CarHood extends SubsystemBase
   /** Creates a new CarHood. */
   public CarHood() 
   {
-    hoodedmotor = new SparkFlex(1, MotorType.kBrushless);
+    hoodedmotor = new SparkFlex(50, MotorType.kBrushless);
     SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);

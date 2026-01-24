@@ -4,3 +4,5 @@ This repository acts as a starting point for all Twisted robot code for the 2026
 
 If you aren't twisted angels get out make your own code lolz
 Nathan
+
+Also Mason

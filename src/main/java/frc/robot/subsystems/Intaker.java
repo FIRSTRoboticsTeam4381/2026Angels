@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.CanIDs;
 
 public class Intaker extends SubsystemBase /** Creates a new Shooter. */
 {
@@ -24,7 +25,7 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
   
   public Intaker() 
   {
-    intakemotor = new SparkFlex(47, MotorType.kBrushless);
+    intakemotor = new SparkFlex(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
 
     SparkFlexConfig intakemotorConfig = new SparkFlexConfig()
     {{

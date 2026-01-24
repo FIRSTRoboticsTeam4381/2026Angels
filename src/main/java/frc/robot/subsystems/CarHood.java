@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.commands.SparkPositionProfiled;
+import frc.robot.CanIDs;
 
 public class CarHood extends SubsystemBase 
 {
@@ -30,7 +31,7 @@ public class CarHood extends SubsystemBase
   /** Creates a new CarHood. */
   public CarHood() 
   {
-    hoodedmotor = new SparkFlex(50, MotorType.kBrushless);
+    hoodedmotor = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
     SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);

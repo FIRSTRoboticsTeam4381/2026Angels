@@ -31,7 +31,7 @@ public final class CanIDs {
 
     // TODO Put constants for your other CAN devices here
     //public static final int EXAMPLE_MOTOR_ID = 45;
-    public static final int SHOOTER_MOTOR_ID = 45;
+    public static final int SHOOTER_1_MOTOR_ID = 45;
     public static final int SHOOTER_2_MOTOR_ID = 46;
     public static final int INTAKER_MOTOR_ID = 47;
     public static final int AGITATOR_MOTOR_ID = 48;
@@ -66,7 +66,7 @@ public final class CanIDs {
           Map.entry(31, "Swerve/BR/Angle"),
           Map.entry(40, "Swerve/BL/Drive"),
           Map.entry(41, "Swerve/BL/Angle"),
-          Map.entry(SHOOTER_MOTOR_ID, "Shooter/motor1"),
+          Map.entry(SHOOTER_1_MOTOR_ID, "Shooter/motor1"),
           Map.entry(SHOOTER_2_MOTOR_ID, "Shooter/motor2"),
           Map.entry(INTAKER_MOTOR_ID, "Intaker/motor1"),
           Map.entry(AGITATOR_MOTOR_ID, "Agitator/Agitator/motor1"),

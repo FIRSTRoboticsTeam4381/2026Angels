@@ -15,16 +15,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.CanIDs;
+
+
 
 public class Shooter extends SubsystemBase {
 
 /** Creates a new Shooter. */
-public SparkFlex shooter;
+public SparkFlex shooter1;
 public SparkFlex shooter2;
 
   public Shooter() {
-  shooter = new SparkFlex(0, MotorType.kBrushless); 
-  shooter2 = new SparkFlex(0, MotorType.kBrushless);
+  shooter1 = new SparkFlex(CanIDs.SHOOTER_1_MOTOR_ID, MotorType.kBrushless); 
+  shooter2 = new SparkFlex(CanIDs.SHOOTER_2_MOTOR_ID, MotorType.kBrushless);
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
@@ -34,17 +37,17 @@ public SparkFlex shooter2;
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
     {{
        apply(shooterConfig);
-       follow(shooter);
+       follow(shooter1);
        inverted(true);
        //makes shooter 2 ther same as shooter 1
     }};
 
 
-    shooter.configure(shooterConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    shooter1.configure(shooterConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
     shooter2.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
 
     this.setDefaultCommand(
-      new FunctionalCommand(() -> shooter.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
+      new FunctionalCommand(() -> shooter1.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
   
   }
 
@@ -57,13 +60,13 @@ public SparkFlex shooter2;
 
   public Command shooterShoot()
     {
-      return new InstantCommand(()-> shooter.set(0.5), this);
+      return new InstantCommand(()-> shooter1.set(0.5), this);
       //gives 0.5 current to the motor 
     }
 
     private void setVelocity(double v)
     {
-        shooter.getClosedLoopController().setSetpoint(v, ControlType.kVelocity);
+        shooter1.getClosedLoopController().setSetpoint(v, ControlType.kVelocity);
         // keeps the speed around the same speed 
     }
 }

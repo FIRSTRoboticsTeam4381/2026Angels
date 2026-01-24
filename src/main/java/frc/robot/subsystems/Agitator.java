@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.CanIDs;
 
 public class Agitator extends SubsystemBase {
 
@@ -24,8 +25,8 @@ public class Agitator extends SubsystemBase {
  public SparkFlex funnel; 
 
  public Agitator(){
-  agitator = new SparkFlex(0, MotorType.kBrushless);
-  funnel = new SparkFlex(0, MotorType.kBrushless);
+  agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
+  funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
 
   SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{

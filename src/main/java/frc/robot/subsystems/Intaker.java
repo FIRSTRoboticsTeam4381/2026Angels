@@ -35,7 +35,7 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
 
     intakemotor.configure(intakemotorConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
-  this.setDefaultCommand
+  this.setDefaultCommand //default command
   (
     new FunctionalCommand
     (

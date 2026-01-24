@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.commands.SparkPositionProfiled;
+import frc.robot.CanIDs;
 
 public class IntakePivot extends SubsystemBase {
   
@@ -24,8 +25,8 @@ public class IntakePivot extends SubsystemBase {
   
   public IntakePivot() 
   {
-    pivot = new SparkFlex(45, MotorType.kBrushless);
-    hopperslide = new SparkFlex(46, MotorType.kBrushless);
+    pivot = new SparkFlex(CanIDs.INTAKE_PIVOT_MOTOR_ID, MotorType.kBrushless);
+    hopperslide = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
 
     SparkFlexConfig pivotConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);

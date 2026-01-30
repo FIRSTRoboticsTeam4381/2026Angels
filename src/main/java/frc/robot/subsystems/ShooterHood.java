@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.commands.SparkPositionProfiled;
 import frc.robot.CanIDs;
 
-public class CarHood extends SubsystemBase 
+public class ShooterHood extends SubsystemBase 
 {
   public SparkFlex hoodedmotor;
 
@@ -29,7 +29,7 @@ public class CarHood extends SubsystemBase
 
 
   /** Creates a new CarHood. */
-  public CarHood() 
+  public ShooterHood() 
   {
     hoodedmotor = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
     SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{

@@ -13,6 +13,7 @@ import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
+import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -73,4 +74,12 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
     ;
   }
 
+ public InterpolatingDoubleTreeMap table = new InterpolatingDoubleTreeMap();
+
+ public void setUp()
+    {
+    table.put(0.0, 0.0);
+    table.put(1.0, 10.0);
+    table.put(2.0, 30.0);
+    }
 }

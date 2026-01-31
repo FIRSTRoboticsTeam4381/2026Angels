@@ -22,7 +22,7 @@ public class SwerveAngle extends Command{
     private boolean interpolateTranslation = true;
     private boolean interpolateRotation = true;
     private PIDController pid = new PIDController(Constants.Swerve.ROTATION_PID.kP, Constants.Swerve.ROTATION_PID.kI, Constants.Swerve.ROTATION_PID.kD);
-    
+   
 
 
     private Swerve s_Swerve;
@@ -116,6 +116,9 @@ public class SwerveAngle extends Command{
         this.interpolateRotation = interpolateRotation;
         
         this.speedModifier = speedModifier;
+
+        pid.enableContinuousInput(180, -180);
+            
     }
 
     @Override

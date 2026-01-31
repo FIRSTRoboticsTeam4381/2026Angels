@@ -37,15 +37,15 @@ public static Command autoAimSwerve(Supplier<Double> forward, Supplier<Double> l
     (
       new ConditionalCommand(
         new SwerveAngle(RobotContainer.getRobot().swerve,
-            forward, leftright, () -> angletohub(redHubPosition)),
+            forward, leftright, () -> angleToHub(redHubPosition)),
         new SwerveAngle(RobotContainer.getRobot().swerve,
-          forward, leftright, () -> Rotation2d.kCCW_90deg),
+          forward, leftright, () -> Rotation2d.kZero),
         () -> redAllianceZone()), 
       new ConditionalCommand(
           new SwerveAngle(RobotContainer.getRobot().swerve,
-            forward, leftright, () -> angletohub(blueHubPosition)), 
+            forward, leftright, () -> angleToHub(blueHubPosition)), 
           new SwerveAngle(RobotContainer.getRobot().swerve,
-            forward, leftright, () -> Rotation2d.kCW_90deg),
+            forward, leftright, () -> Rotation2d.k180deg),
           () -> blueAllianceZone()),
           () -> isRed());
           //change later for the rotation2d.KCW_90deg to rotation2d.KCCW_90deg
@@ -73,8 +73,8 @@ public static boolean isRed()
         return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().getMeasureX().in(Meter) < 4.5;
     }
 
-    public static Rotation2d angletohub(Pose2d hub)
+    public static Rotation2d angleToHub(Pose2d hub)
     {
-        return hub.minus(RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition()).getTranslation().getAngle();
+        return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().minus(hub).getTranslation().getAngle();
     }
 }

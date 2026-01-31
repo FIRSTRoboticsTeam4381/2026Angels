@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import org.ejml.equation.IntegerSequence.For;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -16,6 +18,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.AutoAim;
 import frc.robot.CanIDs;
 
 
@@ -25,10 +28,20 @@ public class Shooter extends SubsystemBase {
 /** Creates a new Shooter. */
 public SparkFlex shooter1;
 public SparkFlex shooter2;
+public InterpolatingDoubleTreeMap table;
+
+      public void setUp()
+        {
+          table.put(0.0, 0.0);
+          table.put(1.0, 10.0);
+          table.put(2.0, 30.0);
+        }
 
   public Shooter() {
   shooter1 = new SparkFlex(CanIDs.SHOOTER_1_MOTOR_ID, MotorType.kBrushless); 
   shooter2 = new SparkFlex(CanIDs.SHOOTER_2_MOTOR_ID, MotorType.kBrushless);
+  table = new InterpolatingDoubleTreeMap();
+  setUp();
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
@@ -59,34 +72,28 @@ public SparkFlex shooter2;
   }
 
 
+
+
   public Command shooterShoot()
     {
       return new InstantCommand(()-> shooter1.set(0.5), this);
       //gives 0.5 current to the motor 
     }
 
-    private void setVelocity(double velocity)
+  private void setVelocity(double velocity)
     {
         shooter1.getClosedLoopController().setSetpoint(velocity, ControlType.kVelocity);
         // keeps the speed around the same speed 
     }
 
-    
-
-     public InterpolatingDoubleTreeMap table = new InterpolatingDoubleTreeMap();
-
-      public void setUp()
+  public Command velocityFromDistance()
+      {
+        while (true) 
         {
-          table.put(0.0, 0.0);
-          table.put(1.0, 10.0);
-          table.put(2.0, 30.0);
-        }
-
-      public Command velocityFromDistance(double distance)
-        {
-          double result =table.get(distance);
+          double result =table.get(AutoAim.distanceToHub());
           return new InstantCommand(() -> setVelocity(result));
         }
+      }
 
 
 

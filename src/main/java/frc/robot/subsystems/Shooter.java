@@ -86,13 +86,15 @@ public InterpolatingDoubleTreeMap table;
         // keeps the speed around the same speed 
     }
 
-  public Command velocityFromDistance()
+  public double velocityFromDistance()
+  {
+    double distance = AutoAim.distanceToHub();
+      return table.get(distance);
+  }
+
+  public Command setVelocityFromDistance()
       {
-        while (true) 
-        {
-          double result =table.get(AutoAim.distanceToHub());
-          return new InstantCommand(() -> setVelocity(result));
-        }
+        return new InstantCommand(() -> setVelocity(velocityFromDistance())).repeatedly();
       }
 
 

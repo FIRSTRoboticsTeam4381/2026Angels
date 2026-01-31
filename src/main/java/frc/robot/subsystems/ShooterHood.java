@@ -9,29 +9,38 @@ import java.util.function.Supplier;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
+import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
+import edu.wpi.first.units.measure.Angle;
+import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.commands.SparkPosition;
 import frc.lib.commands.SparkPositionProfiled;
+import frc.robot.AutoAim;
 import frc.robot.CanIDs;
 
 public class ShooterHood extends SubsystemBase 
 {
   public SparkFlex hoodedmotor;
 
-
+  public InterpolatingDoubleTreeMap table;
 
 
   /** Creates a new CarHood. */
   public ShooterHood() 
   {
+
+    table = new InterpolatingDoubleTreeMap();
+    setUp();
+
     hoodedmotor = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
     SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
@@ -73,13 +82,29 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
       new InstantCommand(()-> hoodedmotor.set(joystickMove.get()),this).repeatedly()
     ;
   }
+    private void setAngle(double Angle)
+    {
+        hoodedmotor.getClosedLoopController().setSetpoint(Angle, ControlType.kPosition);
+        // keeps the speed around the same speed 
+    }
 
- public InterpolatingDoubleTreeMap table = new InterpolatingDoubleTreeMap();
+ 
 
- public void setUp()
+  public void setUp()
     {
     table.put(0.0, 0.0);
     table.put(1.0, 10.0);
     table.put(2.0, 30.0);
+    }
+
+    public double hoodAngle()
+    {
+      double Distance = AutoAim.distanceToHub();
+          return table.get(Distance);
+    }
+
+    public Command setHoodAngle()
+    {
+        return new InstantCommand(() -> setAngle(hoodAngle())).repeatedly();
     }
 }

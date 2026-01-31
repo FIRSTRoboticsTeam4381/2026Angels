@@ -75,6 +75,24 @@ public static boolean isRed()
 
     public static Rotation2d angleToHub(Pose2d hub)
     {
+
         return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().minus(hub).getTranslation().getAngle().plus(Rotation2d.k180deg);
     }
+
+    public static double distanceToHub()
+    {
+      Pose2d hub;
+      if (isRed()) 
+      {
+        hub = redHubPosition;
+      }
+      else
+      {
+        hub = blueHubPosition;
+      }
+        return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().minus(hub).getTranslation().getNorm();
+
+
+    }
 }
+

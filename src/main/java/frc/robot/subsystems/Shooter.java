@@ -28,20 +28,30 @@ public class Shooter extends SubsystemBase {
 /** Creates a new Shooter. */
 public SparkFlex shooter1;
 public SparkFlex shooter2;
-public InterpolatingDoubleTreeMap table;
+public InterpolatingDoubleTreeMap shoottable;
+public InterpolatingDoubleTreeMap passtable;
 
-      public void setUp()
+      public void shootSetUp()
         {
-          table.put(0.0, 0.0);
-          table.put(1.0, 10.0);
-          table.put(2.0, 30.0);
+          shoottable.put(0.0, 0.0);
+          shoottable.put(1.0, 10.0);
+          shoottable.put(2.0, 30.0);
+        }
+
+      public void passSetUp()
+        {
+          passtable.put(0.0, 0.0);
+          passtable.put(1.0, 10.0);
+          passtable.put(2.0, 30.0);
         }
 
   public Shooter() {
   shooter1 = new SparkFlex(CanIDs.SHOOTER_1_MOTOR_ID, MotorType.kBrushless); 
   shooter2 = new SparkFlex(CanIDs.SHOOTER_2_MOTOR_ID, MotorType.kBrushless);
-  table = new InterpolatingDoubleTreeMap();
-  setUp();
+  shoottable = new InterpolatingDoubleTreeMap();
+  passtable = new InterpolatingDoubleTreeMap();
+  shootSetUp();
+  passSetUp();
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
@@ -86,15 +96,26 @@ public InterpolatingDoubleTreeMap table;
         // keeps the speed around the same speed 
     }
 
-  public double velocityFromDistance()
+  public double shootVelocityFromDistance()
   {
     double distance = AutoAim.distanceToHub();
-      return table.get(distance);
+      return shoottable.get(distance);
   }
 
-  public Command setVelocityFromDistance()
+  public double passVelocityFromDistance()
+  {
+    double distance = AutoAim.distanceToHub(); //change distance to hub with another distance variable
+      return passtable.get(distance);
+  }
+
+  public Command setShootVelocityFromDistance()
       {
-        return new InstantCommand(() -> setVelocity(velocityFromDistance())).repeatedly();
+        return new InstantCommand(() -> setVelocity(shootVelocityFromDistance()), this).repeatedly();
+      }
+
+  public Command setPassVelocityFromDistance()
+      {
+        return new InstantCommand(() -> setVelocity(passVelocityFromDistance()), this).repeatedly();
       }
 
 

@@ -31,15 +31,16 @@ public class ShooterHood extends SubsystemBase
 {
   public SparkFlex hoodedmotor;
 
-  public InterpolatingDoubleTreeMap table;
-
+  public InterpolatingDoubleTreeMap hoodShootTable;
+  public InterpolatingDoubleTreeMap hoodPassTable;
 
   /** Creates a new CarHood. */
   public ShooterHood() 
   {
-
-    table = new InterpolatingDoubleTreeMap();
+    hoodPassTable = new InterpolatingDoubleTreeMap();
+    hoodShootTable = new InterpolatingDoubleTreeMap();
     setUp();
+
 
     hoodedmotor = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
     SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
@@ -92,19 +93,39 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
 
   public void setUp()
     {
-    table.put(0.0, 0.0);
-    table.put(1.0, 10.0);
-    table.put(2.0, 30.0);
+    hoodShootTable.put(0.0, 0.0);
+    hoodShootTable.put(1.0, 10.0);
+    hoodShootTable.put(2.0, 30.0);
+    }
+
+     public void stillDontKnowName()
+    {
+    hoodPassTable.put(0.0, 0.0);
+    hoodPassTable.put(1.0, 10.0);
+    hoodPassTable.put(2.0, 30.0);
     }
 
     public double hoodAngle()
     {
       double Distance = AutoAim.distanceToHub();
-          return table.get(Distance);
+          return hoodShootTable.get(Distance);
     }
 
     public Command setHoodAngle()
     {
-        return new InstantCommand(() -> setAngle(hoodAngle())).repeatedly();
+        return new InstantCommand(() -> setAngle(hoodAngle()),this).repeatedly();
+    }
+
+
+
+    public double setHoodPass()
+    {
+      double Distance = AutoAim.distanceToHub(); //change distanceToHUb to something else 
+          return hoodPassTable.get(Distance);
+    }
+
+    public Command setHoodAnglePass()
+    {
+        return new InstantCommand(() -> setAngle(hoodAngle()),this).repeatedly();
     }
 }

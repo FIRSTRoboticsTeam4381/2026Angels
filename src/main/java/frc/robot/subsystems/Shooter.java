@@ -104,7 +104,7 @@ public InterpolatingDoubleTreeMap passtable;
 
   public double passVelocityFromDistance()
   {
-    double distance = AutoAim.distanceToHub(); //change distance to hub with another distance variable
+    double distance = AutoAim.distanceToPass(); //change distance to hub with another distance variable
       return passtable.get(distance);
   }
 

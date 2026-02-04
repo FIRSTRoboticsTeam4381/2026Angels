@@ -120,12 +120,12 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
 
     public double setHoodPass()
     {
-      double Distance = AutoAim.distanceToHub(); //change distanceToHUb to something else 
+      double Distance = AutoAim.distanceToPass(); //change distanceToHUb to something else 
           return hoodPassTable.get(Distance);
     }
 
     public Command setHoodAnglePass()
     {
-        return new InstantCommand(() -> setAngle(hoodAngle()),this).repeatedly();
+        return new InstantCommand(() -> setAngle(setHoodPass()),this).repeatedly();
     }
 }

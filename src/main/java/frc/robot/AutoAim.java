@@ -7,6 +7,7 @@ package frc.robot;
 /** Add your docs here. */
 
 import static edu.wpi.first.units.Units.Meter;
+import static edu.wpi.first.units.Units.Meters;
 
 import java.text.FieldPosition;
 import java.util.Optional;
@@ -22,7 +23,10 @@ import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.lib.commands.SwerveAngle;
+import frc.robot.subsystems.ShooterHood;
 
 public class AutoAim {
 
@@ -31,8 +35,6 @@ public static Pose2d redHubPosition = new Pose2d( 11.915, 4.035, Rotation2d.from
 
 public static Command autoAimSwerve(Supplier<Double> forward, Supplier<Double> leftright)
 {
-
-
     return new ConditionalCommand
     (
       new ConditionalCommand(
@@ -50,6 +52,26 @@ public static Command autoAimSwerve(Supplier<Double> forward, Supplier<Double> l
           () -> isRed());
           //change later for the rotation2d.KCW_90deg to rotation2d.KCCW_90deg
           //KCCW is counterclockwise KCW is clockwise
+}
+
+public static Command autoaimspecialist()
+{
+  return new ConditionalCommand
+  (
+    new ConditionalCommand(
+    shootingLerp(),
+    passingLerp(),
+    () -> redAllianceZone()),
+    new ConditionalCommand(
+    shootingLerp(),
+    passingLerp(),
+    () -> blueAllianceZone()),
+    () -> isRed());
+
+
+
+
+
 }
 
 public static boolean isRed()
@@ -79,6 +101,20 @@ public static boolean isRed()
         return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().minus(hub).getTranslation().getAngle().plus(Rotation2d.k180deg);
     }
 
+    public static double distanceToPass()
+    {
+        double x = RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().getMeasureX().in(Meters);
+        if(isRed())
+        {
+          return Constants.FIELD_LENGTH - x;
+        }
+        else
+        {
+          return x;
+        }
+    }
+
+
     public static double distanceToHub()
     {
       Pose2d hub;
@@ -93,6 +129,24 @@ public static boolean isRed()
         return RobotContainer.getRobot().swerve.swerveOdometry.getEstimatedPosition().minus(hub).getTranslation().getNorm();
 
 
+    }
+
+    public static Command shootingLerp()
+    {
+      return new ParallelCommandGroup
+      (
+        RobotContainer.getRobot().shooter.setShootVelocityFromDistance(),
+        RobotContainer.getRobot().shooterhood.setHoodAngle()
+      );
+    }
+
+    public static Command passingLerp()
+    {
+      return new ParallelCommandGroup
+      (
+        RobotContainer.getRobot().shooter.setPassVelocityFromDistance(),
+        RobotContainer.getRobot().shooterhood.setHoodAnglePass()
+      );
     }
 }
 

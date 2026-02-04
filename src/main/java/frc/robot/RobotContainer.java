@@ -120,12 +120,19 @@ public class RobotContainer {
             false));
 
     // Button to cancel running actions
-    specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
-    
-            
     // TODO Your Controls Here!
+    specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
+    specialist.rightTrigger().toggleOnTrue(AutoAim.autoaimspecialist());
+    specialist.leftTrigger().toggleOnTrue(intaker.intake());
+    specialist.leftBumper().onTrue(intaker.outake());
+    specialist.povUp().onTrue(intakePivot.fullclose());
+    specialist.povDown().onTrue(intakePivot.fullopen());
+    specialist.povDownLeft().onTrue(intakePivot.halfopen());
+            
+    driver.rightTrigger().toggleOnTrue(AutoAim.autoAimSwerve(driver::getLeftY,  driver::getLeftX));
 
-
+ 
+           
 
 
   }

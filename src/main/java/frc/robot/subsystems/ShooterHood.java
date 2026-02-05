@@ -123,4 +123,10 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
     {
         return new InstantCommand(() -> setAngle(setHoodPass()),this).repeatedly();
     }
+
+
+    public Command setHoodAngle(Supplier<Double> supplier)
+      {
+        return new InstantCommand(() -> setAngle(supplier.get()), this).repeatedly();
+      }
 }

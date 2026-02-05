@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 
 
+import java.util.function.Supplier;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -117,7 +119,10 @@ public InterpolatingDoubleTreeMap passtable;
       {
         return new InstantCommand(() -> setVelocity(passVelocityFromDistance()), this).repeatedly();
       }
-
+ public Command setVelocity(Supplier<Double> supplier)
+      {
+        return new InstantCommand(() -> setVelocity(supplier.get()), this).repeatedly();
+      }
 
 
 

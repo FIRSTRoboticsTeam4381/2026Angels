@@ -9,12 +9,18 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkFlexConfig;
+import com.revrobotics.spark.config.LimitSwitchConfig.Behavior;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.lib.commands.SparkPositionProfiled;
 import frc.robot.CanIDs;
 
@@ -30,6 +36,7 @@ public class IntakePivot extends SubsystemBase {
 
     SparkFlexConfig pivotConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
+      limitSwitch.forwardLimitSwitchTriggerBehavior(Behavior.kStopMovingMotor);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
     }};
 
@@ -56,30 +63,53 @@ public class IntakePivot extends SubsystemBase {
     return new SparkPositionProfiled(pivot, target, range, this);
   }
   //all numbers will be changed
-  public Command fullopen() {
+ public Command fullopen() {
     return new ParallelCommandGroup(
       hoppertoPosition(45, 0.2),
-      pivottoPosition(20, 0.2)
+      down()
     );
   }
 
   public Command fullclose() {
-    return new ParallelCommandGroup(
-      hoppertoPosition(0, 0.2),
-      pivottoPosition(0, 0.2)
+    return new SequentialCommandGroup(
+    up(),
+    pivottoPosition(0, 0.2)
     );
   }
 
   public Command halfopen() {
-    return new ParallelCommandGroup(
-      hoppertoPosition(45, 0.2),
-      pivottoPosition(0, 0.2)
+    return new SequentialCommandGroup(
+    up(),
+    hoppertoPosition(45, 0.2)
     );
   }
 
 
+ public Command up()
+ {
+  return new FunctionalCommand
+  (() -> pivot.set(1), 
+  () -> {}, 
+  (killed) -> 
+  {
+    pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters);
+    pivot.stopMotor();
+  }, 
+  () -> {return pivot.getForwardLimitSwitch().isPressed();}, 
+  this);
+}
 
 
 
+ public Command down()
+ {
+  return new SequentialCommandGroup
+  (
+    new InstantCommand(() -> pivot.set(-1)),
+    new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
+    new WaitCommand(0.5),
+    new InstantCommand(() -> pivot.set(0))
+  );
+}
 
 }

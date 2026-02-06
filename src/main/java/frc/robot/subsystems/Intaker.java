@@ -28,8 +28,8 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
 
     SparkFlexConfig intakemotorConfig = new SparkFlexConfig()
     {{
-        smartCurrentLimit(50);
-
+        smartCurrentLimit(20);
+        this.advanceCommutation(60);
     }};
     
 

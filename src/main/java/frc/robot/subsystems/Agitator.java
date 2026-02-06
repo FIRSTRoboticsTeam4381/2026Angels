@@ -29,7 +29,9 @@ public class Agitator extends SubsystemBase {
 
   SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(40);
+      this.smartCurrentLimit(20);
+      this.advanceCommutation(60);
+     // this.encoder.
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()

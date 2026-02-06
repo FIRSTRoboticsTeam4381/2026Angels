@@ -6,9 +6,9 @@ package frc.robot.subsystems;
 
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
-import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.config.SparkFlexConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
@@ -20,13 +20,13 @@ import frc.robot.CanIDs;
 public class Intaker extends SubsystemBase /** Creates a new Shooter. */
 {
   
-  public SparkFlex intakemotor;
+  public SparkMax intakemotor;
   
   public Intaker() 
   {
-    intakemotor = new SparkFlex(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
+    intakemotor = new SparkMax(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
 
-    SparkFlexConfig intakemotorConfig = new SparkFlexConfig()
+    SparkMaxConfig intakemotorConfig = new SparkMaxConfig()
     {{
         smartCurrentLimit(20);
         this.advanceCommutation(60);

@@ -8,7 +8,9 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkFlexConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
@@ -20,14 +22,14 @@ import frc.robot.CanIDs;
 public class Agitator extends SubsystemBase {
 
   /** Creates a new Agitator. */
- public SparkFlex agitator; 
+ public SparkMax agitator; 
  public SparkFlex funnel; 
 
  public Agitator(){
-  agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
+  agitator = new SparkMax(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
 
-  SparkFlexConfig agitatorConfig = new SparkFlexConfig()
+  SparkMaxConfig agitatorConfig = new SparkMaxConfig()
   {{
       this.smartCurrentLimit(20);
       this.advanceCommutation(60);

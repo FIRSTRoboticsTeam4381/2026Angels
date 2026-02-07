@@ -30,6 +30,8 @@ public class Shooter extends SubsystemBase {
 /** Creates a new Shooter. */
 public SparkFlex shooter1;
 public SparkFlex shooter2;
+public SparkFlex shooter3;
+public SparkFlex shooter4;
 public InterpolatingDoubleTreeMap shoottable;
 public InterpolatingDoubleTreeMap passtable;
 
@@ -50,6 +52,8 @@ public InterpolatingDoubleTreeMap passtable;
   public Shooter() {
   shooter1 = new SparkFlex(CanIDs.SHOOTER_1_MOTOR_ID, MotorType.kBrushless); 
   shooter2 = new SparkFlex(CanIDs.SHOOTER_2_MOTOR_ID, MotorType.kBrushless);
+  shooter3 = new SparkFlex(CanIDs.SHOOTER_3_MOTOR_ID, MotorType.kBrushless);
+  shooter4 = new SparkFlex(CanIDs.SHOOTER_4_MOTOR_ID, MotorType.kBrushless);
   shoottable = new InterpolatingDoubleTreeMap();
   passtable = new InterpolatingDoubleTreeMap();
   shootSetUp();
@@ -63,14 +67,17 @@ public InterpolatingDoubleTreeMap passtable;
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
     {{
        apply(shooterConfig);
-       follow(shooter1);
-       inverted(true);
+       follow(shooter1, true);
+       //inverted(true);
        //makes shooter 2 ther same as shooter 1
     }};
 
-
+  
+    
     shooter1.configure(shooterConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
     shooter2.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    shooter3.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    shooter4.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
 
     this.setDefaultCommand(
       new FunctionalCommand(() -> shooter1.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));

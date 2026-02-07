@@ -33,6 +33,8 @@ public final class CanIDs {
     //public static final int EXAMPLE_MOTOR_ID = 45;
     public static final int SHOOTER_1_MOTOR_ID = 45;
     public static final int SHOOTER_2_MOTOR_ID = 46;
+    public static final int SHOOTER_3_MOTOR_ID = 53;
+    public static final int SHOOTER_4_MOTOR_ID = 54;
     public static final int INTAKER_MOTOR_ID = 47;
     public static final int AGITATOR_MOTOR_ID = 48;
     public static final int FUNNEL_MOTOR_ID = 49;
@@ -68,6 +70,8 @@ public final class CanIDs {
           Map.entry(SwerveModules.MOD3.angleMotorID, "Swerve/BL/Angle"),
           Map.entry(SHOOTER_1_MOTOR_ID, "Shooter/motor1"),
           Map.entry(SHOOTER_2_MOTOR_ID, "Shooter/motor2"),
+          Map.entry(SHOOTER_3_MOTOR_ID, "Shooter/motor3"),
+          Map.entry(SHOOTER_4_MOTOR_ID, "Shooter/motor4"),
           Map.entry(INTAKER_MOTOR_ID, "Intaker/motor1"),
           Map.entry(AGITATOR_MOTOR_ID, "Agitator/Agitator/motor1"),
           Map.entry(FUNNEL_MOTOR_ID, "Agitator/Funnel/motor1"),

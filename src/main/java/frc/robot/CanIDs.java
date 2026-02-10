@@ -33,14 +33,14 @@ public final class CanIDs {
     //public static final int EXAMPLE_MOTOR_ID = 45;
     public static final int SHOOTER_1_MOTOR_ID = 45;
     public static final int SHOOTER_2_MOTOR_ID = 46;
-    public static final int SHOOTER_3_MOTOR_ID = 53;
-    public static final int SHOOTER_4_MOTOR_ID = 54;
-    public static final int INTAKER_MOTOR_ID = 47;
-    public static final int AGITATOR_MOTOR_ID = 48;
-    public static final int FUNNEL_MOTOR_ID = 49;
-    public static final int HOODED_MOTOR_MOTOR_ID = 50;
-    public static final int INTAKE_PIVOT_MOTOR_ID = 51;
-    public static final int HOPPER_SLIDE_MOTOR_ID = 52;
+    public static final int SHOOTER_3_MOTOR_ID = 47;
+    public static final int SHOOTER_4_MOTOR_ID = 48;
+    public static final int INTAKER_MOTOR_ID = 49;
+    public static final int AGITATOR_MOTOR_ID = 50;
+    public static final int FUNNEL_MOTOR_ID = 51;
+    public static final int HOODED_MOTOR_MOTOR_ID = 52;
+    public static final int INTAKE_PIVOT_MOTOR_ID = 53;
+    public static final int HOPPER_SLIDE_MOTOR_ID = 54;
     /**
      * Utility class to hold all the CAN IDs for a swerve module.
      */

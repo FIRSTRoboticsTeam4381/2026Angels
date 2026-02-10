@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.lib.commands.SparkPositionProfiled;
+import frc.lib.commands.SparkSysIDTest;
 import frc.robot.CanIDs;
 @Logged
 public class IntakePivot extends SubsystemBase {
@@ -52,7 +53,8 @@ public class IntakePivot extends SubsystemBase {
     //hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
-
+    SmartDashboard.putData("SysID/IntakePivot",
+      new SparkSysIDTest(pivot, this, 1, 0.01, 0.24, pivot.getAbsoluteEncoder()::getPosition));
 
   }
   
@@ -112,6 +114,7 @@ return new SequentialCommandGroup
 (
   new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
   pivottoPosition(0.25, 0.02)
+
 
 
 );

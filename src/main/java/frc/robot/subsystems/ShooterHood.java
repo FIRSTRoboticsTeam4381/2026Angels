@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.commands.SparkPositionProfiled;
+import frc.lib.commands.SparkSysIDTest;
 import frc.robot.AutoAim;
 import frc.robot.CanIDs;
 @Logged
@@ -63,6 +64,12 @@ this)
 );
 
     SmartDashboard.putData("Subsystem/ShooterHood",this);
+
+
+  SmartDashboard.putData("SysID/ShooterHood",
+      new SparkSysIDTest(hoodedmotor, this, 1, 0.01, 0.24, hoodedmotor.getAbsoluteEncoder()::getPosition));
+
+    
 }
 
   @Override

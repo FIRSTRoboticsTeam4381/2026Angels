@@ -128,7 +128,7 @@ public class RobotContainer {
     specialist.leftBumper().onTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.fullclose());
     specialist.povDown().onTrue(intakePivot.fullopen());
-    specialist.povDownLeft().onTrue(intakePivot.halfopen());
+    //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
     SmartDashboard.putNumber("autoAim/ManualShootPower", 0);
     SmartDashboard.putNumber("autoAim/ManualHoodAngle", 0);

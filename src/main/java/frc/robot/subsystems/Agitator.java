@@ -13,6 +13,7 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.epilogue.Logged;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -52,7 +53,7 @@ public class Agitator extends SubsystemBase {
       funnel.set(0);
      }, () -> {}, (killed) -> {}, () -> {return false;}, this));
    
-
+    SmartDashboard.putData("Subsystem/Agitator",this);
     
  }
 
@@ -64,14 +65,14 @@ public class Agitator extends SubsystemBase {
 public Command agitatorFunnelMove(){
 return new ParallelCommandGroup(
   new InstantCommand(()-> agitator.set(0.5),this),
-  new InstantCommand(()-> funnel.set(0.5),this));
+  new InstantCommand(()-> funnel.set(0.5),this)).withName("agitatorFunnelMove");
   
 }
 
 public Command agitatorMove(){
   return new ParallelCommandGroup(
   new InstantCommand(()-> agitator.set(0.5),this),
-  new InstantCommand(()-> funnel.set(0),this));
+  new InstantCommand(()-> funnel.set(0),this)).withName("agitatorMove");
 }
 
 }

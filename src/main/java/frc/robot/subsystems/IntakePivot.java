@@ -15,6 +15,7 @@ import com.revrobotics.spark.config.LimitSwitchConfig.Behavior;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.epilogue.Logged;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -49,6 +50,10 @@ public class IntakePivot extends SubsystemBase {
 
     pivot.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
     hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+
+    SmartDashboard.putData("Subsystem/IntakePivot",this);
+
+
   }
   
   @Override
@@ -57,32 +62,32 @@ public class IntakePivot extends SubsystemBase {
   }
 
   public Command hoppertoPosition(double target, double range) {
-    return new SparkPositionProfiled(hopperslide, target, range, this);
+    return new SparkPositionProfiled(hopperslide, target, range, this).withName("hoppertoPosition");
   }
 
   public Command pivottoPosition(double target, double range) {
-    return new SparkPositionProfiled(pivot, target, range, this);
+    return new SparkPositionProfiled(pivot, target, range, this).withName("pivottoPosition");
   }
   //all numbers will be changed
  public Command fullopen() {
     return new ParallelCommandGroup(
       hoppertoPosition(45, 0.2),
       down()
-    );
+    ).withName("fullopen");
   }
 
   public Command fullclose() {
     return new SequentialCommandGroup(
     up(),
     pivottoPosition(0, 0.2)
-    );
+    ).withName("fullclose");
   }
 
   public Command halfopen() {
     return new SequentialCommandGroup(
     up(),
     hoppertoPosition(45, 0.2)
-    );
+    ).withName("halfopen");
   }
 
 
@@ -97,7 +102,7 @@ public class IntakePivot extends SubsystemBase {
     pivot.stopMotor();
   }, 
   () -> {return pivot.getForwardLimitSwitch().isPressed();}, 
-  this);
+  this).withName("Up");
 }
 
 
@@ -110,7 +115,7 @@ public class IntakePivot extends SubsystemBase {
     new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
     new WaitCommand(0.5),
     new InstantCommand(() -> pivot.set(0))
-  );
+  ).withName("Down");
 }
 
 }

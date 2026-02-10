@@ -16,6 +16,7 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -61,7 +62,7 @@ new FunctionalCommand
 this)
 );
 
-
+    SmartDashboard.putData("Subsystem/ShooterHood",this);
 }
 
   @Override
@@ -110,7 +111,7 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
 
     public Command setHoodAngle()
     {
-        return new InstantCommand(() -> setAngle(hoodAngle()),this).repeatedly();
+        return new InstantCommand(() -> setAngle(hoodAngle()),this).repeatedly().withName("setHoodAngle");
     }
 
 
@@ -123,12 +124,12 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
 
     public Command setHoodAnglePass()
     {
-        return new InstantCommand(() -> setAngle(setHoodPass()),this).repeatedly();
+        return new InstantCommand(() -> setAngle(setHoodPass()),this).repeatedly().withName("setHoodAnglePass");
     }
 
 
     public Command setHoodAngle(Supplier<Double> supplier)
       {
-        return new InstantCommand(() -> setAngle(supplier.get()), this).repeatedly();
+        return new InstantCommand(() -> setAngle(supplier.get()), this).repeatedly().withName("setHoodAngle");
       }
 }

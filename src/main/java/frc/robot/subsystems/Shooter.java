@@ -17,6 +17,7 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -83,6 +84,9 @@ public InterpolatingDoubleTreeMap passtable;
     this.setDefaultCommand(
       new FunctionalCommand(() -> shooter1.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));
   
+    SmartDashboard.putData("Subsystem/Shooter",this);
+
+
   }
 
   @Override
@@ -120,16 +124,16 @@ public InterpolatingDoubleTreeMap passtable;
 
   public Command setShootVelocityFromDistance()
       {
-        return new InstantCommand(() -> setVelocity(shootVelocityFromDistance()), this).repeatedly();
+        return new InstantCommand(() -> setVelocity(shootVelocityFromDistance()), this).repeatedly().withName("setShootVelocityFromDistance");
       }
 
   public Command setPassVelocityFromDistance()
       {
-        return new InstantCommand(() -> setVelocity(passVelocityFromDistance()), this).repeatedly();
+        return new InstantCommand(() -> setVelocity(passVelocityFromDistance()), this).repeatedly().withName("setPassVelocityFromDistance");
       }
  public Command setVelocity(Supplier<Double> supplier)
       {
-        return new InstantCommand(() -> setVelocity(supplier.get()), this).repeatedly();
+        return new InstantCommand(() -> setVelocity(supplier.get()), this).repeatedly().withName("setVelocity");
       }
 
 

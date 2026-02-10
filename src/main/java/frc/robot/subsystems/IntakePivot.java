@@ -29,12 +29,12 @@ import frc.robot.CanIDs;
 public class IntakePivot extends SubsystemBase {
   
   public SparkFlex pivot;
-  public SparkFlex hopperslide;
+  //public SparkFlex hopperslide;
   
   public IntakePivot() 
   {
     pivot = new SparkFlex(CanIDs.INTAKE_PIVOT_MOTOR_ID, MotorType.kBrushless);
-    hopperslide = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
+   // hopperslide = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
 
     SparkFlexConfig pivotConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
@@ -49,7 +49,7 @@ public class IntakePivot extends SubsystemBase {
     }};
 
     pivot.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
-    hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    //hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
 
@@ -61,9 +61,9 @@ public class IntakePivot extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public Command hoppertoPosition(double target, double range) {
-    return new SparkPositionProfiled(hopperslide, target, range, this).withName("hoppertoPosition");
-  }
+ // public Command hoppertoPosition(double target, double range) {
+ //   return new SparkPositionProfiled(hopperslide, target, range, this).withName("hoppertoPosition");
+ // }
 
   public Command pivottoPosition(double target, double range) {
     return new SparkPositionProfiled(pivot, target, range, this).withName("pivottoPosition");
@@ -71,7 +71,7 @@ public class IntakePivot extends SubsystemBase {
   //all numbers will be changed
  public Command fullopen() {
     return new ParallelCommandGroup(
-      hoppertoPosition(45, 0.2),
+      //hoppertoPosition(45, 0.2),
       down()
     ).withName("fullopen");
   }
@@ -83,12 +83,12 @@ public class IntakePivot extends SubsystemBase {
     ).withName("fullclose");
   }
 
-  public Command halfopen() {
+ /*  public Command halfopen() {
     return new SequentialCommandGroup(
     up(),
-    hoppertoPosition(45, 0.2)
+    //hoppertoPosition(45, 0.2)
     ).withName("halfopen");
-  }
+  } */
 
 
  public Command up()

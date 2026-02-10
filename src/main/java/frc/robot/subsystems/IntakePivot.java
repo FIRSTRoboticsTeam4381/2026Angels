@@ -38,7 +38,7 @@ public class IntakePivot extends SubsystemBase {
 
     SparkFlexConfig pivotConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
-      limitSwitch.forwardLimitSwitchTriggerBehavior(Behavior.kStopMovingMotor);
+      //limitSwitch.forwardLimitSwitchTriggerBehavior(Behavior.kStopMovingMotor);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
     }};
 
@@ -91,7 +91,7 @@ public class IntakePivot extends SubsystemBase {
   } */
 
 
- public Command up()
+/*  public Command up()
  {
   return new FunctionalCommand
   (() -> pivot.set(1), 
@@ -104,6 +104,28 @@ public class IntakePivot extends SubsystemBase {
   () -> {return pivot.getForwardLimitSwitch().isPressed();}, 
   this).withName("Up");
 }
+*/
+
+public Command up()
+{
+return new SequentialCommandGroup
+(
+  new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
+  pivottoPosition(0.25, 0.02)
+
+
+);
+
+
+
+
+
+}
+
+
+
+
+
 
 
 

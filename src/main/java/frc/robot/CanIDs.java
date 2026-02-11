@@ -38,9 +38,10 @@ public final class CanIDs {
     public static final int INTAKER_MOTOR_ID = 49;
     public static final int AGITATOR_MOTOR_ID = 50;
     public static final int FUNNEL_MOTOR_ID = 51;
-    public static final int HOODED_MOTOR_MOTOR_ID = 52;
+    public static final int HOODED_MOTOR_ID = 52;
     public static final int INTAKE_PIVOT_MOTOR_ID = 53;
     public static final int HOPPER_SLIDE_MOTOR_ID = 54;
+    public static final int HOODED_MOTOR_ID_2 = 55;
     /**
      * Utility class to hold all the CAN IDs for a swerve module.
      */
@@ -75,7 +76,7 @@ public final class CanIDs {
           Map.entry(INTAKER_MOTOR_ID, "Intaker/motor1"),
           Map.entry(AGITATOR_MOTOR_ID, "Agitator/Agitator/motor1"),
           Map.entry(FUNNEL_MOTOR_ID, "Agitator/Funnel/motor1"),
-          Map.entry(HOODED_MOTOR_MOTOR_ID, "CarHood/motor1"),
+          Map.entry(HOODED_MOTOR_ID, "CarHood/motor1"),
           Map.entry(INTAKE_PIVOT_MOTOR_ID, "IntakePivot/IntakePivot/motor1"),
           Map.entry(HOPPER_SLIDE_MOTOR_ID, "IntakePivot/Hopperslide/motor1")
           //Map.entry(EXAMPLE_MOTOR_ID, "Example/motor1")

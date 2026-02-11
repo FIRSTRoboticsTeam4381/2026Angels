@@ -10,9 +10,9 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkBase.ControlType;
-import com.revrobotics.spark.SparkFlex;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import com.revrobotics.spark.config.SparkFlexConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
@@ -28,7 +28,8 @@ import frc.robot.CanIDs;
 @Logged
 public class ShooterHood extends SubsystemBase 
 {
-  public SparkFlex hoodedmotor;
+  public SparkMax hoodedmotor1;
+  public SparkMax hoodedmotor2;
 
   public InterpolatingDoubleTreeMap hoodShootTable;
   public InterpolatingDoubleTreeMap hoodPassTable;
@@ -41,22 +42,32 @@ public class ShooterHood extends SubsystemBase
     setUp();
 
 
-    hoodedmotor = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
-    SparkFlexConfig hoodedmotorConfig = new SparkFlexConfig(){{
-      smartCurrentLimit(40);
+    hoodedmotor1 = new SparkMax(CanIDs.HOODED_MOTOR_ID, MotorType.kBrushed);
+    SparkMaxConfig hoodedmotor1Config = new SparkMaxConfig(){{
+      smartCurrentLimit(10);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
       softLimit.forwardSoftLimit(100).reverseSoftLimit(0);
     }};
+     hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    
+    
+    hoodedmotor2 = new SparkMax(CanIDs.HOODED_MOTOR_ID_2, MotorType.kBrushed);
+    SparkMaxConfig hoodedmotor2Config = new SparkMaxConfig(){{
+      smartCurrentLimit(10);
+      follow(hoodedmotor1, true);
+    }};
+
+     hoodedmotor2.configure(hoodedmotor2Config, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
 
 
-    hoodedmotor.configure(hoodedmotorConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+   
 
      this.setDefaultCommand
 (
 new FunctionalCommand
 ( //default command
-() -> hoodedmotor.set(0),
+() -> hoodedmotor1.set(0),
 () -> {},
 (killed) -> {},
 () -> {return false;},
@@ -67,7 +78,7 @@ this)
 
 
   SmartDashboard.putData("SysID/ShooterHood",
-      new SparkSysIDTest(hoodedmotor, this, 1, 0.01, 0.24, hoodedmotor.getAbsoluteEncoder()::getPosition));
+      new SparkSysIDTest(hoodedmotor1, this, 1, 0.01, 0.24, hoodedmotor1.getAbsoluteEncoder()::getPosition));
 
     
 }
@@ -79,18 +90,18 @@ this)
 
 public Command hoodtoposition(double target, double range) //puts the hood in a position
 { 
-  return new SparkPositionProfiled(hoodedmotor, target, range, this);
+  return new SparkPositionProfiled(hoodedmotor1, target, range, this);
 }
 
 public Command joystickcontrol(Supplier<Double> joystickMove)
   {
     return 
-      new InstantCommand(()-> hoodedmotor.set(joystickMove.get()),this).repeatedly()
+      new InstantCommand(()-> hoodedmotor1.set(joystickMove.get()),this).repeatedly()
     ;
   }
     private void setAngle(double Angle)
     {
-        hoodedmotor.getClosedLoopController().setSetpoint(Angle, ControlType.kPosition);
+        hoodedmotor1.getClosedLoopController().setSetpoint(Angle, ControlType.kPosition);
         // keeps the speed around the same speed 
     }
 

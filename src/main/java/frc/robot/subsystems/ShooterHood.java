@@ -68,16 +68,7 @@ public class ShooterHood extends SubsystemBase
 
    
 
-     this.setDefaultCommand
-(
-new FunctionalCommand
-( //default command
-() -> hoodedmotor1.set(0),
-() -> {},
-(killed) -> {},
-() -> {return false;},
-this)
-);
+     this.setDefaultCommand (hoodtoposition(0, 0.01));
 
     SmartDashboard.putData("Subsystem/ShooterHood",this);
 

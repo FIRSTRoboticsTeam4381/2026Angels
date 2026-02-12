@@ -47,6 +47,11 @@ public class ShooterHood extends SubsystemBase
       smartCurrentLimit(10);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
       softLimit.forwardSoftLimit(100).reverseSoftLimit(0);
+      this.signals.absoluteEncoderPositionAlwaysOn(true);
+      this.signals.isAtSetpointAlwaysOn(true);
+      this.signals.maxMotionSetpointPositionAlwaysOn(true);
+      this.signals.maxMotionSetpointVelocityAlwaysOn(true);
+      this.signals.setSetpointAlwaysOn(true);
     }};
      hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
     

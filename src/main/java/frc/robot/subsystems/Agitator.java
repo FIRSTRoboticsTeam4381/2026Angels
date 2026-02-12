@@ -8,6 +8,7 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.SparkLowLevel.PeriodicFrame;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
@@ -35,12 +36,14 @@ public class Agitator extends SubsystemBase {
   {{
       this.smartCurrentLimit(20);
       this.advanceCommutation(60);
+      this.signals.primaryEncoderVelocityAlwaysOn(true);
      // this.encoder.
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
       this.smartCurrentLimit(40);
+      this.signals.primaryEncoderVelocityAlwaysOn(true);
   }};
 
   
@@ -55,6 +58,10 @@ public class Agitator extends SubsystemBase {
    
     SmartDashboard.putData("Subsystem/Agitator",this);
     
+
+
+
+
  }
 
   @Override

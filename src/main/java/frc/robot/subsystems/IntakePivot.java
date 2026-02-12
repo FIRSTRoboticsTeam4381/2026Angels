@@ -41,12 +41,19 @@ public class IntakePivot extends SubsystemBase {
       smartCurrentLimit(40);
       //limitSwitch.forwardLimitSwitchTriggerBehavior(Behavior.kStopMovingMotor);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
+      this.signals.primaryEncoderPositionAlwaysOn(true);
+      this.signals.absoluteEncoderPositionAlwaysOn(true);
+      this.signals.isAtSetpointAlwaysOn(true);
+      this.signals.maxMotionSetpointPositionAlwaysOn(true);
+      this.signals.maxMotionSetpointVelocityAlwaysOn(true);
+      this.signals.setSetpointAlwaysOn(true);
     }};
 
     SparkFlexConfig hopperslideConfig = new SparkFlexConfig(){{
       smartCurrentLimit(40);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
       this.softLimit.forwardSoftLimit(45);//45 to be changed
+      this.signals.primaryEncoderVelocityAlwaysOn(true);
     }};
 
     pivot.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);

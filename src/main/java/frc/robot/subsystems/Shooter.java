@@ -65,6 +65,9 @@ public InterpolatingDoubleTreeMap passtable;
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
         this.smartCurrentLimit(40);
+        this.signals.isAtSetpointAlwaysOn(true);
+        this.signals.primaryEncoderVelocityAlwaysOn(true);
+        this.signals.setSetpointAlwaysOn(true);
     }};
 
      SparkFlexConfig shooter2Config = new SparkFlexConfig()

@@ -108,10 +108,7 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
     hoodShootTable.put(0.0, 0.0);
     hoodShootTable.put(1.0, 10.0);
     hoodShootTable.put(2.0, 30.0);
-    }
-
-     public void stillDontKnowName()
-    {
+    
     hoodPassTable.put(0.0, 0.0);
     hoodPassTable.put(1.0, 10.0);
     hoodPassTable.put(2.0, 30.0);

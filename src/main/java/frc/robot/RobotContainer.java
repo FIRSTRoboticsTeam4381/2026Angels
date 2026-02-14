@@ -141,7 +141,7 @@ public class RobotContainer {
       shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) - 1) / 2 * 6784)));
     buttonBoard2.button(2).whileTrue(intaker.outake());
     buttonBoard2.button(0).whileTrue(agitator.agitatorFunnelMoveReverse());
-
+    // haven't done hang yet
 
 
 

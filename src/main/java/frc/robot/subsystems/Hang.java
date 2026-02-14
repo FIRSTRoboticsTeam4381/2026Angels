@@ -4,9 +4,10 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkFlex;
-import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
@@ -46,6 +47,10 @@ public class Hang extends SubsystemBase {
        smartCurrentLimit(80);
        follow(hangMotor1, true);
     }};
+
+  hangMotor1.configure(hangMotor1Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+  hangMotor2.configure(hangMotor2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+
   }
 
   public Command hangUp()
@@ -58,7 +63,7 @@ public class Hang extends SubsystemBase {
       return new InstantCommand(()-> hangMotor1.set(-0.5), this);
     }
 
-    
+
 
 
   @Override

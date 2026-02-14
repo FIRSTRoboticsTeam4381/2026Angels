@@ -68,22 +68,19 @@ public class Agitator extends SubsystemBase {
   }
 
 public Command agitatorFunnelMove(){
-return new ParallelCommandGroup(
-  new InstantCommand(()-> agitator.set(0.5),this),
-  new InstantCommand(()-> funnel.set(0.5),this)).withName("agitatorFunnelMove");
+return new InstantCommand(
+  ()-> {agitator.set(0.5); funnel.set(0.5);},this).withName("agitatorFunnelMove");
   
 }
 
 public Command agitatorMove(){
-  return new ParallelCommandGroup(
-  new InstantCommand(()-> agitator.set(0.5),this),
-  new InstantCommand(()-> funnel.set(0),this)).withName("agitatorMove");
+  return new InstantCommand(
+  ()-> {agitator.set(0.5); funnel.set(0);},this).withName("agitatorMove");
 }
 
 public Command agitatorFunnelMoveReverse(){
-return new ParallelCommandGroup(
-  new InstantCommand(()-> agitator.set(-0.5),this),
-  new InstantCommand(()-> funnel.set(-0.5),this)).withName("agitatorFunnelMoveReverse");
+return new InstantCommand(
+  () -> {agitator.set(-0.5); funnel.set(-0.5);},this).withName("agitatorFunnelMoveReverse");
   
 }
 

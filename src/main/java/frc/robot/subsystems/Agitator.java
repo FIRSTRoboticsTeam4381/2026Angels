@@ -82,4 +82,11 @@ public Command agitatorMove(){
   new InstantCommand(()-> funnel.set(0),this)).withName("agitatorMove");
 }
 
+public Command agitatorFunnelMoveReverse(){
+return new ParallelCommandGroup(
+  new InstantCommand(()-> agitator.set(-0.5),this),
+  new InstantCommand(()-> funnel.set(-0.5),this)).withName("agitatorFunnelMoveReverse");
+  
+}
+
 }

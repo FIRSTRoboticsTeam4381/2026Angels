@@ -24,6 +24,7 @@ import frc.lib.commands.TeleopSwerve;
 import frc.lib.subsystems.PhotonCam;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.Agitator;
+import frc.robot.subsystems.Hang;
 import frc.robot.subsystems.IntakePivot;
 import frc.robot.subsystems.Intaker;
 import frc.robot.subsystems.Shooter;
@@ -52,6 +53,7 @@ public class RobotContainer {
   public final Agitator agitator = new Agitator();
   public final Intaker intaker = new Intaker();
   public final IntakePivot intakePivot = new IntakePivot();
+  public final Hang hang = new Hang();
   // TODO set camera names, coordinates, and angles relative to the robot's center
   //public final PhotonCam camA = new PhotonCam("Camera A", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(-7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/-4-Math.PI)) );
   //public final PhotonCam camB = new PhotonCam("Camera B", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/4-Math.PI)) );

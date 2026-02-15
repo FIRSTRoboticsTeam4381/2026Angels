@@ -47,6 +47,12 @@ public class IntakePivot extends SubsystemBase {
       this.signals.maxMotionSetpointPositionAlwaysOn(true);
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
+      this.idleMode(IdleMode.kBrake);
+      this.inverted(true);
+      this.absoluteEncoder.zeroCentered(true);
+      this.absoluteEncoder.inverted(true);
+      this.softLimit.forwardSoftLimit(0.25);
+      this.softLimit.reverseSoftLimit(0);
     }};
 
     SparkFlexConfig hopperslideConfig = new SparkFlexConfig(){{
@@ -54,9 +60,10 @@ public class IntakePivot extends SubsystemBase {
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
       this.softLimit.forwardSoftLimit(45);//45 to be changed
       this.signals.primaryEncoderVelocityAlwaysOn(true);
+       this.idleMode(IdleMode.kBrake);
     }};
 
-    pivot.configure(pivotConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    pivot.configure(pivotConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     //hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);

@@ -9,6 +9,7 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.epilogue.Logged;
@@ -40,16 +41,18 @@ public class Hang extends SubsystemBase {
       this.signals.maxMotionSetpointPositionAlwaysOn(true);
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
+       this.idleMode(IdleMode.kBrake);
     }};
 
     SparkFlexConfig hangMotor2Config = new SparkFlexConfig()
     {{
        smartCurrentLimit(80);
        follow(hangMotor1, true);
+       this.idleMode(IdleMode.kBrake);
     }};
 
-  hangMotor1.configure(hangMotor1Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
-  hangMotor2.configure(hangMotor2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+  hangMotor1.configure(hangMotor1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+  hangMotor2.configure(hangMotor2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
   }
 

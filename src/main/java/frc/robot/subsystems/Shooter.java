@@ -68,6 +68,7 @@ public InterpolatingDoubleTreeMap passtable;
         this.signals.isAtSetpointAlwaysOn(true);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.signals.setSetpointAlwaysOn(true);
+        this.idleMode(IdleMode.kCoast);
     }};
 
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
@@ -80,10 +81,10 @@ public InterpolatingDoubleTreeMap passtable;
 
   
     
-    shooter1.configure(shooterConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
-    shooter2.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
-    shooter3.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
-    shooter4.configure(shooter2Config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    shooter1.configure(shooterConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    shooter2.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    shooter3.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    shooter4.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     this.setDefaultCommand(
       new FunctionalCommand(() -> shooter1.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));

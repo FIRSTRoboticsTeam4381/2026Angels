@@ -9,6 +9,7 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
@@ -36,6 +37,7 @@ public class Agitator extends SubsystemBase {
       this.smartCurrentLimit(20);
       this.advanceCommutation(60);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
+       this.idleMode(IdleMode.kBrake);
      // this.encoder.
   }};
 
@@ -43,11 +45,12 @@ public class Agitator extends SubsystemBase {
   {{
       this.smartCurrentLimit(40);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
+       this.idleMode(IdleMode.kBrake);
   }};
 
   
-    agitator.configure(agitatorConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
-    funnel.configure(funnelConfig, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters); 
+    agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    funnel.configure(funnelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
 
    this.setDefaultCommand(
     new FunctionalCommand(() -> {

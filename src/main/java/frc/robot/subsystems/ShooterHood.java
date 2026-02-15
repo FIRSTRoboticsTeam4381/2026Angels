@@ -12,6 +12,7 @@ import com.revrobotics.spark.FeedbackSensor;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.epilogue.Logged;
@@ -52,17 +53,19 @@ public class ShooterHood extends SubsystemBase
       this.signals.maxMotionSetpointPositionAlwaysOn(true);
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
+       this.idleMode(IdleMode.kBrake);
     }};
-     hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+     hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     
     
     hoodedmotor2 = new SparkMax(CanIDs.HOODED_MOTOR_ID_2, MotorType.kBrushed);
     SparkMaxConfig hoodedmotor2Config = new SparkMaxConfig(){{
       smartCurrentLimit(10);
       follow(hoodedmotor1, true);
+       this.idleMode(IdleMode.kBrake);
     }};
 
-     hoodedmotor2.configure(hoodedmotor2Config, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+     hoodedmotor2.configure(hoodedmotor2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
 
 

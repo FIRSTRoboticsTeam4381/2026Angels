@@ -8,6 +8,7 @@ import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.epilogue.Logged;
@@ -33,10 +34,11 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
         smartCurrentLimit(20);
         this.advanceCommutation(60);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
+         this.idleMode(IdleMode.kBrake);
     }};
     
 
-    intakemotor.configure(intakemotorConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    intakemotor.configure(intakemotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
   this.setDefaultCommand //default command
   (

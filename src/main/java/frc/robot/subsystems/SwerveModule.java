@@ -75,6 +75,8 @@ public class SwerveModule {
             .positionWrappingInputRange(0, 360);
 
         absoluteEncoder.positionConversionFactor(360);
+
+        this.signals.primaryEncoderPositionAlwaysOn(true);
     }};
             
 

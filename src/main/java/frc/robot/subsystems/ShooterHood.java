@@ -47,7 +47,8 @@ public class ShooterHood extends SubsystemBase
     SparkMaxConfig hoodedmotor1Config = new SparkMaxConfig(){{
       smartCurrentLimit(10);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
-      softLimit.forwardSoftLimit(100).reverseSoftLimit(0);
+      softLimit.forwardSoftLimit(100).reverseSoftLimit(0)
+      .forwardSoftLimitEnabled(true).reverseSoftLimitEnabled(true);
       this.signals.absoluteEncoderPositionAlwaysOn(true);
       this.signals.isAtSetpointAlwaysOn(true);
       this.signals.maxMotionSetpointPositionAlwaysOn(true);

@@ -51,8 +51,13 @@ public class IntakePivot extends SubsystemBase {
       this.inverted(true);
       this.absoluteEncoder.zeroCentered(true);
       this.absoluteEncoder.inverted(true);
-      this.softLimit.forwardSoftLimit(0.25);
-      this.softLimit.reverseSoftLimit(0);
+      this.softLimit.forwardSoftLimit(0.25).forwardSoftLimitEnabled(true);
+      this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
+      closedLoop.feedForward.sva(0.40968, 0.23589, 0.041185);
+      closedLoop.p(0.056226);
+      closedLoop.maxMotion.cruiseVelocity(12).maxAcceleration(200);
+      closedLoop.maxMotion.allowedProfileError(0.05);
+
     }};
 
     SparkFlexConfig hopperslideConfig = new SparkFlexConfig(){{
@@ -126,34 +131,20 @@ public Command up()
 {
 return new SequentialCommandGroup
 (
-  new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-  pivottoPosition(0.25, 0.02)
-
-
-
-);
-
-
-
-
-
+  //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
+  pivottoPosition(0.25, 0.01)
+).withName("Up");
 }
 
-
-
-
-
-
-
-
- public Command down()
+public Command down()
  {
   return new SequentialCommandGroup
   (
-    new InstantCommand(() -> pivot.set(-1)),
-    new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-    new WaitCommand(0.5),
-    new InstantCommand(() -> pivot.set(0))
+    //new InstantCommand(() -> pivot.set(-1)),
+    //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
+    //new WaitCommand(0.5),
+    //new InstantCommand(() -> pivot.set(0))
+    pivottoPosition(0, 0.01)
   ).withName("Down");
 }
 

@@ -132,8 +132,8 @@ public class RobotContainer {
 
     //Button board controls
     buttonBoard1.button(1).whileTrue(intaker.intake());
-    buttonBoard1.button(2).onTrue(intakePivot.fullopen());
-    buttonBoard1.button(2).onFalse(intakePivot.fullclose());
+    buttonBoard1.button(2).onTrue(intakePivot.down());
+    buttonBoard1.button(2).onFalse(intakePivot.up());
     buttonBoard1.button(3).whileTrue(agitator.agitatorFunnelMove());
     buttonBoard1.button(4).whileTrue(AutoAim.autoaimspecialist());
     buttonBoard2.button(1).toggleOnTrue( new ParallelCommandGroup(

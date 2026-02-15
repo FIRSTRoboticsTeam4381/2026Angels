@@ -67,7 +67,7 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
     {
       return new ParallelCommandGroup
       (
-        new InstantCommand(() -> intakemotor.set(0.5), this) 
+        new InstantCommand(() -> intakemotor.set(0.8), this).repeatedly() 
 
       ).withName("Intake");
     
@@ -77,7 +77,7 @@ public class Intaker extends SubsystemBase /** Creates a new Shooter. */
     {
       return new ParallelCommandGroup
       (
-        new InstantCommand(() -> intakemotor.set(-0.5), this) 
+        new InstantCommand(() -> intakemotor.set(-0.8), this).repeatedly()
       
       ).withName("Outtake");
     

@@ -39,11 +39,12 @@ public class Agitator extends SubsystemBase {
       this.signals.primaryEncoderVelocityAlwaysOn(true);
        this.idleMode(IdleMode.kBrake);
      // this.encoder.
+     this.inverted(true);
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(40);
+      this.smartCurrentLimit(60);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
        this.idleMode(IdleMode.kBrake);
   }};
@@ -72,19 +73,17 @@ public class Agitator extends SubsystemBase {
 
 public Command agitatorFunnelMove(){
 return new InstantCommand(
-  ()-> {agitator.set(0.5); funnel.set(0.5);},this).withName("agitatorFunnelMove");
+  ()-> {agitator.set(1); funnel.set(1);},this).withName("agitatorFunnelMove").repeatedly();
   
 }
 
 public Command agitatorMove(){
   return new InstantCommand(
-  ()-> {agitator.set(0.5); funnel.set(0);},this).withName("agitatorMove");
+  ()-> {agitator.set(1); funnel.set(0);},this).withName("agitatorMove").repeatedly();
 }
 
 public Command agitatorFunnelMoveReverse(){
 return new InstantCommand(
-  () -> {agitator.set(-0.5); funnel.set(-0.5);},this).withName("agitatorFunnelMoveReverse");
+  () -> {agitator.set(-1); funnel.set(-1);},this).withName("agitatorFunnelMoveReverse").repeatedly();
   
-}
-
-}
+}}

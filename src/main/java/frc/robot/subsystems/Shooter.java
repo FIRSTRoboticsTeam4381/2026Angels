@@ -69,6 +69,12 @@ public InterpolatingDoubleTreeMap passtable;
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.signals.setSetpointAlwaysOn(true);
         this.idleMode(IdleMode.kCoast);
+
+        this.inverted(true);
+        this.closedLoop.feedForward.sva(0.019411, 0.0018193, 0.00057301);
+        this.closedLoop.p(1.3799E-06);
+
+
     }};
 
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
@@ -99,6 +105,7 @@ public InterpolatingDoubleTreeMap passtable;
   public void periodic()
   {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Shooter/targetVel", shooter1.getClosedLoopController().getSetpoint());
   }
 
 

@@ -136,11 +136,11 @@ public class RobotContainer {
     buttonBoard1.button(2).onFalse(intakePivot.fullclose());
     buttonBoard1.button(3).whileTrue(agitator.agitatorFunnelMove());
     buttonBoard1.button(4).whileTrue(AutoAim.autoaimspecialist());
-    buttonBoard2.button(2).toggleOnTrue( new ParallelCommandGroup(
-      shooterhood.setHoodAngle(() -> buttonBoard1.getRawAxis(1) - 1 / 2 * 0.1),
-      shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) - 1) / 2 * 6784)));
+    buttonBoard2.button(1).toggleOnTrue( new ParallelCommandGroup(
+      shooterhood.setHoodAngle(() -> (buttonBoard1.getRawAxis(1) + 1) / 2 * 0.1),
+      shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) + 1) / 2 * 6784)));
     buttonBoard2.button(3).whileTrue(intaker.outake());
-    buttonBoard2.button(1).whileTrue(agitator.agitatorFunnelMoveReverse());
+    buttonBoard2.button(2).whileTrue(agitator.agitatorFunnelMoveReverse());
     // haven't done hang yet
 
 

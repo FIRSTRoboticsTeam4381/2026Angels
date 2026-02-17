@@ -13,6 +13,7 @@ import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.epilogue.Logged;
@@ -71,8 +72,8 @@ public InterpolatingDoubleTreeMap passtable;
         this.idleMode(IdleMode.kCoast);
 
         this.inverted(true);
-        this.closedLoop.feedForward.sva(0.019411, 0.0018193, 0.00057301);
-        this.closedLoop.p(1.3799E-06);
+        this.closedLoop.feedForward.sva(0.0020747, 0.0018252, 0.00051996);
+        this.closedLoop.p(1.6001E-06);
 
 
     }};

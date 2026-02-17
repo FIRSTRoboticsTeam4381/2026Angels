@@ -44,7 +44,7 @@ public class Agitator extends SubsystemBase {
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(60);
+      this.smartCurrentLimit(80);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
        this.idleMode(IdleMode.kBrake);
   }};

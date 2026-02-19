@@ -31,7 +31,7 @@ public class ShooterHood extends SubsystemBase
 {
   public SparkMax hoodedmotor1;
   public SparkMax hoodedmotor2;
-
+  
   public InterpolatingDoubleTreeMap hoodShootTable;
   public InterpolatingDoubleTreeMap hoodPassTable;
 
@@ -47,7 +47,7 @@ public class ShooterHood extends SubsystemBase
     SparkMaxConfig hoodedmotor1Config = new SparkMaxConfig(){{
       smartCurrentLimit(10);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
-      softLimit.forwardSoftLimit(100).reverseSoftLimit(0)
+      softLimit.forwardSoftLimit(0.328).reverseSoftLimit(0.1)
       .forwardSoftLimitEnabled(true).reverseSoftLimitEnabled(true);
       this.signals.absoluteEncoderPositionAlwaysOn(true);
       this.signals.isAtSetpointAlwaysOn(true);
@@ -78,7 +78,7 @@ public class ShooterHood extends SubsystemBase
 
 
   SmartDashboard.putData("SysID/ShooterHood",
-      new SparkSysIDTest(hoodedmotor1, this, 1, 0.01, 0.24, hoodedmotor1.getAbsoluteEncoder()::getPosition));
+      new SparkSysIDTest(hoodedmotor1, this, 1, 0.12, 0.32, hoodedmotor1.getAbsoluteEncoder()::getPosition));
 
     
 }

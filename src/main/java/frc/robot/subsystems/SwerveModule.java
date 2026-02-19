@@ -46,7 +46,7 @@ public class SwerveModule {
             inverted(true);    
             
         closedLoop
-            .p( 3.1534E-05)
+            .p( 0.00065188) //3.1534E-05
             .i(0.0)
             .d(0.0);
 
@@ -79,7 +79,7 @@ public class SwerveModule {
     }};
             
 
-    SimpleMotorFeedforward feedforward = new SimpleMotorFeedforward(0.018231, 1.9676, 0.68184);
+    SimpleMotorFeedforward feedforward = new SimpleMotorFeedforward(0.084942, 2.2049, 0.38383);
 
     public SwerveModule(int moduleNumber, CanIDs.SwerveModuleCanIDs moduleConstants){
         this.moduleNumber = moduleNumber;

@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.function.Supplier;
+
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
@@ -66,7 +68,10 @@ public class Hang extends SubsystemBase {
     {
       return new InstantCommand(()-> hangMotor1.set(-0.5), this);
     }
-
+public Command manualControl(Supplier <Double> joystick)
+    {
+      return new InstantCommand(() -> hangMotor1.set(joystick.get()), this).repeatedly().withName("joystick control");
+    }
 
 
 

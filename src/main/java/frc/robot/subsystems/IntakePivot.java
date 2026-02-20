@@ -80,6 +80,7 @@ public class IntakePivot extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Intakepivot/targetposition", pivot.getClosedLoopController().getSetpoint());
   }
 
  // public Command hoppertoPosition(double target, double range) {

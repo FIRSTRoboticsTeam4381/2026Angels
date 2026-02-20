@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.lib.commands.TeleopSwerve;
+import frc.lib.controls.JoystickUtils;
 import frc.lib.subsystems.PhotonCam;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.Agitator;
@@ -57,9 +58,9 @@ public class RobotContainer {
   // TODO set camera names, coordinates, and angles relative to the robot's center
   //public final PhotonCam camA = new PhotonCam("Camera A", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(-7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/-4-Math.PI)) );
   //public final PhotonCam camB = new PhotonCam("Camera B", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/4-Math.PI)) );
-  public final PhotonCam camC = new PhotonCam("BL Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.56), Units.inchesToMeters(12.56),  Units.inchesToMeters(6.715)),
+  public final PhotonCam camC = new PhotonCam("BL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(12.56),  Units.inchesToMeters(10.535)),
    new Rotation3d(0, Units.degreesToRadians(-5), Units.degreesToRadians(45+180))));
-  public final PhotonCam camD = new PhotonCam("BR Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.56), Units.inchesToMeters(-12.56),  Units.inchesToMeters(6.715)),
+  public final PhotonCam camD = new PhotonCam("BR_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(-12.56),  Units.inchesToMeters(10.535)),
    new Rotation3d(0, Units.degreesToRadians(-5), Units.degreesToRadians(-45-180))));
   //forwardback, leftright, elevation
 
@@ -132,16 +133,18 @@ public class RobotContainer {
     specialist.leftBumper().onTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());
+    specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
     //Button board controls
+    buttonBoard2.axisMagnitudeGreaterThan(0 , 0.1).onTrue(hang.manualControl(() ->JoystickUtils.interpolateNow(buttonBoard2.getRawAxis(0), 0.1)));
     buttonBoard1.button(1).whileTrue(intaker.intake());
     buttonBoard1.button(2).onTrue(intakePivot.down());
     buttonBoard1.button(2).onFalse(intakePivot.up());
     buttonBoard1.button(3).whileTrue(agitator.agitatorFunnelMove());
     buttonBoard1.button(4).whileTrue(AutoAim.autoaimspecialist());
     buttonBoard2.button(1).toggleOnTrue( new ParallelCommandGroup(
-      shooterhood.setHoodAngle(() -> (buttonBoard1.getRawAxis(1) + 1) / 2 * 0.1),
+      shooterhood.setHoodAngle(() -> (buttonBoard1.getRawAxis(1) + 1) / 2 * 0.228 + 0.1),
       shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) + 1) / 2 * 6784)));
     buttonBoard2.button(3).whileTrue(intaker.outake());
     buttonBoard2.button(2).whileTrue(agitator.agitatorFunnelMoveReverse());

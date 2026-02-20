@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.commands.SparkPosition;
 import frc.lib.commands.SparkPositionProfiled;
 import frc.lib.commands.SparkSysIDTest;
 import frc.robot.AutoAim;
@@ -54,7 +55,10 @@ public class ShooterHood extends SubsystemBase
       this.signals.maxMotionSetpointPositionAlwaysOn(true);
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
-       this.idleMode(IdleMode.kBrake);
+      this.idleMode(IdleMode.kBrake);
+      this.inverted(true);
+      closedLoop.feedForward.sv(0.76127, 21.166);
+      closedLoop.p(5.3492);
     }};
      hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     
@@ -72,7 +76,7 @@ public class ShooterHood extends SubsystemBase
 
    
 
-     this.setDefaultCommand (hoodtoposition(0, 0.01));
+     this.setDefaultCommand (hoodtoposition(0.1, 0.01));
 
     SmartDashboard.putData("Subsystem/ShooterHood",this);
 
@@ -86,11 +90,12 @@ public class ShooterHood extends SubsystemBase
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Shooterhood/targetposition", hoodedmotor1.getClosedLoopController().getSetpoint());
   }
 
 public Command hoodtoposition(double target, double range) //puts the hood in a position
 { 
-  return new SparkPositionProfiled(hoodedmotor1, target, range, this);
+  return new SparkPosition(hoodedmotor1, target, range, this);
 }
 
 public Command joystickcontrol(Supplier<Double> joystickMove)
@@ -109,13 +114,13 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
 
   public void setUp()
     {
-    hoodShootTable.put(0.0, 0.0);
-    hoodShootTable.put(1.0, 10.0);
-    hoodShootTable.put(2.0, 30.0);
+    hoodShootTable.put(0.0, 0.1);
+    hoodShootTable.put(1.0, 0.2);
+    hoodShootTable.put(2.0, 0.3);
     
-    hoodPassTable.put(0.0, 0.0);
-    hoodPassTable.put(1.0, 10.0);
-    hoodPassTable.put(2.0, 30.0);
+    hoodPassTable.put(0.0, 0.1);
+    hoodPassTable.put(1.0, 0.2);
+    hoodPassTable.put(2.0, 0.3);
     }
 
     public double hoodAngle()

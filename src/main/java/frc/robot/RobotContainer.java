@@ -130,8 +130,8 @@ public class RobotContainer {
     specialist.rightTrigger().toggleOnTrue(AutoAim.autoaimspecialist());
     specialist.leftTrigger().toggleOnTrue(intaker.intake());
     specialist.leftBumper().onTrue(intaker.outake());
-    specialist.povUp().onTrue(intakePivot.fullclose());
-    specialist.povDown().onTrue(intakePivot.fullopen());
+    specialist.povUp().onTrue(intakePivot.up());
+    specialist.povDown().onTrue(intakePivot.down());
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
     //Button board controls

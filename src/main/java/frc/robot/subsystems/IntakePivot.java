@@ -51,11 +51,11 @@ public class IntakePivot extends SubsystemBase {
       this.inverted(true);
       this.absoluteEncoder.zeroCentered(true);
       this.absoluteEncoder.inverted(true);
-      this.softLimit.forwardSoftLimit(0.25).forwardSoftLimitEnabled(true);
+      this.softLimit.forwardSoftLimit(0.265).forwardSoftLimitEnabled(true);
       this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
       closedLoop.feedForward.sva(0.40968, 0.23589, 0.041185);
       closedLoop.p(0.056226);
-      closedLoop.maxMotion.cruiseVelocity(12).maxAcceleration(200);
+      closedLoop.maxMotion.cruiseVelocity(14).maxAcceleration(200);
       closedLoop.maxMotion.allowedProfileError(0.05);
 
     }};
@@ -90,7 +90,7 @@ public class IntakePivot extends SubsystemBase {
     return new SparkPositionProfiled(pivot, target, range, this).withName("pivottoPosition");
   }
   //all numbers will be changed
- public Command fullopen() {
+ /*public Command fullopen() {
     return new ParallelCommandGroup(
       //hoppertoPosition(45, 0.2),
       down()
@@ -100,9 +100,9 @@ public class IntakePivot extends SubsystemBase {
   public Command fullclose() {
     return new SequentialCommandGroup(
     up(),
-    pivottoPosition(0, 0.2)
+    pivottoPosition(0, 0.05)
     ).withName("fullclose");
-  }
+  }*/
 
  /*  public Command halfopen() {
     return new SequentialCommandGroup(
@@ -132,7 +132,8 @@ public Command up()
 return new SequentialCommandGroup
 (
   //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-  pivottoPosition(0.25, 0.01)
+  pivottoPosition(0.28, 0.01).until(pivot.getForwardSoftLimit()::isReached),
+  new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }
 
@@ -144,7 +145,8 @@ public Command down()
     //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
     //new WaitCommand(0.5),
     //new InstantCommand(() -> pivot.set(0))
-    pivottoPosition(0, 0.01)
+    pivottoPosition(-0.1, 0.01).until(pivot.getReverseSoftLimit()::isReached),
+   new  InstantCommand(() -> pivot.set(0), this )
   ).withName("Down");
 }
 

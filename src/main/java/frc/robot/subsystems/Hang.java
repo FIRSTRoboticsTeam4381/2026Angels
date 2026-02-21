@@ -38,13 +38,16 @@ public class Hang extends SubsystemBase {
     {{
       smartCurrentLimit(80);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
-      softLimit.forwardSoftLimit(1).reverseSoftLimit(0);
+      softLimit.forwardSoftLimit(0.732).reverseSoftLimit(0.1)
+      .forwardSoftLimitEnabled(true).reverseSoftLimitEnabled(true);
       this.signals.absoluteEncoderPositionAlwaysOn(true);
       this.signals.isAtSetpointAlwaysOn(true);
       this.signals.maxMotionSetpointPositionAlwaysOn(true);
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
-       this.idleMode(IdleMode.kBrake);
+      this.idleMode(IdleMode.kBrake);
+      
+      this.absoluteEncoder.inverted(true);
     }};
 
     SparkFlexConfig hangMotor2Config = new SparkFlexConfig()

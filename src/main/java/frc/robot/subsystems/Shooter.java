@@ -38,12 +38,15 @@ public SparkFlex shooter3;
 public SparkFlex shooter4;
 public InterpolatingDoubleTreeMap shoottable;
 public InterpolatingDoubleTreeMap passtable;
-
+//key=distance, value=velocity
       public void shootSetUp()
         {
-          shoottable.put(0.0, 0.0);
-          shoottable.put(1.0, 10.0);
-          shoottable.put(2.0, 30.0);
+          shoottable.put(3.05, 3285.0);
+          shoottable.put(1.28, 3021.0);
+          shoottable.put(5.21, 4086.4);
+          shoottable.put(5.19, 3819.3);
+          shoottable.put(3.43, 3418.7);
+          shoottable.put(3.49, 3552.2);
         }
 
       public void passSetUp()
@@ -65,7 +68,7 @@ public InterpolatingDoubleTreeMap passtable;
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
-        this.smartCurrentLimit(40);
+        this.smartCurrentLimit(50);
         this.signals.isAtSetpointAlwaysOn(true);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.signals.setSetpointAlwaysOn(true);

@@ -71,6 +71,6 @@ public final class Constants {
             new PIDConstants(4.5, 0, 0);
 
         public static final PIDConstants ROTATION_PID = 
-            new PIDConstants(0.04, 0, 0);
+            new PIDConstants(0.075, 0, 0);
     }
 }

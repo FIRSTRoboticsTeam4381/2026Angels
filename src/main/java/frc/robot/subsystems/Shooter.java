@@ -41,19 +41,25 @@ public InterpolatingDoubleTreeMap passtable;
 //key=distance, value=velocity
       public void shootSetUp()
         {
-          shoottable.put(3.05, 3285.0);
+          /*shoottable.put(3.05, 3285.0);
           shoottable.put(1.28, 3021.0);
           shoottable.put(5.21, 4086.4);
           shoottable.put(5.19, 3819.3);
           shoottable.put(3.43, 3418.7);
-          shoottable.put(3.49, 3552.2);
+          shoottable.put(3.49, 3552.2);*/
+          shoottable.put(1.35, 3153.5);
+          shoottable.put(5.29, 3312.5);
+          shoottable.put(3.8, 3074.0);
+          shoottable.put(3.1, 2915.0);
+          shoottable.put(2.28, 2835.5);
         }
 
       public void passSetUp()
         {
-          passtable.put(0.0, 0.0);
-          passtable.put(1.0, 10.0);
-          passtable.put(2.0, 30.0);
+          passtable.put(2.04, 2835.5);
+          passtable.put(6.8, 3899.4);
+          passtable.put(4.75, 3392.0);
+          passtable.put(4.1, 3047.5);
         }
 
   public Shooter() {
@@ -68,7 +74,7 @@ public InterpolatingDoubleTreeMap passtable;
 
     SparkFlexConfig shooterConfig = new SparkFlexConfig()
     {{
-        this.smartCurrentLimit(50);
+        this.smartCurrentLimit(80);
         this.signals.isAtSetpointAlwaysOn(true);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.signals.setSetpointAlwaysOn(true);
@@ -76,7 +82,7 @@ public InterpolatingDoubleTreeMap passtable;
 
         this.inverted(true);
         this.closedLoop.feedForward.sva(0.0020747, 0.0018252, 0.00051996);
-        this.closedLoop.p(1.6001E-06);
+        this.closedLoop.p(4.6001E-04);//1.6001E-06, 0.0000016001
 
 
     }};

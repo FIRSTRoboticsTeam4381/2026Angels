@@ -56,8 +56,10 @@ public class RobotContainer {
   public final IntakePivot intakePivot = new IntakePivot();
   public final Hang hang = new Hang();
   // TODO set camera names, coordinates, and angles relative to the robot's center
-  //public final PhotonCam camA = new PhotonCam("Camera A", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(-7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/-4-Math.PI)) );
-  //public final PhotonCam camB = new PhotonCam("Camera B", new Transform3d(new Translation3d(Units.inchesToMeters(-10.375), Units.inchesToMeters(7.3125),  Units.inchesToMeters(8.5)), new Rotation3d(0,Math.PI/-6,Math.PI/4-Math.PI)) );
+  public final PhotonCam camA = new PhotonCam("FL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(11.33), Units.inchesToMeters(12.9),  Units.inchesToMeters(20.215)),
+   new Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(-30))));
+  public final PhotonCam camB = new PhotonCam("FR_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(11.33), Units.inchesToMeters(-12.9),  Units.inchesToMeters(20.215)),
+   new Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(30))));
   public final PhotonCam camC = new PhotonCam("BL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(12.56),  Units.inchesToMeters(10.535)),
    new Rotation3d(0, Units.degreesToRadians(-5), Units.degreesToRadians(45+180))));
   public final PhotonCam camD = new PhotonCam("BR_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(-12.56),  Units.inchesToMeters(10.535)),

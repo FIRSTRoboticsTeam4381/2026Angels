@@ -68,7 +68,8 @@ public class Robot extends TimedRobot {
 
     RIOAlerts.logRioData();
 
-    SmartDashboard.putNumber("autoAim/distance", AutoAim.distanceToHub());
+    SmartDashboard.putNumber("autoAim/distanceToHub", AutoAim.distanceToHub());
+    SmartDashboard.putNumber("autoAim/distanceToPass", AutoAim.distanceToPass());
   }
 
   @Override

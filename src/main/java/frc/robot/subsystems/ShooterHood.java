@@ -126,10 +126,10 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
     hoodShootTable.put(3.1, 0.224874);
     hoodShootTable.put(2.28, 0.186391);
     //key=distance, value=angle
-    hoodPassTable.put(2.04, 0.328);
-    hoodPassTable.put(6.8, 0.328);
-    hoodPassTable.put(4.75, 0.328);
-    hoodPassTable.put(4.1, 0.328);
+    hoodPassTable.put(5.95, 0.328);
+    hoodPassTable.put(11.32, 0.328);
+    hoodPassTable.put(8.18, 0.328);
+    
     }
 
     public double hoodAngle()

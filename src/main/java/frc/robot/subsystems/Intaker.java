@@ -19,13 +19,15 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.CanIDs;
-@Logged
-public class Intaker extends SubsystemBase /** Creates a new Shooter. */
+
+@Logged 
+
+public class Intaker extends SubsystemBase /* Creates a new Shooter. */
 {
   
   public SparkMax intakemotor;
   
-  public Intaker() 
+  public Intaker()
   {
     intakemotor = new SparkMax(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
 

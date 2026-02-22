@@ -132,9 +132,10 @@ public class RobotContainer {
     specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
     specialist.rightTrigger().toggleOnTrue(AutoAim.autoaimspecialist());
     specialist.leftTrigger().toggleOnTrue(intaker.intake());
-    specialist.leftBumper().onTrue(intaker.outake());
+    specialist.leftBumper().toggleOnTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());
+    specialist.rightBumper().whileTrue(agitator.agitatorFunnelMove());
     specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 

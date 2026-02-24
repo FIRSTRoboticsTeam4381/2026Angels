@@ -35,8 +35,7 @@ public class IntakePivot extends SubsystemBase {
   
   public IntakePivot() 
   {
-    NamedCommands.registerCommand("pivotDown", down());
-    NamedCommands.registerCommand("pivotUp", up());
+    
 
     pivot = new SparkFlex(CanIDs.INTAKE_PIVOT_MOTOR_ID, MotorType.kBrushless);
    // hopperslide = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
@@ -74,6 +73,11 @@ public class IntakePivot extends SubsystemBase {
 
     pivot.configure(pivotConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     //hopperslide.configure(hopperslideConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+
+    NamedCommands.registerCommand("pivotDown", down());
+    NamedCommands.registerCommand("pivotUp", up());
+
+
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
     SmartDashboard.putData("SysID/IntakePivot",

@@ -31,10 +31,6 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
   public Intaker()
   {
 
-    NamedCommands.registerCommand("intake", intake());
-
-
-
     intakemotor = new SparkMax(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
 
     SparkMaxConfig intakemotorConfig = new SparkMaxConfig()
@@ -47,6 +43,11 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
     
 
     intakemotor.configure(intakemotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+    NamedCommands.registerCommand("intake", intake());
+
+
+
 
   this.setDefaultCommand //default command
   (

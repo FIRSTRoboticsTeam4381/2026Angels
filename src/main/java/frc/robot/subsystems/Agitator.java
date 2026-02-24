@@ -31,12 +31,6 @@ public class Agitator extends SubsystemBase {
 
  public Agitator(){
 
-  NamedCommands.registerCommand("agitatorMove", agitatorMove());
-  NamedCommands.registerCommand("shoot", agitatorFunnelMove());
-
-
-
-
   agitator = new SparkMax(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
 
@@ -60,6 +54,9 @@ public class Agitator extends SubsystemBase {
   
     agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     funnel.configure(funnelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
+
+    NamedCommands.registerCommand("agitatorMove", agitatorMove());
+    NamedCommands.registerCommand("shoot", agitatorFunnelMove());
 
    this.setDefaultCommand(
     new FunctionalCommand(() -> {

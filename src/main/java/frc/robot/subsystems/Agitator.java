@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -29,6 +30,13 @@ public class Agitator extends SubsystemBase {
  public SparkFlex funnel; 
 
  public Agitator(){
+
+  NamedCommands.registerCommand("agitatorMove", agitatorMove());
+  NamedCommands.registerCommand("shoot", agitatorFunnelMove());
+
+
+
+
   agitator = new SparkMax(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
 

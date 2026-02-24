@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
@@ -29,6 +30,11 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
   
   public Intaker()
   {
+
+    NamedCommands.registerCommand("intake", intake());
+
+
+
     intakemotor = new SparkMax(CanIDs.INTAKER_MOTOR_ID, MotorType.kBrushless);
 
     SparkMaxConfig intakemotorConfig = new SparkMaxConfig()

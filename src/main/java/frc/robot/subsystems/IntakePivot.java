@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
@@ -34,6 +35,9 @@ public class IntakePivot extends SubsystemBase {
   
   public IntakePivot() 
   {
+    NamedCommands.registerCommand("pivotDown", down());
+    NamedCommands.registerCommand("pivotUp", up());
+
     pivot = new SparkFlex(CanIDs.INTAKE_PIVOT_MOTOR_ID, MotorType.kBrushless);
    // hopperslide = new SparkFlex(CanIDs.HOODED_MOTOR_MOTOR_ID, MotorType.kBrushless);
 

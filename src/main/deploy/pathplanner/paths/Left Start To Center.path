@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.5758934426229514,
-        "y": 7.241081967213114
+        "x": 4.409762295081967,
+        "y": 7.255459016393441
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.619819672131147,
-        "y": 6.277819672131147
+        "x": 6.480057377049181,
+        "y": 7.43517213114754
       },
       "isLocked": false,
       "linkedName": "left start"
     },
     {
       "anchor": {
-        "x": 1.1389836065573773,
-        "y": 5.947147540983606
+        "x": 7.7739918032786886,
+        "y": 6.960729508196721
       },
       "prevControl": {
-        "x": 2.382598360655738,
-        "y": 6.507852459016392
+        "x": 5.976860655737704,
+        "y": 7.26983606557377
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Left Neutral Zone"
     }
   ],
   "rotationTargets": [],
@@ -42,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -179.5264919412651
+    "rotation": -90.0
   },
   "reversed": false,
   "folder": "Left Side Autos",

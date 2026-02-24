@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 4.310770328097942,
+        "y": 0.6127246790371759
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.3570328102710407,
+        "y": 0.44452211126961505
+      },
+      "isLocked": false,
+      "linkedName": "Right Trench "
+    },
+    {
+      "anchor": {
+        "x": 2.162952924387497,
+        "y": 2.902867332380788
+      },
+      "prevControl": {
+        "x": 1.8783024251069897,
+        "y": 2.566462196861627
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 25.591968024302638
+  },
+  "reversed": false,
+  "folder": "Right Side Autos ",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 89.9999999998148
+  },
+  "useDefaultConstraints": true
+}

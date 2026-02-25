@@ -59,7 +59,7 @@
     "rotation": 90.0
   },
   "reversed": false,
-  "folder": "Right Side Autos ",
+  "folder": "Right Side Autos",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 90.0

@@ -7,25 +7,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Start to Depot"
+            "pathName": "Middle Start to Depot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot to Intake"
+            "pathName": "Depot to Depot Intake"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Intake to Shoot"
+            "pathName": "Depot Intake to Middle Shoot"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Shoot to Hang"
+            "pathName": "Middle Shoot to Hang"
           }
         }
       ]

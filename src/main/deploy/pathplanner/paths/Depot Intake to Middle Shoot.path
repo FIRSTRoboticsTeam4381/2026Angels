@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.795,
+        "x": 0.7408072289156629,
         "y": 5.947
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.5459635335564708,
+        "x": 0.4917707624721336,
         "y": 5.925071972698828
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Depot Intake Pos?"
     },
     {
       "anchor": {
@@ -31,7 +31,19 @@
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "autoAimShoot",
+      "waypointRelativePos": 0.0,
+      "endWaypointRelativePos": 1.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "autoAimShoot"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -48,7 +60,7 @@
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.98672447826286
+    "rotation": 179.26074064459215
   },
   "useDefaultConstraints": true
 }

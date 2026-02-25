@@ -35,7 +35,7 @@ public class AutoAim {
 public static Pose2d blueHubPosition = new Pose2d( 4.626, 4.035, Rotation2d.fromDegrees(0)); 
 public static Pose2d redHubPosition = new Pose2d( 11.915, 4.035, Rotation2d.fromDegrees(0)); 
 
-public AutoAim() {NamedCommands.registerCommand("autoAimSpecialist", autoaimspecialist());}
+public AutoAim() {NamedCommands.registerCommand("autoAimShoot", autoaimspecialist());}
 
 
 public static Command autoAimSwerve(Supplier<Double> forward, Supplier<Double> leftright)

@@ -78,8 +78,10 @@ public class RobotContainer {
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());
     autoChooser.addOption("Test", Autos.testAuto());
+    autoChooser.addOption("Left Score And Hang", Autos.testAuto());
+    autoChooser.addOption("Right Score And Hang", Autos.testAuto());
+    autoChooser.addOption("Middle Depot and Hang", Autos.testAuto());
     
-
     // Add auto controls to the dashboard
     SmartDashboard.putData("Choose Auto:", autoChooser);
     SmartDashboard.putData(CommandScheduler.getInstance());

@@ -39,6 +39,17 @@ public final class Autos {
     //public static PreviewAuto Front3Note(){
     //    return new PreviewAuto("Front3NoteAuto");
     //}
+    public static PreviewAuto leftScoreAuto(){
+        return new PreviewAuto("Left Score And Hang");
+    }
+
+    public static PreviewAuto rightScoreAuto(){
+        return new PreviewAuto("Right Score And Hang");
+    }
+
+    public static PreviewAuto middleScoreAuto(){
+        return new PreviewAuto("Middle Depot and Hang");
+    }
 
     /* If you want to make a more complex auto using commands,
     *  PreviewAuto can also accept (Command, String), which will

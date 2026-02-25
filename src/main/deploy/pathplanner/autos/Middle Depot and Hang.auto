@@ -36,12 +36,6 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "Middle Shoot to Hang"
-          }
-        },
-        {
           "type": "deadline",
           "data": {
             "commands": [
@@ -64,6 +58,12 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Middle Shoot to Hang"
           }
         }
       ]

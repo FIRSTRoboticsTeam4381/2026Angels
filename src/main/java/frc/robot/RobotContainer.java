@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Rotation3d;
@@ -70,7 +72,7 @@ public class RobotContainer {
   public RobotContainer() {
     robotReference = this;
     // Set default commands here
-
+    NamedCommands.registerCommand("autoAimShoot", AutoAim.autoaimspecialist());
 
 
 
@@ -78,9 +80,9 @@ public class RobotContainer {
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());
     autoChooser.addOption("Test", Autos.testAuto());
-    autoChooser.addOption("Left Score And Hang", Autos.testAuto());
-    autoChooser.addOption("Right Score And Hang", Autos.testAuto());
-    autoChooser.addOption("Middle Depot and Hang", Autos.testAuto());
+    autoChooser.addOption("Left Score And Hang", Autos.leftScoreAuto());
+    autoChooser.addOption("Right Score And Hang", Autos.rightScoreAuto());
+    autoChooser.addOption("Middle Depot and Hang", Autos.middleScoreAuto());
     
     // Add auto controls to the dashboard
     SmartDashboard.putData("Choose Auto:", autoChooser);

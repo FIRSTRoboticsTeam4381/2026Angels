@@ -3,13 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.310770328097942,
-        "y": 0.6127246790371759
+        "x": 7.7653922967189715,
+        "y": 3.5368616262482178
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3570328102710407,
-        "y": 0.44452211126961505
+        "x": 8.024165477888728,
+        "y": 0.1469329529243959
+      },
+      "isLocked": false,
+      "linkedName": "Right Intake"
+    },
+    {
+      "anchor": {
+        "x": 4.310770328097942,
+        "y": 0.6127246790371759
+      },
+      "prevControl": {
+        "x": 5.851122987282746,
+        "y": 0.6127246790371756
+      },
+      "nextControl": {
+        "x": 3.1533568308385904,
+        "y": 0.612724679037176
       },
       "isLocked": false,
       "linkedName": "Right Trench "
@@ -20,18 +36,35 @@
         "y": 2.902867332380788
       },
       "prevControl": {
-        "x": 1.8783024251069897,
-        "y": 2.566462196861627
+        "x": 3.2239229671897287,
+        "y": 0.9103138373751789
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Right Shoot"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.9808102345415733,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "autoAimShoot",
+      "waypointRelativePos": 1.150573936529372,
+      "endWaypointRelativePos": 2.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "autoAimShoot"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -48,7 +81,7 @@
   "folder": "Right Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 89.9999999998148
+    "rotation": 90.0
   },
   "useDefaultConstraints": true
 }

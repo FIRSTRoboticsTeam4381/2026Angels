@@ -8,63 +8,30 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.024165477888728,
-        "y": 0.1469329529243959
+        "x": 6.580696721310609,
+        "y": 0.6204508196741352
       },
       "isLocked": false,
       "linkedName": "Right Intake"
     },
     {
       "anchor": {
-        "x": 4.310770328097942,
-        "y": 0.6127246790371759
+        "x": 3.9808469945355185,
+        "y": 0.6563934426229503
       },
       "prevControl": {
-        "x": 5.851122987282746,
-        "y": 0.6127246790371756
-      },
-      "nextControl": {
-        "x": 3.1533568308385904,
-        "y": 0.612724679037176
-      },
-      "isLocked": false,
-      "linkedName": "Right Trench "
-    },
-    {
-      "anchor": {
-        "x": 2.162952924387497,
-        "y": 2.902867332380788
-      },
-      "prevControl": {
-        "x": 3.2239229671897287,
-        "y": 0.9103138373751789
+        "x": 6.245232240437158,
+        "y": 0.5964890710382509
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Right Shoot"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.9808102345415733,
-      "rotationDegrees": 0.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [
-    {
-      "name": "autoAimShoot",
-      "waypointRelativePos": 1.150573936529372,
-      "endWaypointRelativePos": 2.0,
-      "command": {
-        "type": "named",
-        "data": {
-          "name": "autoAimShoot"
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -75,7 +42,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 25.591968024302638
+    "rotation": 80.4399035191137
   },
   "reversed": false,
   "folder": "Right Side Autos",

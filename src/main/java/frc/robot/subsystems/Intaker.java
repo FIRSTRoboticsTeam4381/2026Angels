@@ -77,7 +77,7 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
     {
       return new ParallelCommandGroup
       (
-        new InstantCommand(() -> intakemotor.set(0.8), this).repeatedly() 
+        new InstantCommand(() -> intakemotor.set(1), this).repeatedly() 
 
       ).withName("Intake");
     

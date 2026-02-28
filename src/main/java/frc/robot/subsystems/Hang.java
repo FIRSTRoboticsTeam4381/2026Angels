@@ -39,7 +39,7 @@ public class Hang extends SubsystemBase {
       smartCurrentLimit(80);
       closedLoop.feedbackSensor(FeedbackSensor.kAbsoluteEncoder);
       softLimit.forwardSoftLimit(0.732).reverseSoftLimit(0.1)
-      .forwardSoftLimitEnabled(true).reverseSoftLimitEnabled(true);
+      .forwardSoftLimitEnabled(true ).reverseSoftLimitEnabled(true);
       this.signals.absoluteEncoderPositionAlwaysOn(true);
       this.signals.isAtSetpointAlwaysOn(true);
       this.signals.maxMotionSetpointPositionAlwaysOn(true);

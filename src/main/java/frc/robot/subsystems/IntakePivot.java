@@ -56,11 +56,11 @@ public class IntakePivot extends SubsystemBase {
       this.absoluteEncoder.inverted(true);
       this.softLimit.forwardSoftLimit(0.265).forwardSoftLimitEnabled(true);
       this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
+      this.inverted(true);
       closedLoop.feedForward.sva(0.40968, 0.23589, 0.041185);
       closedLoop.p(0.056226);
       closedLoop.maxMotion.cruiseVelocity(14).maxAcceleration(200);
       closedLoop.maxMotion.allowedProfileError(0.05);
-
     }};
 
     SparkFlexConfig hopperslideConfig = new SparkFlexConfig(){{

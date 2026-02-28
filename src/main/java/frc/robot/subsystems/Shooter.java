@@ -47,7 +47,7 @@ public InterpolatingDoubleTreeMap passtable;
           shoottable.put(5.19, 3819.3);
           shoottable.put(3.43, 3418.7);
           shoottable.put(3.49, 3552.2);*/
-          shoottable.put(1.35, 3153.5);
+          shoottable.put(1.5, 2756.0);
           shoottable.put(5.29, 3312.5);
           shoottable.put(3.8, 3074.0);
           shoottable.put(3.1, 2915.0);

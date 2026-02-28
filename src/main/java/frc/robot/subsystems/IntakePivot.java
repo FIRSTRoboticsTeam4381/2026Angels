@@ -51,13 +51,12 @@ public class IntakePivot extends SubsystemBase {
       this.signals.maxMotionSetpointVelocityAlwaysOn(true);
       this.signals.setSetpointAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
-      this.inverted(true);
+      this.inverted(false);
       this.absoluteEncoder.zeroCentered(true);
       this.absoluteEncoder.inverted(true);
-      this.softLimit.forwardSoftLimit(0.265).forwardSoftLimitEnabled(true);
+      this.softLimit.forwardSoftLimit(0.25).forwardSoftLimitEnabled(true);
       this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
-      this.inverted(true);
-      closedLoop.feedForward.sva(0.40968, 0.23589, 0.041185);
+      closedLoop.feedForward.sva(0.44418, 0.17943, 0.068277);
       closedLoop.p(0.056226);
       closedLoop.maxMotion.cruiseVelocity(14).maxAcceleration(200);
       closedLoop.maxMotion.allowedProfileError(0.05);
@@ -141,7 +140,7 @@ public Command up()
 return new SequentialCommandGroup
 (
   //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-  pivottoPosition(0.28, 0.01).until(pivot.getForwardSoftLimit()::isReached),
+  pivottoPosition(0.26, 0.01).until(pivot.getForwardSoftLimit()::isReached),
   new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }

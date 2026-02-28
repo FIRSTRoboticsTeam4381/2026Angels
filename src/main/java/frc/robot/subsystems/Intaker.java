@@ -38,8 +38,8 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
         smartCurrentLimit(30);
         //this.advanceCommutation(60);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
-         this.idleMode(IdleMode.kBrake);
-         
+        this.idleMode(IdleMode.kBrake);
+        this.inverted(true);
     }};
     
 

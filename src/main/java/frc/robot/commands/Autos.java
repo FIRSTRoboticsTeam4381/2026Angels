@@ -51,6 +51,10 @@ public final class Autos {
         return new PreviewAuto("Middle Depot");
     }
 
+    public static PreviewAuto middleScoreTest(){
+        return new PreviewAuto("Middle Depot (Testing Edition)");
+    }
+
     /* If you want to make a more complex auto using commands,
     *  PreviewAuto can also accept (Command, String), which will
     *  run Command while still showing a path preview for the path

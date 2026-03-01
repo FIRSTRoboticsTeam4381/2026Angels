@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.64,
-        "y": 5.947
+        "x": 3.5273734939759036,
+        "y": 4.00221686746988
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.39096353355647073,
-        "y": 5.925071972698828
+        "x": 1.6696626506024101,
+        "y": 4.942
       },
       "isLocked": false,
-      "linkedName": "Depot Intake Pos?"
+      "linkedName": "Middle Start"
     },
     {
       "anchor": {
-        "x": 2.9372771084337352,
-        "y": 4.920144578313253
+        "x": 0.7189518072289156,
+        "y": 5.390036144578313
       },
       "prevControl": {
-        "x": 2.0521325301204825,
-        "y": 6.012915662650602
+        "x": 1.5385301204819273,
+        "y": 5.029421686746988
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Diagonal Intake Test"
     }
   ],
   "rotationTargets": [],
@@ -33,13 +33,13 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "autoAimShoot",
-      "waypointRelativePos": 0.0,
-      "endWaypointRelativePos": 1.0,
+      "name": "intake",
+      "waypointRelativePos": 0.342086330935245,
+      "endWaypointRelativePos": null,
       "command": {
         "type": "named",
         "data": {
-          "name": "autoAimShoot"
+          "name": "intake"
         }
       }
     }
@@ -54,13 +54,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -34.508522987668414
+    "rotation": 118.14160123226166
   },
   "reversed": false,
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 179.26074064459215
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

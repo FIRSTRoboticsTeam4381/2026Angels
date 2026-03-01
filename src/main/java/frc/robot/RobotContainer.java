@@ -136,8 +136,8 @@ public class RobotContainer {
     // TODO Your Controls Here!
     specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
     specialist.rightTrigger().toggleOnTrue(AutoAim.autoaimspecialist());
-    specialist.leftTrigger().toggleOnTrue(intaker.intake());
-    specialist.leftBumper().toggleOnTrue(intaker.outake());
+    specialist.leftTrigger().whileTrue(intaker.intake());
+    specialist.leftBumper().whileTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());
     specialist.povRight().onTrue(intakePivot.middle());
@@ -148,7 +148,8 @@ public class RobotContainer {
     //Button board controls
     buttonBoard2.axisMagnitudeGreaterThan(0 , 0.1).onTrue(hang.manualControl(() ->JoystickUtils.interpolateNow(buttonBoard2.getRawAxis(0), 0.1)));
     buttonBoard1.button(1).whileTrue(intaker.intake());
-    buttonBoard1.button(2).onTrue(intakePivot.down());
+    buttonBoard1.button(2).and(buttonBoard1.button(1)).onTrue(intakePivot.down());
+    buttonBoard1.button(2).and(buttonBoard1.button(1).negate()).onTrue(intakePivot.middle());
     buttonBoard1.button(2).onFalse(intakePivot.up());
     buttonBoard1.button(3).whileTrue(agitator.agitatorFunnelMove());
     buttonBoard1.button(4).whileTrue(AutoAim.autoaimspecialist());

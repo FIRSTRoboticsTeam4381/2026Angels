@@ -80,9 +80,9 @@ public class RobotContainer {
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());
     autoChooser.addOption("Test", Autos.testAuto());
-    autoChooser.addOption("Left Score And Hang", Autos.leftScoreAuto());
-    autoChooser.addOption("Right Score And Hang", Autos.rightScoreAuto());
-    autoChooser.addOption("Middle Depot and Hang", Autos.middleScoreAuto());
+    autoChooser.addOption("Left Score", Autos.leftScoreAuto());
+    autoChooser.addOption("Right Score", Autos.rightScoreAuto());
+    autoChooser.addOption("Middle Depot", Autos.middleScoreAuto());
     
     // Add auto controls to the dashboard
     SmartDashboard.putData("Choose Auto:", autoChooser);
@@ -139,6 +139,7 @@ public class RobotContainer {
     specialist.leftBumper().toggleOnTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());
+    specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.agitatorFunnelMove());
     specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());

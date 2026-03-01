@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.lib.commands.SparkPositionProfiled;
+import frc.lib.commands.SparkPosition;
 import frc.lib.commands.SparkSysIDTest;
 import frc.robot.CanIDs;
 @Logged
@@ -54,11 +54,11 @@ public class IntakePivot extends SubsystemBase {
       this.inverted(false);
       this.absoluteEncoder.zeroCentered(true);
       this.absoluteEncoder.inverted(true);
-      this.softLimit.forwardSoftLimit(0.25).forwardSoftLimitEnabled(true);
+      this.softLimit.forwardSoftLimit(0.32).forwardSoftLimitEnabled(true);
       this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
-      closedLoop.feedForward.sva(0.44418, 0.17943, 0.068277);
-      closedLoop.p(0.056226);
-      closedLoop.maxMotion.cruiseVelocity(14).maxAcceleration(200);
+      closedLoop.feedForward.sva(0.5518, 0.14944, 0.084796);
+      closedLoop.p(2);
+      closedLoop.maxMotion.cruiseVelocity(30).maxAcceleration(200);
       closedLoop.maxMotion.allowedProfileError(0.05);
     }};
 
@@ -80,7 +80,7 @@ public class IntakePivot extends SubsystemBase {
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
     SmartDashboard.putData("SysID/IntakePivot",
-      new SparkSysIDTest(pivot, this, 1, 0.01, 0.24, pivot.getAbsoluteEncoder()::getPosition));
+      new SparkSysIDTest(pivot, this, 1, 0.01, 0.32, pivot.getAbsoluteEncoder()::getPosition));
 
   }
   
@@ -95,7 +95,7 @@ public class IntakePivot extends SubsystemBase {
  // }
 
   public Command pivottoPosition(double target, double range) {
-    return new SparkPositionProfiled(pivot, target, range, this).withName("pivottoPosition");
+    return new SparkPosition(pivot, target, range, this).withName("pivottoPosition");
   }
   //all numbers will be changed
  /*public Command fullopen() {
@@ -139,8 +139,7 @@ public Command up()
 {
 return new SequentialCommandGroup
 (
-  //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kBrake),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-  pivottoPosition(0.26, 0.01).until(pivot.getForwardSoftLimit()::isReached),
+  pivottoPosition(0.33, 0.01).until(pivot.getForwardSoftLimit()::isReached),
   new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }
@@ -149,11 +148,16 @@ public Command down()
  {
   return new SequentialCommandGroup
   (
-    //new InstantCommand(() -> pivot.set(-1)),
-    //new InstantCommand(() -> pivot.configureAsync(new SparkFlexConfig().idleMode(IdleMode.kCoast),ResetMode.kNoResetSafeParameters,PersistMode.kNoPersistParameters)),
-    //new WaitCommand(0.5),
-    //new InstantCommand(() -> pivot.set(0))
     pivottoPosition(-0.1, 0.01).until(pivot.getReverseSoftLimit()::isReached),
+   new  InstantCommand(() -> pivot.set(0), this )
+  ).withName("Down");
+}
+
+public Command middle()
+ {
+  return new SequentialCommandGroup
+  (
+    pivottoPosition(0.14, 0.01),
    new  InstantCommand(() -> pivot.set(0), this )
   ).withName("Down");
 }

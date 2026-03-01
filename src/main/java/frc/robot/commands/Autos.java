@@ -40,15 +40,15 @@ public final class Autos {
     //    return new PreviewAuto("Front3NoteAuto");
     //}
     public static PreviewAuto leftScoreAuto(){
-        return new PreviewAuto("Left Score And Hang");
+        return new PreviewAuto("Left Score");
     }
 
     public static PreviewAuto rightScoreAuto(){
-        return new PreviewAuto("Right Score And Hang");
+        return new PreviewAuto("Right Score");
     }
 
     public static PreviewAuto middleScoreAuto(){
-        return new PreviewAuto("Middle Depot and Hang");
+        return new PreviewAuto("Middle Depot");
     }
 
     /* If you want to make a more complex auto using commands,

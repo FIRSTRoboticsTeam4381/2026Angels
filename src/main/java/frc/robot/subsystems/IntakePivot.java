@@ -159,7 +159,7 @@ public Command middle()
   (
     pivottoPosition(0.14, 0.01),
    new  InstantCommand(() -> pivot.set(0), this )
-  ).withName("Down");
+  ).withName("Middle");
 }
 
 }

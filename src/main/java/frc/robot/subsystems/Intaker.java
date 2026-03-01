@@ -62,13 +62,14 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
     );
 
     SmartDashboard.putData("Subsystem/Intaker",this);
+    
 
   }
 
   @Override
   public void periodic() // This method will be called once per scheduler run 
   {
-    
+    SmartDashboard.putBoolean("Intake_Running", Math.abs(intakemotor.getAppliedOutput())>0);
   }
 
 

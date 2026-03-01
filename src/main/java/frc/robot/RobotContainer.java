@@ -136,7 +136,7 @@ public class RobotContainer {
     // TODO Your Controls Here!
     specialist.back().onTrue(new InstantCommand(() -> CommandScheduler.getInstance().cancelAll()));
     specialist.rightTrigger().toggleOnTrue(AutoAim.autoaimspecialist());
-    specialist.leftTrigger().whileTrue(intaker.intake());
+    specialist.leftTrigger().whileTrue(intaker.intake()).onTrue(intakePivot.down()).onFalse(intakePivot.middle());
     specialist.leftBumper().whileTrue(intaker.outake());
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());

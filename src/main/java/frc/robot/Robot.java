@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.lib.logging.RIOAlerts;
 import frc.lib.logging.RadioLogger;
+import frc.lib.util.DashboardShiftDisplay;
 
 @Logged
 public class Robot extends TimedRobot {
@@ -70,6 +71,10 @@ public class Robot extends TimedRobot {
 
     SmartDashboard.putNumber("autoAim/distanceToHub", AutoAim.distanceToHub());
     SmartDashboard.putNumber("autoAim/distanceToPass", AutoAim.distanceToPass());
+
+    SmartDashboard.putNumber("MatchTimer", DriverStation.getMatchTime());
+
+    DashboardShiftDisplay.updateHubStatus();
   }
 
   @Override

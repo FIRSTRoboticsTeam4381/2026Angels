@@ -47,6 +47,9 @@ public final class Autos {
         return new PreviewAuto("Right Score");
     }
 
+    public static PreviewAuto rightScoreCloseAuto(){
+        return new PreviewAuto("Right Score (Close)");
+    }
     /*public static PreviewAuto middleScoreAuto(){
         return new PreviewAuto("Middle Depot");
     }*/

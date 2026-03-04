@@ -8,27 +8,48 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.053894436523603,
-        "y": 1.8289586305206762
+        "x": 8.024165477889872,
+        "y": -0.1506562054273819
       },
       "isLocked": false,
-      "linkedName": "Right Intake"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.802439372325249,
-        "y": 0.6563934426229503
+        "x": 4.388402282454781,
+        "y": 0.6386019971403789
       },
       "prevControl": {
-        "x": 7.6489443652016975,
-        "y": 0.4623135567312706
+        "x": 5.488188489734904,
+        "y": 0.7550481596227576
+      },
+      "nextControl": {
+        "x": 2.8122926083902833,
+        "y": 0.4717223600061258
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.2886162624821687,
+        "y": 2.100670470756063
+      },
+      "prevControl": {
+        "x": 3.0815977175463622,
+        "y": 1.0397004279600575
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Trench "
+      "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 90.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +63,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 89.9999999998148
+    "rotation": 56.56997204790201
   },
   "reversed": false,
   "folder": "Right Side Autos",

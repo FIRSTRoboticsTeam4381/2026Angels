@@ -48,22 +48,22 @@ public final class Autos {
     }
 
     public static PreviewAuto rightScoreCloseAuto(){
-        return new PreviewAuto("Right Score (Close)");
+        return new PreviewAuto("Right Score Close");
     }
     /*public static PreviewAuto middleScoreAuto(){
         return new PreviewAuto("Middle Depot");
     }*/
 
     public static PreviewAuto middleScoreTest(){
-        return new PreviewAuto("Middle Depot");
+        return new PreviewAuto("Middle Depot Abandoned");
     }
 
     public static PreviewAuto middleScoreTestTest(){
-        return new PreviewAuto("Middle Depot (Testing Edition V2)");
+        return new PreviewAuto("Middle Depot Testing Edition V2");
     }
 
     public static PreviewAuto leftScoreClose(){
-        return new PreviewAuto("Left Score (Close)");
+        return new PreviewAuto("Left Score Close");
     }
 
     /* If you want to make a more complex auto using commands,

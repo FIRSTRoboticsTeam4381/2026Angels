@@ -3,35 +3,47 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.07933734939759,
-        "y": 4.045927710843373
+        "x": 3.5273734939759036,
+        "y": 4.00221686746988
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.183265060240964,
-        "y": 3.9147951807228916
+        "x": 3.5273734939759036,
+        "y": 5.261940698858668
       },
       "isLocked": false,
-      "linkedName": "Shoot Pos Middle"
+      "linkedName": "Middle Start"
     },
     {
       "anchor": {
-        "x": 1.5494578313253013,
-        "y": 3.729024096385543
+        "x": 1.1560602409638552,
+        "y": 5.9473493975903615
       },
       "prevControl": {
-        "x": 2.7624337349397594,
-        "y": 3.9912891566265065
+        "x": 1.8117228915662653,
+        "y": 5.34632530120482
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Hang Pos"
+      "linkedName": "Depot Intake Pos"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "intake",
+      "waypointRelativePos": 0.342086330935245,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "intake"
+        }
+      }
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -42,13 +54,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -0.7440592028887492
+    "rotation": 179.26074064459215
   },
   "reversed": false,
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -0.9093804491991161
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

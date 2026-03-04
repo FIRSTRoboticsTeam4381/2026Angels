@@ -1,0 +1,123 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.5973751783166898,
+        "y": 5.5811697574893016
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 0.4895545682815756,
+        "y": 5.834650112892662
+      },
+      "isLocked": false,
+      "linkedName": "Depot Intake Pos 4"
+    },
+    {
+      "anchor": {
+        "x": 1.503081312410841,
+        "y": 5.9952068473609135
+      },
+      "prevControl": {
+        "x": 0.8949643366619116,
+        "y": 5.684679029957204
+      },
+      "nextControl": {
+        "x": 1.9893837953867077,
+        "y": 6.243531519518804
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.2572467902995716,
+        "y": 6.900912981455065
+      },
+      "prevControl": {
+        "x": 1.65662042702644,
+        "y": 7.210427549918387
+      },
+      "nextControl": {
+        "x": 0.7397004279600568,
+        "y": 6.499814550641941
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.7138231098430812,
+        "y": 6.279857346647646
+      },
+      "prevControl": {
+        "x": 0.9509939343557094,
+        "y": 6.3589142881518566
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Depot Intake 2 Pos"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 2.390276839972974,
+      "maxWaypointRelativePos": 3.0,
+      "constraints": {
+        "maxVelocity": 3.0,
+        "maxAcceleration": 0.1,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "intake",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "intake"
+        }
+      }
+    },
+    {
+      "name": "intake",
+      "waypointRelativePos": 1.9122214719783965,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "intake"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -138.99091309842993
+  },
+  "reversed": false,
+  "folder": "Middle Autos",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 118.33483115354503
+  },
+  "useDefaultConstraints": true
+}

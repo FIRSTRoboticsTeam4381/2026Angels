@@ -47,12 +47,16 @@ public final class Autos {
         return new PreviewAuto("Right Score");
     }
 
-    public static PreviewAuto middleScoreAuto(){
+    /*public static PreviewAuto middleScoreAuto(){
+        return new PreviewAuto("Middle Depot");
+    }*/
+
+    public static PreviewAuto middleScoreTest(){
         return new PreviewAuto("Middle Depot");
     }
 
-    public static PreviewAuto middleScoreTest(){
-        return new PreviewAuto("Middle Depot (Testing Edition)");
+    public static PreviewAuto middleScoreTestTest(){
+        return new PreviewAuto("Middle Depot (Testing Edition V2)");
     }
 
     /* If you want to make a more complex auto using commands,

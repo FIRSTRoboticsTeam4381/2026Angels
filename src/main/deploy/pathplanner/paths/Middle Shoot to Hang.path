@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.9372771084337352,
-        "y": 4.920144578313253
+        "x": 3.07933734939759,
+        "y": 4.045927710843373
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.1941927710843374,
-        "y": 4.351903614457831
+        "x": 2.183265060240964,
+        "y": 3.9147951807228916
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Shoot Pos Middle"
     },
     {
       "anchor": {
@@ -20,8 +20,8 @@
         "y": 3.729024096385543
       },
       "prevControl": {
-        "x": 2.2488313253012047,
-        "y": 4.406542168674699
+        "x": 2.7624337349397594,
+        "y": 3.9912891566265065
       },
       "nextControl": null,
       "isLocked": false,
@@ -48,7 +48,7 @@
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -35.753887254436705
+    "rotation": -0.3514506685627459
   },
   "useDefaultConstraints": true
 }

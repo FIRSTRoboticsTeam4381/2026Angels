@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Middle Start to Depot (Diagonal Test)"
+                  "pathName": "Middle Start to Depot (Abandoned)"
                 }
               },
               {
@@ -26,13 +26,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Depot to Depot Intake (Diagonal Test)"
+            "pathName": "Depot to Depot Intake (Abandoned)"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Depot Intake to Middle Shoot (Diagonal Test)"
+            "pathName": "Depot Intake to Middle Shoot (Abandoned)"
           }
         },
         {
@@ -63,7 +63,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Middle Shoot to Hang (Diagonal Test)"
+            "pathName": "Middle Shoot to Hang (Abandoned)"
           }
         }
       ]

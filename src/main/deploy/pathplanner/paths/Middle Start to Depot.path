@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.5273734939759036,
-        "y": 5.261940698858668
+        "x": 1.6696626506024101,
+        "y": 4.942
       },
       "isLocked": false,
       "linkedName": "Middle Start"
     },
     {
       "anchor": {
-        "x": 1.1560602409638552,
-        "y": 5.9473493975903615
+        "x": 0.7189518072289156,
+        "y": 5.390036144578313
       },
       "prevControl": {
-        "x": 1.8117228915662653,
-        "y": 5.34632530120482
+        "x": 1.5385301204819273,
+        "y": 5.029421686746988
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Depot Intake Pos"
+      "linkedName": "Diagonal Intake Test"
     }
   ],
   "rotationTargets": [],
@@ -54,7 +54,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.26074064459215
+    "rotation": 118.14160123226166
   },
   "reversed": false,
   "folder": "Middle Autos",

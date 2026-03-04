@@ -82,7 +82,7 @@ public class RobotContainer {
     autoChooser.addOption("Test", Autos.testAuto());
     autoChooser.addOption("Left Score", Autos.leftScoreAuto());
     autoChooser.addOption("Right Score", Autos.rightScoreAuto());
-    //autoChooser.addOption("Middle Depot", Autos.middleScoreAuto());
+    autoChooser.addOption("Middle Depot (Testing Edition V2)", Autos.middleScoreTestTest());
     autoChooser.addOption("Middle Depot", Autos.middleScoreTest());
     
     // Add auto controls to the dashboard

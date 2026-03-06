@@ -32,16 +32,16 @@
     },
     {
       "anchor": {
-        "x": 3.2756776034236803,
-        "y": 2.3335663338088444
+        "x": 3.276,
+        "y": 2.334
       },
       "prevControl": {
-        "x": 3.068659058487874,
-        "y": 1.272596291012839
+        "x": 3.0689803473582065,
+        "y": 1.2730301733423484
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Right Side Shoot (Close)"
     }
   ],
   "rotationTargets": [
@@ -55,7 +55,7 @@
   "eventMarkers": [
     {
       "name": "autoAimShoot",
-      "waypointRelativePos": 1.2,
+      "waypointRelativePos": 1.6367319378797907,
       "endWaypointRelativePos": null,
       "command": {
         "type": "parallel",
@@ -68,17 +68,6 @@
               }
             }
           ]
-        }
-      }
-    },
-    {
-      "name": "agitatorReverse",
-      "waypointRelativePos": 1.6258064516128543,
-      "endWaypointRelativePos": null,
-      "command": {
-        "type": "named",
-        "data": {
-          "name": "agitatorReverse"
         }
       }
     }

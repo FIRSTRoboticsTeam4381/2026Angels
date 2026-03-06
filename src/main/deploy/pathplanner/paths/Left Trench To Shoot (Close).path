@@ -32,12 +32,12 @@
     },
     {
       "anchor": {
-        "x": 3.2627389443651924,
-        "y": 5.568231098430813
+        "x": 3.276,
+        "y": 5.568
       },
       "prevControl": {
-        "x": 2.8098858773181163,
-        "y": 6.603323823109844
+        "x": 3.059626640458031,
+        "y": 6.676907308253456
       },
       "nextControl": null,
       "isLocked": false,
@@ -70,7 +70,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -50.73536433332461
+    "rotation": -48.67449952082963
   },
   "reversed": false,
   "folder": "Left Side Autos",

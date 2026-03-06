@@ -144,6 +144,7 @@ public class RobotContainer {
     specialist.povDown().onTrue(intakePivot.down());
     specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.agitatorFunnelMove());
+    specialist.y().whileTrue(agitator.agitatorFunnelMoveReverse());
     specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 

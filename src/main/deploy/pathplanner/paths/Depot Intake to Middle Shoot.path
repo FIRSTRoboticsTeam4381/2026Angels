@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.4647866433995518,
-        "y": 6.2579293193464745
+        "x": 1.3527590361445787,
+        "y": 7.204036144578313
       },
       "isLocked": false,
       "linkedName": "Depot Intake 2 Pos"
     },
     {
       "anchor": {
-        "x": 3.07933734939759,
-        "y": 4.045927710843373
+        "x": 2.65,
+        "y": 4.0
       },
       "prevControl": {
-        "x": 2.1941927710843374,
-        "y": 5.138698795180723
+        "x": 2.1395542168674693,
+        "y": 5.3463253012048195
       },
       "nextControl": null,
       "isLocked": false,
@@ -47,8 +47,41 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
+      "name": "pivotMiddle",
+      "waypointRelativePos": 0.19950372208437556,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "pivotMiddle"
+        }
+      }
+    },
+    {
+      "name": "stopIntake",
+      "waypointRelativePos": 0.4,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "stopIntake"
+        }
+      }
+    },
+    {
+      "name": "agitatorReverse",
+      "waypointRelativePos": 0.55,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "agitatorReverse"
+        }
+      }
+    },
+    {
       "name": "autoAimShoot",
-      "waypointRelativePos": 0.0,
+      "waypointRelativePos": 0.5508684863523596,
       "endWaypointRelativePos": 1.0,
       "command": {
         "type": "named",

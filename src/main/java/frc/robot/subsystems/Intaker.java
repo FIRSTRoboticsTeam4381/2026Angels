@@ -46,6 +46,7 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
     intakemotor.configure(intakemotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     NamedCommands.registerCommand("intake", intake());
+    NamedCommands.registerCommand("stopIntake", stopIntake());
 
 
 
@@ -91,6 +92,16 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
         new InstantCommand(() -> intakemotor.set(-0.8), this).repeatedly()
       
       ).withName("Outtake");
+    
+    }
+
+    public Command stopIntake() 
+    {
+      return new ParallelCommandGroup
+      (
+        new InstantCommand(() -> intakemotor.set(0), this)
+      
+      ).withName("Stop Intake");
     
     }
 

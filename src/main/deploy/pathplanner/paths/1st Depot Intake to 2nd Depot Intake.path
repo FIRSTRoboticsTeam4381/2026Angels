@@ -3,45 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.5973751783166898,
-        "y": 5.5811697574893016
+        "x": 0.6136834535583595,
+        "y": 5.621731341894759
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.4895545682815756,
-        "y": 5.834650112892662
+        "x": 1.2270070704223923,
+        "y": 5.004417006092204
       },
       "isLocked": false,
       "linkedName": "Depot Intake Pos 4"
     },
     {
       "anchor": {
-        "x": 1.503081312410841,
-        "y": 5.9952068473609135
+        "x": 1.844294144338197,
+        "y": 6.083210350937199
       },
       "prevControl": {
-        "x": 0.8949643366619116,
-        "y": 5.684679029957204
+        "x": 1.6928665360066433,
+        "y": 5.88428906139034
       },
       "nextControl": {
-        "x": 1.9893837953867077,
-        "y": 6.243531519518804
+        "x": 2.314354635296406,
+        "y": 6.700700384998263
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.2572467902995716,
-        "y": 6.900912981455065
+        "x": 1.346189817117786,
+        "y": 6.903617478123757
       },
       "prevControl": {
-        "x": 1.65662042702644,
-        "y": 7.210427549918387
+        "x": 1.7051179352619048,
+        "y": 7.255220532632282
       },
       "nextControl": {
-        "x": 0.7397004279600568,
-        "y": 6.499814550641941
+        "x": 1.1676001717740072,
+        "y": 6.728672519419647
       },
       "isLocked": false,
       "linkedName": null
@@ -52,8 +52,8 @@
         "y": 6.279857346647646
       },
       "prevControl": {
-        "x": 0.9509939343557094,
-        "y": 6.3589142881518566
+        "x": 0.9047228915662651,
+        "y": 6.493734939759036
       },
       "nextControl": null,
       "isLocked": false,
@@ -64,7 +64,7 @@
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 2.390276839972974,
+      "minWaypointRelativePos": 2.5,
       "maxWaypointRelativePos": 3.0,
       "constraints": {
         "maxVelocity": 3.0,
@@ -117,7 +117,7 @@
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 118.33483115354503
+    "rotation": 133.8211832525073
   },
   "useDefaultConstraints": true
 }

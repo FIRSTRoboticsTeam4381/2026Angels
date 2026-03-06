@@ -57,6 +57,7 @@ public class Agitator extends SubsystemBase {
 
     NamedCommands.registerCommand("agitatorMove", agitatorMove());
     NamedCommands.registerCommand("shoot", agitatorFunnelMove());
+    NamedCommands.registerCommand("agitatorReverse", agitatorFunnelMoveReverse());
 
    this.setDefaultCommand(
     new FunctionalCommand(() -> {

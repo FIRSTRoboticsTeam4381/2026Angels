@@ -75,6 +75,7 @@ public class IntakePivot extends SubsystemBase {
 
     NamedCommands.registerCommand("pivotDown", down());
     NamedCommands.registerCommand("pivotUp", up());
+    NamedCommands.registerCommand("pivotMiddle", middle());
 
 
 

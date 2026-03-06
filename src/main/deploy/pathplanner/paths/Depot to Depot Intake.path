@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7189518072289156,
-        "y": 5.390036144578313
+        "x": 0.7997165629083935,
+        "y": 5.438708809547002
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.6111311971938012,
-        "y": 5.643516499981674
+        "x": 0.5972310325226378,
+        "y": 5.585336262584962
       },
       "isLocked": false,
       "linkedName": "Diagonal Intake Test"
     },
     {
       "anchor": {
-        "x": 0.5973751783166898,
-        "y": 5.5811697574893016
+        "x": 0.6136834535583595,
+        "y": 5.621731341894759
       },
       "prevControl": {
-        "x": 0.6952306406985773,
-        "y": 5.351116919032509
+        "x": 0.8077207268639569,
+        "y": 5.464093984113905
       },
       "nextControl": null,
       "isLocked": false,
@@ -68,13 +68,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 118.33483115354503
+    "rotation": 133.8211832525073
   },
   "reversed": false,
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 118.14160123226166
+    "rotation": 136.1628320104972
   },
   "useDefaultConstraints": true
 }

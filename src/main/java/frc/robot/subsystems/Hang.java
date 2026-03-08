@@ -26,13 +26,13 @@ import frc.robot.CanIDs;
 public class Hang extends SubsystemBase {
 
   public SparkFlex hangMotor1;
-  public SparkFlex hangMotor2;
+  //public SparkFlex hangMotor2;
 
   /** Creates a new Hang. */
   public Hang() 
   {
     hangMotor1 = new SparkFlex(CanIDs.HANG_1_MOTOR_ID, MotorType.kBrushless);
-    hangMotor2 = new SparkFlex(CanIDs.HANG_2_MOTOR_ID, MotorType.kBrushless);
+    //hangMotor2 = new SparkFlex(CanIDs.HANG_2_MOTOR_ID, MotorType.kBrushless);
 
     SparkFlexConfig hangMotor1Config = new SparkFlexConfig()
     {{
@@ -58,7 +58,7 @@ public class Hang extends SubsystemBase {
     }};
 
   hangMotor1.configure(hangMotor1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-  hangMotor2.configure(hangMotor2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+  //hangMotor2.configure(hangMotor2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
   }
 

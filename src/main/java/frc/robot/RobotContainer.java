@@ -56,7 +56,7 @@ public class RobotContainer {
   public final Agitator agitator = new Agitator();
   public final Intaker intaker = new Intaker();
   public final IntakePivot intakePivot = new IntakePivot();
-  public final Hang hang = new Hang();
+  //public final Hang hang = new Hang();
   // TODO set camera names, coordinates, and angles relative to the robot's center
   public final PhotonCam camA = new PhotonCam("FL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(11.33), Units.inchesToMeters(12.9),  Units.inchesToMeters(20.215)),
    new Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(-30))));
@@ -145,11 +145,11 @@ public class RobotContainer {
     specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.agitatorFunnelMove());
     specialist.y().whileTrue(agitator.agitatorFunnelMoveReverse());
-    specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
+    //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
     //Button board controls
-    buttonBoard2.axisMagnitudeGreaterThan(0 , 0.1).onTrue(hang.manualControl(() ->JoystickUtils.interpolateNow(buttonBoard2.getRawAxis(0), 0.1)));
+    //buttonBoard2.axisMagnitudeGreaterThan(0 , 0.1).onTrue(hang.manualControl(() ->JoystickUtils.interpolateNow(buttonBoard2.getRawAxis(0), 0.1)));
     buttonBoard1.button(1).whileTrue(intaker.intake());
     buttonBoard1.button(2).and(buttonBoard1.button(1)).onTrue(intakePivot.down());
     buttonBoard1.button(2).and(buttonBoard1.button(1).negate()).onTrue(intakePivot.middle());

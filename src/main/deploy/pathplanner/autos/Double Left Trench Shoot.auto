@@ -46,7 +46,7 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 1.25
+                        "waitTime": 1.0
                       }
                     }
                   ]
@@ -81,31 +81,38 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "Left Trench To Shoot"
-          }
-        },
-        {
-          "type": "deadline",
+          "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "wait",
+                "type": "path",
                 "data": {
-                  "waitTime": 2.5
+                  "pathName": "Left Trench To Shoot"
                 }
               },
               {
-                "type": "named",
+                "type": "deadline",
                 "data": {
-                  "name": "autoAimShoot"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "agitatorReverse"
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 2.0
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "autoAimShoot"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "agitatorReverse"
+                      }
+                    }
+                  ]
                 }
               }
             ]
@@ -118,7 +125,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 3.0
                 }
               },
               {

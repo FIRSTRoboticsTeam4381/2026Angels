@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.802439372325249,
+        "x": 3.9808469945355185,
         "y": 0.6563934426229503
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.013181169757488,
-        "y": 0.7550499286733235
+        "x": 4.9808469945355185,
+        "y": 0.6563934426229503
       },
       "isLocked": false,
-      "linkedName": "Right Trench "
+      "linkedName": "Right Shoot"
     },
     {
       "anchor": {
-        "x": 3.9808469945355185,
-        "y": 0.6563934426229503
+        "x": 7.610128388017117,
+        "y": 0.75
       },
       "prevControl": {
-        "x": 4.6730527817403695,
-        "y": 0.5221540656205423
+        "x": 6.610128388017117,
+        "y": 0.75
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Shoot"
+      "linkedName": "Right Neutral Zone"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 80.4399035191137
+    "rotation": 90.0
   },
   "reversed": false,
   "folder": "Right Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 89.9999999998148
+    "rotation": 80.4399035191137
   },
   "useDefaultConstraints": true
 }

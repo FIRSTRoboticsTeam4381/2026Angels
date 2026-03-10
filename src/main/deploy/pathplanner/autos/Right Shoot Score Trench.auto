@@ -1,0 +1,31 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Trench Shoot to Center"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Center Intake"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Go To and Shoot"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

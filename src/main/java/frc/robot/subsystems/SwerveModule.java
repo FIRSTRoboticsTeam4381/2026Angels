@@ -115,6 +115,11 @@ public class SwerveModule {
         // This should save on energy, tread wear, and odometry accuracy
         desiredState.speedMetersPerSecond *= desiredState.angle.minus(getAngle()).getCos();
 
+        // Force brake if wheel is commanded in reverse
+        double currentSpeed = getState().speedMetersPerSecond;
+        if(Math.signum(desiredState.speedMetersPerSecond) != Math.signum(currentSpeed) && Math.abs(currentSpeed) > 0.2)
+            desiredState.speedMetersPerSecond = 0;
+
          if(isOpenLoop){ // TELEOP 
             double percentOutput = desiredState.speedMetersPerSecond / Constants.Swerve.MAX_SPEED; 
             mDriveMotor.set(percentOutput * -1);

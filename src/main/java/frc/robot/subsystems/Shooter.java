@@ -89,7 +89,7 @@ public InterpolatingDoubleTreeMap passtable;
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
     {{
        apply(shooterConfig);
-       follow(shooter1, true);
+       follow(shooter1);
        //inverted(true);
        //makes shooter 2 ther same as shooter 1
     }};

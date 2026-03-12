@@ -35,7 +35,7 @@ public class Intaker extends SubsystemBase /* Creates a new Shooter. */
 
     SparkMaxConfig intakemotorConfig = new SparkMaxConfig()
     {{
-        smartCurrentLimit(30);
+        smartCurrentLimit(60);
         //this.advanceCommutation(60);
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.idleMode(IdleMode.kBrake);

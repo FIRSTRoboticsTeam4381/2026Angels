@@ -77,11 +77,17 @@ public class Agitator extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-public Command agitatorFunnelMove(){
+public Command agitatorFunnelMove(){//fire
 return new InstantCommand(
-  ()-> {agitator.set(1); funnel.set(1);},this).withName("agitatorFunnelMove").repeatedly();
+  ()-> {agitator.set(1); funnel.set(1);},this).withName("agitatorFunnelMove").repeatedly();//0 used to be 1
   
 }
+
+/*public Command agitatorFunnelMoveTest(){//remove this later
+return new InstantCommand(
+  ()-> {agitator.set(1); funnel.set(0);},this).withName("agitatorFunnelMove").repeatedly();//0 used to be 1
+  
+}*/
 
 public Command agitatorMove(){
   return new InstantCommand(

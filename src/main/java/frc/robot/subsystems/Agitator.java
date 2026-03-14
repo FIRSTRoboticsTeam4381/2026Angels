@@ -51,13 +51,13 @@ public class Agitator extends SubsystemBase {
       this.smartCurrentLimit(60);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
+      
   }};
 
   SparkFlexConfig funnelConfig2 = new SparkFlexConfig()
   {{
     apply(funnelConfig);
-    follow(funnel);
-    inverted(true);
+    follow(funnel,true);
   }};
   
     agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);

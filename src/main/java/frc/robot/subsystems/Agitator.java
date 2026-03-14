@@ -28,32 +28,42 @@ public class Agitator extends SubsystemBase {
   /** Creates a new Agitator. */
  public SparkMax agitator; 
  public SparkFlex funnel; 
+ public SparkFlex funnel2;
 
  public Agitator(){
 
   agitator = new SparkMax(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
+  funnel2 = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID_2, MotorType.kBrushless);
 
   SparkMaxConfig agitatorConfig = new SparkMaxConfig()
   {{
       this.smartCurrentLimit(20);
       this.advanceCommutation(60);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
-       this.idleMode(IdleMode.kBrake);
+      this.idleMode(IdleMode.kBrake);
      // this.encoder.
      this.inverted(true);
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(80);
+      this.smartCurrentLimit(60);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
-       this.idleMode(IdleMode.kBrake);
+      this.idleMode(IdleMode.kBrake);
   }};
 
+  SparkFlexConfig funnelConfig2 = new SparkFlexConfig()
+  {{
+    apply(funnelConfig);
+    follow(funnel);
+    inverted(true);
+  }};
   
     agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     funnel.configure(funnelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
+    funnel2.configure(funnelConfig2, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
+
 
     NamedCommands.registerCommand("agitatorMove", agitatorMove());
     NamedCommands.registerCommand("shoot", agitatorFunnelMove());

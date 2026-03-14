@@ -38,6 +38,7 @@ public final class CanIDs {
     public static final int INTAKER_MOTOR_ID = 49;
     public static final int AGITATOR_MOTOR_ID = 50;
     public static final int FUNNEL_MOTOR_ID = 51;
+    public static final int FUNNEL_MOTOR_ID_2 = 58;
     public static final int HOODED_MOTOR_ID = 52;
     public static final int INTAKE_PIVOT_MOTOR_ID = 53;
     public static final int HOPPER_SLIDE_MOTOR_ID = 54;

@@ -143,8 +143,8 @@ public class RobotContainer {
     specialist.povUp().onTrue(intakePivot.up());
     specialist.povDown().onTrue(intakePivot.down());
     specialist.povRight().onTrue(intakePivot.middle());
-    specialist.rightBumper().whileTrue(agitator.agitatorFunnelMove());
-    specialist.y().whileTrue(agitator.agitatorFunnelMoveReverse());
+    specialist.rightBumper().whileTrue(agitator.FunnelMove());
+    specialist.y().whileTrue(agitator.FunnelMoveReverse());
     //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
@@ -154,13 +154,13 @@ public class RobotContainer {
     buttonBoard1.button(2).and(buttonBoard1.button(1)).onTrue(intakePivot.down());
     buttonBoard1.button(2).and(buttonBoard1.button(1).negate()).onTrue(intakePivot.middle());
     buttonBoard1.button(2).onFalse(intakePivot.up());
-    buttonBoard1.button(3).whileTrue(agitator.agitatorFunnelMove());
+    buttonBoard1.button(3).whileTrue(agitator.FunnelMove());
     buttonBoard1.button(4).whileTrue(AutoAim.autoaimspecialist());
     buttonBoard2.button(1).toggleOnTrue( new ParallelCommandGroup(
     shooterhood.setHoodAngle(() -> (buttonBoard1.getRawAxis(1) + 1) / 2 * 0.228 + 0.1),
     shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) + 1) / 2 * 6784)));
     buttonBoard2.button(3).whileTrue(intaker.outake());
-    buttonBoard2.button(2).whileTrue(agitator.agitatorFunnelMoveReverse());
+    buttonBoard2.button(2).whileTrue(agitator.FunnelMoveReverse());
     // haven't done hang yet
 
 

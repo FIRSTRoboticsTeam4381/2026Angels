@@ -66,8 +66,8 @@ public class Agitator extends SubsystemBase {
 
 
     NamedCommands.registerCommand("agitatorMove", agitatorMove());
-    NamedCommands.registerCommand("shoot", agitatorFunnelMove());
-    NamedCommands.registerCommand("agitatorReverse", agitatorFunnelMoveReverse());
+    NamedCommands.registerCommand("shoot", FunnelMove());
+    NamedCommands.registerCommand("agitatorReverse", FunnelMoveReverse());
 
    this.setDefaultCommand(
     new FunctionalCommand(() -> {
@@ -87,9 +87,9 @@ public class Agitator extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-public Command agitatorFunnelMove(){//fire
+public Command FunnelMove(){//fire
 return new InstantCommand(
-  ()-> {agitator.set(1); funnel.set(1);},this).withName("agitatorFunnelMove").repeatedly();//0 used to be 1
+  ()-> {funnel.set(1);},this).withName("FunnelMove").repeatedly();//agitator.set(1);
   
 }
 
@@ -101,11 +101,11 @@ return new InstantCommand(
 
 public Command agitatorMove(){
   return new InstantCommand(
-  ()-> {agitator.set(1); funnel.set(0);},this).withName("agitatorMove").repeatedly();
+  ()-> {funnel.set(0);},this).withName("agitatorMove").repeatedly();//agitator.set(1);
 }
 
-public Command agitatorFunnelMoveReverse(){
+public Command FunnelMoveReverse(){
 return new InstantCommand(
-  () -> {agitator.set(-1); funnel.set(-1);},this).withName("agitatorFunnelMoveReverse").repeatedly();
+  () -> {funnel.set(-1);},this).withName("FunnelMoveReverse").repeatedly();//agitator.set(-1);
   
 }}

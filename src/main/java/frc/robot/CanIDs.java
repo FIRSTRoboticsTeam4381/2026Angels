@@ -79,6 +79,7 @@ public final class CanIDs {
           Map.entry(INTAKER_MOTOR_ID, "Intaker/motor1"),
           Map.entry(AGITATOR_MOTOR_ID, "Agitator/Agitator/motor1"),
           Map.entry(FUNNEL_MOTOR_ID, "Agitator/Funnel/motor1"),
+          Map.entry(FUNNEL_MOTOR_ID_2, "Agitator/Funnel/motor2"),
           Map.entry(HOODED_MOTOR_ID, "CarHood/motor1"),
           Map.entry(HOODED_MOTOR_ID_2, "CarHood/motor2"),
           Map.entry(INTAKE_PIVOT_MOTOR_ID, "IntakePivot/IntakePivot/motor1"),

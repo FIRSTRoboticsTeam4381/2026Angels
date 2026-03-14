@@ -26,24 +26,23 @@ import frc.robot.CanIDs;
 public class Agitator extends SubsystemBase {
 
   /** Creates a new Agitator. */
- public SparkMax agitator; 
+ public SparkFlex agitator; 
  public SparkFlex funnel; 
  public SparkFlex funnel2;
 
  public Agitator(){
 
-  agitator = new SparkMax(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
+  agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
   funnel2 = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID_2, MotorType.kBrushless);
 
-  SparkMaxConfig agitatorConfig = new SparkMaxConfig()
+  SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(20);
-      this.advanceCommutation(60);
+      this.smartCurrentLimit(50);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
      // this.encoder.
-     this.inverted(true);
+     this.inverted(false);
   }};
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()

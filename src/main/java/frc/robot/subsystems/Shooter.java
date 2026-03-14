@@ -79,7 +79,7 @@ public InterpolatingDoubleTreeMap passtable;
         this.signals.setSetpointAlwaysOn(true);
         this.idleMode(IdleMode.kCoast);
         this.inverted(false);
-        this.closedLoop.feedForward.sva(0.0020747, 0.0018252, 0.00051996);
+        this.closedLoop.feedForward.sva(0.093677, 0.0018017, 0.00040764);
         this.closedLoop.p(4.6001E-04);//1.6001E-06, 0.0000016001
 
 

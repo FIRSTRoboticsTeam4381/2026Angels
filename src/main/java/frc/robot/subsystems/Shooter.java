@@ -27,7 +27,7 @@ import frc.lib.commands.SparkSysIDTest;
 import frc.robot.AutoAim;
 import frc.robot.CanIDs;
 @Logged
-//remember to change motor IDs because what was shooter1 is removed
+
 
 public class Shooter extends SubsystemBase {
 
@@ -35,7 +35,7 @@ public class Shooter extends SubsystemBase {
 public SparkFlex shooter1;
 public SparkFlex shooter2;
 public SparkFlex shooter3;
-//public SparkFlex shooter4;
+public SparkFlex shooter4;
 public InterpolatingDoubleTreeMap shoottable;
 public InterpolatingDoubleTreeMap passtable;
 //key=distance, value=velocity
@@ -65,7 +65,7 @@ public InterpolatingDoubleTreeMap passtable;
   shooter1 = new SparkFlex(CanIDs.SHOOTER_1_MOTOR_ID, MotorType.kBrushless); 
   shooter2 = new SparkFlex(CanIDs.SHOOTER_2_MOTOR_ID, MotorType.kBrushless);
   shooter3 = new SparkFlex(CanIDs.SHOOTER_3_MOTOR_ID, MotorType.kBrushless);
-  //shooter4 = new SparkFlex(CanIDs.SHOOTER_4_MOTOR_ID, MotorType.kBrushless);
+  shooter4 = new SparkFlex(CanIDs.SHOOTER_4_MOTOR_ID, MotorType.kBrushless);
   shoottable = new InterpolatingDoubleTreeMap();
   passtable = new InterpolatingDoubleTreeMap();
   shootSetUp();
@@ -78,8 +78,9 @@ public InterpolatingDoubleTreeMap passtable;
         this.signals.primaryEncoderVelocityAlwaysOn(true);
         this.signals.setSetpointAlwaysOn(true);
         this.idleMode(IdleMode.kCoast);
-        this.inverted(false);
-        this.closedLoop.feedForward.sva(0.093677, 0.0018017, 0.00040764);
+
+        this.inverted(true);
+        this.closedLoop.feedForward.sva(0.0020747, 0.0018252, 0.00051996);
         this.closedLoop.p(4.6001E-04);//1.6001E-06, 0.0000016001
 
 
@@ -88,7 +89,7 @@ public InterpolatingDoubleTreeMap passtable;
      SparkFlexConfig shooter2Config = new SparkFlexConfig()
     {{
        apply(shooterConfig);
-       follow(shooter1);
+       follow(shooter1, true);
        //inverted(true);
        //makes shooter 2 ther same as shooter 1
     }};
@@ -98,7 +99,7 @@ public InterpolatingDoubleTreeMap passtable;
     shooter1.configure(shooterConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     shooter2.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     shooter3.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-    //shooter4.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    shooter4.configure(shooter2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     this.setDefaultCommand(
       new FunctionalCommand(() -> shooter1.set(0), () -> {}, (killed) -> {}, () -> {return false;}, this));

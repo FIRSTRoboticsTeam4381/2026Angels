@@ -145,6 +145,7 @@ public class RobotContainer {
     specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.FunnelMove());
     specialist.y().whileTrue(agitator.FunnelMoveReverse());
+    specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(intakePivot.pivotManualControl(()-> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 
@@ -161,6 +162,7 @@ public class RobotContainer {
     shooter.setVelocity(() -> (buttonBoard1.getRawAxis(0) + 1) / 2 * 6784)));
     buttonBoard2.button(3).whileTrue(intaker.outake());
     buttonBoard2.button(2).whileTrue(agitator.FunnelMoveReverse());
+    buttonBoard2.axisMagnitudeGreaterThan(0 , 0.1).onTrue(intakePivot.pivotManualControl(() ->JoystickUtils.interpolateNow(buttonBoard2.getRawAxis(0), 0.1)));
     // haven't done hang yet
 
 

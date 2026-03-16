@@ -73,7 +73,7 @@ public class Hang extends SubsystemBase {
     }
 public Command manualControl(Supplier <Double> joystick)
     {
-      return new InstantCommand(() -> hangMotor1.set(joystick.get()), this).repeatedly().withName("joystick control");
+      return new InstantCommand(() -> hangMotor1.set(joystick.get()), this).repeatedly().withName("Hang joystick control");
     }
 
 

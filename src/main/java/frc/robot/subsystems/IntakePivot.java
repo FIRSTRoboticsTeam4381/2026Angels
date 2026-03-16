@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.function.Supplier;
+
 import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
@@ -163,4 +165,8 @@ public Command middle()
   ).withName("Middle");
 }
 
+public Command pivotManualControl(Supplier <Double> joystick)
+    {
+      return new InstantCommand(() -> pivot.set(joystick.get()*0.25), this).repeatedly().withName("pivot joystick control");
+    }
 }

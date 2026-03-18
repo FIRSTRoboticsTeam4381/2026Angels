@@ -142,7 +142,7 @@ public Command up()
 {
 return new SequentialCommandGroup
 (
-  pivottoPosition(0.33, 0.01).until(pivot.getForwardSoftLimit()::isReached),
+  pivottoPosition(0.3, 0.01).until(pivot.getForwardSoftLimit()::isReached), //0.33
   new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }
@@ -152,7 +152,7 @@ public Command down()
   return new SequentialCommandGroup
   (
     pivottoPosition(-0.1, 0.01).until(pivot.getReverseSoftLimit()::isReached),
-   new  InstantCommand(() -> pivot.set(0), this )
+   new  InstantCommand(() -> pivot.set(0), this)
   ).withName("Down");
 }
 
@@ -160,13 +160,13 @@ public Command middle()
  {
   return new SequentialCommandGroup
   (
-    pivottoPosition(0.14, 0.01),
-   new  InstantCommand(() -> pivot.set(0), this )
+    pivottoPosition(0.12, 0.03),//14
+   new  InstantCommand(() -> pivot.set(0), this)
   ).withName("Middle");
 }
 
 public Command pivotManualControl(Supplier <Double> joystick)
     {
-      return new InstantCommand(() -> pivot.set(joystick.get()*0.25), this).repeatedly().withName("pivot joystick control");
+      return new InstantCommand(() -> pivot.set(joystick.get()*-0.25), this).repeatedly().withName("pivot joystick control");
     }
 }

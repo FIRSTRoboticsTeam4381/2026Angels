@@ -3,51 +3,55 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.7653922967189715,
-        "y": 3.5368616262482178
+        "x": 3.276,
+        "y": 5.568
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.024165477889872,
-        "y": -0.1506562054273819
+        "x": 2.5695000000000006,
+        "y": 7.413606557377048
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "left shoot (close)"
     },
     {
       "anchor": {
-        "x": 4.388402282454781,
-        "y": 0.6386019971403789
+        "x": 4.36663114753944,
+        "y": 7.471114754094822
       },
       "prevControl": {
-        "x": 5.488188489734904,
-        "y": 0.7550481596227576
+        "x": 3.4575117154888697,
+        "y": 7.511013412554721
       },
       "nextControl": {
-        "x": 2.8122926083902833,
-        "y": 0.4717223600061258
+        "x": 6.659770491801735,
+        "y": 7.370475409832528
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.276,
-        "y": 2.334
+        "x": 7.7739918032786886,
+        "y": 6.960729508196721
       },
       "prevControl": {
-        "x": 3.0689803473582065,
-        "y": 1.2730301733423484
+        "x": 7.213286885244359,
+        "y": 7.3560983606522
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Side Shoot (Close)"
+      "linkedName": "Left Neutral Zone"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1,
-      "rotationDegrees": 90.0
+      "waypointRelativePos": 0.7330422125181927,
+      "rotationDegrees": 180.0
+    },
+    {
+      "waypointRelativePos": 1.2360989810771499,
+      "rotationDegrees": 180.0
     }
   ],
   "constraintZones": [],
@@ -55,7 +59,7 @@
   "eventMarkers": [
     {
       "name": "autoAimShoot",
-      "waypointRelativePos": 1.1467105263157906,
+      "waypointRelativePos": 1.0857528696826537,
       "endWaypointRelativePos": 2.0,
       "command": {
         "type": "named",
@@ -75,13 +79,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 53.412669181593174
+    "rotation": -90.0
   },
   "reversed": false,
-  "folder": "Right Side Autos",
+  "folder": "Left Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": -48.67449952082963
   },
   "useDefaultConstraints": true
 }

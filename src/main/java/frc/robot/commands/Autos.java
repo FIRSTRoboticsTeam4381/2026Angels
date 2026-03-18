@@ -66,6 +66,14 @@ public final class Autos {
         return new PreviewAuto("Left Score Close");
     }
 
+    public static PreviewAuto doubleLeftShoot(){
+        return new PreviewAuto("Double Left Shoot Close");
+    }
+
+    public static PreviewAuto doubleRightShoot(){
+        return new PreviewAuto("Double Right Shoot Close");
+    }
+
     /* If you want to make a more complex auto using commands,
     *  PreviewAuto can also accept (Command, String), which will
     *  run Command while still showing a path preview for the path

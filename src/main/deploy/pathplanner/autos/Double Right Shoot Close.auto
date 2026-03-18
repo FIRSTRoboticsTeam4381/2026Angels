@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Left Start To Shoot Close"
+            "pathName": "Right Start To Shoot Close"
           }
         },
         {
@@ -17,7 +17,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 2.0
+                  "waitTime": 0.3
                 }
               },
               {
@@ -27,44 +27,62 @@
                 }
               },
               {
-                "type": "sequential",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "parallel",
-                      "data": {
-                        "commands": [
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "autoAimShoot"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "shoot"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 1.0
-                      }
-                    }
-                  ]
+                  "name": "agitatorReverse"
                 }
               }
             ]
           }
         },
         {
-          "type": "path",
+          "type": "deadline",
           "data": {
-            "pathName": "Left Shoot Close To Intake"
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 1.0
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoAimShoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "shoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "hoodDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopShoot"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.3
+                }
+              }
+            ]
           }
         },
         {
@@ -74,7 +92,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left Center Intake"
+                  "pathName": "Right Shoot Close To Intake"
                 }
               },
               {
@@ -87,13 +105,19 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Right Center Intake"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left Trench To Shoot (Close)"
+                  "pathName": "Right Side Shoot"
                 }
               },
               {
@@ -103,13 +127,7 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 1.5
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "autoAimShoot"
+                        "waitTime": 1.0
                       }
                     },
                     {

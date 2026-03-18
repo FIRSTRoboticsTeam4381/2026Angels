@@ -8,6 +8,7 @@ package frc.robot.subsystems;
 
 import java.util.function.Supplier;
 
+import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -108,6 +109,8 @@ public InterpolatingDoubleTreeMap passtable;
     SmartDashboard.putData("SysID/Shooter",
       new SparkSysIDTest(shooter1, this, 7.5));
 
+
+    NamedCommands.registerCommand("stopShoot", this.getDefaultCommand());
   }
 
   @Override

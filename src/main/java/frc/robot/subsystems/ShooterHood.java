@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import java.util.function.Supplier;
 
+import com.pathplanner.lib.auto.NamedCommands;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.FeedbackSensor;
@@ -72,10 +73,6 @@ public class ShooterHood extends SubsystemBase
 
      hoodedmotor2.configure(hoodedmotor2Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
-
-
-   
-
      this.setDefaultCommand (hoodtoposition(0.1, 0.01));
 
     SmartDashboard.putData("Subsystem/ShooterHood",this);
@@ -83,6 +80,9 @@ public class ShooterHood extends SubsystemBase
 
   SmartDashboard.putData("SysID/ShooterHood",
       new SparkSysIDTest(hoodedmotor1, this, 1, 0.12, 0.32, hoodedmotor1.getAbsoluteEncoder()::getPosition));
+
+
+  NamedCommands.registerCommand("hoodDown", this.getDefaultCommand());
 
     
 }

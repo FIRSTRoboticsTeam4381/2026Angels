@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 7.7739918032786886,
-        "y": 4.509442622950818
+        "y": 4.909216867469879
       },
       "prevControl": null,
       "nextControl": {
         "x": 7.493639344262295,
-        "y": 7.701147540983605
+        "y": 8.100921785502667
       },
       "isLocked": false,
       "linkedName": "Left Center Intake"

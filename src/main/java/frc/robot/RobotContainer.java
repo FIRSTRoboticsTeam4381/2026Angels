@@ -146,7 +146,7 @@ public class RobotContainer {
     specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.FunnelMove());
     specialist.y().whileTrue(agitator.FunnelMoveReverse());
-    specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(intakePivot.pivotManualControl(()-> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
+    //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(intakePivot.pivotManualControl(()-> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 

@@ -4,7 +4,9 @@
   "holonomicMode": true,
   "pathFolders": [
     "Left Side Autos",
+    "Left Side Bump",
     "Middle Autos",
+    "Right Side Bump",
     "Right Side Autos"
   ],
   "autoFolders": [],

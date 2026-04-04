@@ -75,7 +75,6 @@ public class RobotContainer {
     NamedCommands.registerCommand("autoAimShoot", AutoAim.autoaimspecialist());
 
 
-
     // Set up autonomous picker
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());

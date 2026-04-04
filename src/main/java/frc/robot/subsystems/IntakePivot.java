@@ -160,7 +160,7 @@ public Command middle()
  {
   return new SequentialCommandGroup
   (
-    pivottoPosition(0.12, 0.03),//14
+    pivottoPosition(0.066, 0.01),//14
    new  InstantCommand(() -> pivot.set(0), this)
   ).withName("Middle");
 }

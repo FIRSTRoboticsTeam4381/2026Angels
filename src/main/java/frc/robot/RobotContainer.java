@@ -59,13 +59,13 @@ public class RobotContainer {
   //public final Hang hang = new Hang();
   // TODO set camera names, coordinates, and angles relative to the robot's center
   public final PhotonCam camA = new PhotonCam("FL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(11.33), Units.inchesToMeters(12.9),  Units.inchesToMeters(28.125)), //28 and a 16th tall?
-   new Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(-30))));
+   new Rotation3d(0, Units.degreesToRadians(-17.4), Units.degreesToRadians(-30))));//20
   public final PhotonCam camB = new PhotonCam("FR_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(11.33), Units.inchesToMeters(-12.9),  Units.inchesToMeters(28.125)),
-   new Rotation3d(0, Units.degreesToRadians(-20), Units.degreesToRadians(30))));
+   new Rotation3d(0, Units.degreesToRadians(-18.3), Units.degreesToRadians(30))));
   public final PhotonCam camC = new PhotonCam("BL_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(8.06),  Units.inchesToMeters(10.535)),//16 inches apart?
-   new Rotation3d(0, Units.degreesToRadians(-5), Units.degreesToRadians(45+180))));
+   new Rotation3d(0, Units.degreesToRadians(-1.6), Units.degreesToRadians(45+180))));//5
   public final PhotonCam camD = new PhotonCam("BR_Camera", new Transform3d(new Translation3d(Units.inchesToMeters(-12.52), Units.inchesToMeters(-8.06),  Units.inchesToMeters(10.535)),
-   new Rotation3d(0, Units.degreesToRadians(-5), Units.degreesToRadians(-45-180))));
+   new Rotation3d(0, Units.degreesToRadians(-4.6), Units.degreesToRadians(-45-180))));
   //forwardback, leftright, elevation
 
   // Constructor: set up the robot! 
@@ -73,7 +73,7 @@ public class RobotContainer {
     robotReference = this;
     // Set default commands here
     NamedCommands.registerCommand("autoAimShoot", AutoAim.autoaimspecialist());
-
+    NamedCommands.registerCommand("autoAimSwerve", AutoAim.autoAimSwerve(() -> 0.0, () -> 0.0));
 
     // Set up autonomous picker
     // Add any autos you want to be able to select below
@@ -145,7 +145,7 @@ public class RobotContainer {
     specialist.povRight().onTrue(intakePivot.middle());
     specialist.rightBumper().whileTrue(agitator.FunnelMove());
     specialist.y().whileTrue(agitator.FunnelMoveReverse());
-    //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(intakePivot.pivotManualControl(()-> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
+    specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(intakePivot.pivotManualControl(()-> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.axisMagnitudeGreaterThan(1 , 0.1).onTrue(hang.manualControl(() -> JoystickUtils.interpolateNow(specialist.getLeftY(), 0.1)));
     //specialist.povDownLeft().onTrue(intakePivot.halfopen());
 

@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.827542168674698,
-        "y": 3.007795180722892
+        "x": 8.532265060240965,
+        "y": 2.1882168674698788
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.579071235006293,
-        "y": 3.035403062241604
+        "x": 8.27,
+        "y": 2.1882168674698788
       },
       "isLocked": false,
       "linkedName": "Second Intake Pos"
@@ -20,8 +20,8 @@
         "y": 2.5925421686746986
       },
       "prevControl": {
-        "x": 3.295817838242865,
-        "y": 2.611716293395884
+        "x": 3.2965542168674697,
+        "y": 2.5925421686746986
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,12 +30,12 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.5087136929460585,
-      "rotationDegrees": 0.0
+      "waypointRelativePos": 0.3609958506224122,
+      "rotationDegrees": 46.616
     },
     {
       "waypointRelativePos": 0.6713692946058132,
-      "rotationDegrees": 1.5818537898453249
+      "rotationDegrees": 46.616
     }
   ],
   "constraintZones": [],

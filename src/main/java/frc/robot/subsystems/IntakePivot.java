@@ -56,7 +56,7 @@ public class IntakePivot extends SubsystemBase {
       this.inverted(false);
       this.absoluteEncoder.zeroCentered(true);
       this.absoluteEncoder.inverted(true);
-      this.softLimit.forwardSoftLimit(0.32).forwardSoftLimitEnabled(true);
+      this.softLimit.forwardSoftLimit(0.34).forwardSoftLimitEnabled(true);//0.344
       this.softLimit.reverseSoftLimit(0).reverseSoftLimitEnabled(true);
       closedLoop.feedForward.sva(0.5518, 0.14944, 0.084796);
       closedLoop.p(2);
@@ -83,7 +83,7 @@ public class IntakePivot extends SubsystemBase {
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
     SmartDashboard.putData("SysID/IntakePivot",
-      new SparkSysIDTest(pivot, this, 1, 0.01, 0.32, pivot.getAbsoluteEncoder()::getPosition));
+      new SparkSysIDTest(pivot, this, 1, 0.01, 0.24, pivot.getAbsoluteEncoder()::getPosition));
 
   }
   
@@ -142,7 +142,7 @@ public Command up()
 {
 return new SequentialCommandGroup
 (
-  pivottoPosition(0.3, 0.01).until(pivot.getForwardSoftLimit()::isReached), //0.33
+  pivottoPosition(0.34, 0.01).until(pivot.getForwardSoftLimit()::isReached), //0.33
   new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }
@@ -151,7 +151,7 @@ public Command down()
  {
   return new SequentialCommandGroup
   (
-    pivottoPosition(-0.1, 0.01).until(pivot.getReverseSoftLimit()::isReached),
+    pivottoPosition(0, 0.01).until(pivot.getReverseSoftLimit()::isReached),
    new  InstantCommand(() -> pivot.set(0), this)
   ).withName("Down");
 }
@@ -160,7 +160,7 @@ public Command middle()
  {
   return new SequentialCommandGroup
   (
-    pivottoPosition(0.12, 0.03),//14
+    pivottoPosition(0.066, 0.01),//14
    new  InstantCommand(() -> pivot.set(0), this)
   ).withName("Middle");
 }

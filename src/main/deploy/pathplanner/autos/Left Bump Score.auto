@@ -1,0 +1,123 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Start To Middle"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "pivotDown"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Middle Close Pivot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Middle To Edge"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "pivotMiddle"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Edge To Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "pivotDown"
+          }
+        },
+        {
+          "type": "deadline",
+          "data": {
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 1.5
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoAimSwerve"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoAimShoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "agitatorReverse"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "pivotDown"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "deadline",
+          "data": {
+            "commands": [
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 5.0
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoAimShoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

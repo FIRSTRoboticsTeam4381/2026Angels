@@ -1,0 +1,63 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.827542168674698,
+        "y": 3.007795180722892
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.579071235006293,
+        "y": 3.035403062241604
+      },
+      "isLocked": false,
+      "linkedName": "Second Intake Pos"
+    },
+    {
+      "anchor": {
+        "x": 3.0465542168674697,
+        "y": 2.5925421686746986
+      },
+      "prevControl": {
+        "x": 3.295817838242865,
+        "y": 2.611716293395884
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5087136929460585,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.6713692946058132,
+      "rotationDegrees": 1.5818537898453249
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 43.139058933986995
+  },
+  "reversed": false,
+  "folder": "Right Side Bump",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

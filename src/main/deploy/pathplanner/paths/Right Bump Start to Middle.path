@@ -8,27 +8,36 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.5307278080559295,
-        "y": 2.5267955346313
+        "x": 2.7624337349397594,
+        "y": 2.559759036144578
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.193734939755315,
-        "y": 2.9750120481928137
+        "x": 6.248373493975904,
+        "y": 2.9422289156626507
       },
       "prevControl": {
-        "x": 5.193734939755315,
-        "y": 2.9750120481928137
+        "x": 5.505289156630227,
+        "y": 2.3958433734939333
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Right Bump Start End"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.10871369294606924,
+      "rotationDegrees": 134.25
+    },
+    {
+      "waypointRelativePos": 0.6182572614107902,
+      "rotationDegrees": 134.25
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +51,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.75773599130093
+    "rotation": 90.0
   },
   "reversed": false,
   "folder": "Right Side Bump",

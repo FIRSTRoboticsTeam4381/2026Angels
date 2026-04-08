@@ -3,33 +3,47 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.1335180722891565,
-        "y": 3.958506024096385
+        "x": 7.778253012048193,
+        "y": 1.2702891566265067
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.160722891566266,
-        "y": 3.7618072289156625
+        "x": 7.778253012048193,
+        "y": 1.5202891566265067
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Right Bump Intake Start"
     },
     {
       "anchor": {
-        "x": 8.051445783132529,
-        "y": 2.4286265060240964
+        "x": 7.778253012048193,
+        "y": 3.3574819277108428
       },
       "prevControl": {
-        "x": 8.215361445783133,
-        "y": 2.6253253012048186
+        "x": 7.778253012048193,
+        "y": 3.1074819277108428
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "right bump intake end"
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.15,
+      "maxWaypointRelativePos": 1.0,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 0.75,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
@@ -42,13 +56,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -142.0283962389495
+    "rotation": 90.34936017950275
   },
   "reversed": false,
   "folder": "Right Side Bump",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -39.117554409904635
+    "rotation": 90.0
   },
   "useDefaultConstraints": true
 }

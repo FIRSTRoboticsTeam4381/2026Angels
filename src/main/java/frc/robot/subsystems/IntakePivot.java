@@ -78,6 +78,7 @@ public class IntakePivot extends SubsystemBase {
     NamedCommands.registerCommand("pivotDown", down());
     NamedCommands.registerCommand("pivotUp", up());
     NamedCommands.registerCommand("pivotMiddle", middle());
+    NamedCommands.registerCommand("pivotBump", bump());
 
 
 
@@ -152,7 +153,7 @@ public Command down()
   return new SequentialCommandGroup
   (
     pivottoPosition(0, 0.01).until(pivot.getReverseSoftLimit()::isReached),
-   new  InstantCommand(() -> pivot.set(0), this)
+   new InstantCommand(() -> pivot.set(0), this)
   ).withName("Down");
 }
 
@@ -161,8 +162,17 @@ public Command middle()
   return new SequentialCommandGroup
   (
     pivottoPosition(0.066, 0.01),//14
-   new  InstantCommand(() -> pivot.set(0), this)
+   new InstantCommand(() -> pivot.set(0), this)
   ).withName("Middle");
+}
+
+public Command bump()
+ {
+  return new SequentialCommandGroup
+  (
+    pivottoPosition(0.025, 0.01), //CHANGE THIS POS TARGET LATER IT IS A GUESTIMATE!!!!! HENCE IT PROBABLY WON'T WORK!!!!! SO YEAH CHANGE IT LATER SO WE DON'T BREAK THE ROBOT!!!!
+   new InstantCommand(() -> pivot.set(0), this)
+  ).withName("BumpPos");
 }
 
 public Command pivotManualControl(Supplier <Double> joystick)

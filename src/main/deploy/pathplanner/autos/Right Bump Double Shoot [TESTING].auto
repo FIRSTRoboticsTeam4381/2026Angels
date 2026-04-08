@@ -137,7 +137,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right Bump Shoot to 2nd Intake"
+                  "pathName": "Right Bump Shoot to 2nd Intake Start"
                 }
               },
               {
@@ -145,33 +145,14 @@
                 "data": {
                   "name": "intake"
                 }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 1.0
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "pivotDown"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "autoAimShoot"
-                      }
-                    }
-                  ]
-                }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Right Bump 2nd Intake Start to 2nd Intake End"
           }
         },
         {
@@ -181,7 +162,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right Bump 2nd Intake to 2nd Shoot"
+                  "pathName": "Right Bump 2nd Intake End to 2nd Shoot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopIntake"
                 }
               },
               {
@@ -189,37 +176,11 @@
                 "data": {
                   "name": "pivotMiddle"
                 }
-              }
-            ]
-          }
-        },
-        {
-          "type": "sequential",
-          "data": {
-            "commands": [
+              },
               {
                 "type": "named",
                 "data": {
-                  "name": "shoot"
-                }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 1.0
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "pivotUp"
-                      }
-                    }
-                  ]
+                  "name": "autoAimShoot"
                 }
               }
             ]

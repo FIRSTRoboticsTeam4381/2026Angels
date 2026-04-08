@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 8.532265060240965,
-        "y": 2.1882168674698788
+        "x": 6.89310843373494,
+        "y": 2.0680120481927715
       },
       "prevControl": {
-        "x": 8.282265060240965,
-        "y": 2.1882168674698788
+        "x": 6.576204819277108,
+        "y": 2.3193493975903605
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Second Intake Pos"
+      "linkedName": "right bump second intake start"
     }
   ],
   "rotationTargets": [
@@ -51,7 +51,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 89.06080905426448
   },
   "reversed": false,
   "folder": "Right Side Bump",

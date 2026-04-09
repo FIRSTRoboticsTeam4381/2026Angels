@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.lib.controls.JoystickUtils;
 import frc.robot.Constants;
@@ -127,7 +128,12 @@ public class SwerveAngle extends Command{
         double yAxis = -forward.get();
         double xAxis = -leftright.get();
         //double rAxis = -rotate.get();
-        pid.setSetpoint(rotate.get().getDegrees());
+
+        double targetDegrees = rotate.get().getDegrees();
+        SmartDashboard.putNumber("autoAim/angleTarget", targetDegrees);
+        SmartDashboard.putNumber("autoAim/currentAngle", s_Swerve.swerveOdometry.getEstimatedPosition().getRotation().getDegrees());
+
+        pid.setSetpoint(targetDegrees);
 
         // Apply speed modifier
         yAxis *= speedModifier;

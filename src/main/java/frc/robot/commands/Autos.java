@@ -35,11 +35,24 @@ public final class Autos {
         return new PreviewAuto(Commands.none());
     }
 
+
+    public static PreviewAuto rightBumpDoubleShootTest(){
+        return new PreviewAuto("Right Bump Double Shoot TESTING");
+    }
+
+    public static PreviewAuto rightBumpShoot(){
+        return new PreviewAuto("Right Bump Shoot");
+    }
+
+    public static PreviewAuto LeftBumpShoot(){
+        return new PreviewAuto("Left Bump Score");
+    }
+
     // TODO add pathplanner autos here. Example:
     //public static PreviewAuto Front3Note(){
     //    return new PreviewAuto("Front3NoteAuto");
     //}
-    public static PreviewAuto leftScoreAuto(){
+   /*  public static PreviewAuto leftScoreAuto(){
         return new PreviewAuto("Left Score");
     }
 
@@ -62,7 +75,7 @@ public final class Autos {
         return new PreviewAuto("Middle Depot Testing Edition V2");
     }
 
-    public static PreviewAuto leftScoreClose(){
+    /*public static PreviewAuto leftScoreClose(){
         return new PreviewAuto("Left Score Close");
     }
 
@@ -72,7 +85,7 @@ public final class Autos {
 
     public static PreviewAuto doubleRightShoot(){
         return new PreviewAuto("Double Right Shoot Close");
-    }
+    }*/
 
     /* If you want to make a more complex auto using commands,
     *  PreviewAuto can also accept (Command, String), which will

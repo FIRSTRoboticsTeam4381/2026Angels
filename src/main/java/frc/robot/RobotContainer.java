@@ -79,12 +79,15 @@ public class RobotContainer {
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());
     autoChooser.addOption("Test", Autos.testAuto());
-    autoChooser.addOption("Left Score", Autos.leftScoreAuto());
-    autoChooser.addOption("Right Score", Autos.rightScoreAuto());
-    autoChooser.addOption("Middle Depot", Autos.middleScoreTestTest());
+    autoChooser.addOption("Left Bump Shoot", Autos.LeftBumpShoot());
+    autoChooser.addOption("Right Bump Shoot", Autos.rightBumpShoot());
+    autoChooser.addOption("Right Bump double shoot", Autos.rightBumpDoubleShootTest());
+    //autoChooser.addOption("Left Score", Autos.leftScoreAuto());
+    //autoChooser.addOption("Right Score", Autos.rightScoreAuto());
+    //autoChooser.addOption("Middle Depot", Autos.middleScoreTestTest());
     //autoChooser.addOption("Middle Depot", Autos.middleScoreTest());
-    autoChooser.addOption("Left Score Close", Autos.leftScoreClose());
-    autoChooser.addOption("Right Score Close", Autos.rightScoreCloseAuto());
+    //autoChooser.addOption("Left Score Close", Autos.leftScoreClose());
+    //autoChooser.addOption("Right Score Close", Autos.rightScoreCloseAuto());
     //autoChooser.addOption("Double Left Shoot Close", Autos.doubleLeftShoot());
     //autoChooser.addOption("Double Right Shoot Close", Autos.doubleRightShoot());
     // Add auto controls to the dashboard

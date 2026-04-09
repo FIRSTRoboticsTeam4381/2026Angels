@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.5615163934426235,
-        "y": 5.594909836065574
+        "x": 0.28354918032786935,
+        "y": 6.378459016393443
       },
       "isLocked": false,
       "linkedName": "left start bump"
@@ -20,8 +20,8 @@
         "y": 4.185959016393442
       },
       "prevControl": {
-        "x": 6.767598360653284,
-        "y": 6.435967213114778
+        "x": 6.264401639344262,
+        "y": 5.623663934426229
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,8 +30,12 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.5935953420669596,
-      "rotationDegrees": 180.0
+      "waypointRelativePos": 0.6215429403202315,
+      "rotationDegrees": 145.0
+    },
+    {
+      "waypointRelativePos": 0.7566229985443887,
+      "rotationDegrees": 145.0
     }
   ],
   "constraintZones": [],

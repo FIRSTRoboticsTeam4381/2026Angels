@@ -49,10 +49,10 @@ public InterpolatingDoubleTreeMap passtable;
           shoottable.put(3.43, 3418.7);
           shoottable.put(3.49, 3552.2);*/
           shoottable.put(1.5, 2756.0);
-          shoottable.put(5.29, 3312.5);
-          shoottable.put(3.8, 3074.0);
-          shoottable.put(3.1, 2915.0);
           shoottable.put(2.28, 2835.5);
+          shoottable.put(3.1, 2915.0);
+          shoottable.put(3.8, 3225.0);
+          shoottable.put(5.3, 3400.0);
         }
 
       public void passSetUp()
@@ -60,6 +60,7 @@ public InterpolatingDoubleTreeMap passtable;
           passtable.put(5.95, 2650.0);
           passtable.put(11.32, 4006.2);
           passtable.put(8.18, 3552.2);
+          passtable.put(15.4, 4300.0);
         }
 
   public Shooter() {

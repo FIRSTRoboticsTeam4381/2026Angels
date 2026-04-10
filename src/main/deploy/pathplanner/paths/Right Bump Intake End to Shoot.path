@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.778253012048193,
-        "y": 3.3574819277108428
+        "x": 7.526915662650602,
+        "y": 2.3958433734939764
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.537843373493976,
-        "y": 2.2865662650602405
+        "x": 6.401361445783133,
+        "y": 2.341204819277109
       },
       "isLocked": false,
-      "linkedName": "right bump intake end"
+      "linkedName": "Right Bump Intake Start"
     },
     {
       "anchor": {
@@ -44,8 +44,8 @@
       "minWaypointRelativePos": 0.43771712158809706,
       "maxWaypointRelativePos": 0.7434243176178646,
       "constraints": {
-        "maxVelocity": 1.25,
-        "maxAcceleration": 0.75,
+        "maxVelocity": 1.6,
+        "maxAcceleration": 1.0,
         "maxAngularVelocity": 540.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -71,7 +71,7 @@
   "folder": "Right Side Bump",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 90.34936017950275
+    "rotation": -91.193489423982
   },
   "useDefaultConstraints": true
 }

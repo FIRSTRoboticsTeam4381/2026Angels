@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7997165629083935,
-        "y": 5.438708809547002
+        "x": 1.3219400855920111,
+        "y": 5.9473493975903615
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.5972310325226375,
-        "y": 5.585336262584962
+        "x": 0.8828255057789771,
+        "y": 5.9102103135045825
       },
       "isLocked": false,
-      "linkedName": "Diagonal Intake Test"
+      "linkedName": "Middle Depot sideways"
     },
     {
       "anchor": {
-        "x": 0.6136834535583595,
-        "y": 5.621731341894759
+        "x": 0.7655777460770326,
+        "y": 5.9473493975903615
       },
       "prevControl": {
-        "x": 0.8077207268639569,
-        "y": 5.464093984113905
+        "x": 0.49944730836116813,
+        "y": 5.968274094141147
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Depot Intake Pos 4"
+      "linkedName": "intaking Depot"
     }
   ],
   "rotationTargets": [],
@@ -68,13 +68,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 133.8211832525073
+    "rotation": -179.56856403156743
   },
   "reversed": false,
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 136.1628320104972
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

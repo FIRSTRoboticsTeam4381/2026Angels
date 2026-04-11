@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 1.1560602409638552,
+        "x": 1.3219400855920111,
         "y": 5.9473493975903615
       },
       "prevControl": {
-        "x": 1.8117228915662653,
-        "y": 5.34632530120482
+        "x": 2.003299251421099,
+        "y": 5.375621172843915
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Depot Intake Pos"
+      "linkedName": "Middle Depot sideways"
     }
   ],
   "rotationTargets": [],
@@ -33,8 +33,8 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
-      "name": "intake",
-      "waypointRelativePos": 0.342086330935245,
+      "name": "pivotMiddle",
+      "waypointRelativePos": 0.5320729237002014,
       "endWaypointRelativePos": null,
       "command": {
         "type": "named",
@@ -54,7 +54,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.26074064459215
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Middle Autos",

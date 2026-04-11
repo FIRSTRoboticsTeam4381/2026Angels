@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7138231098430812,
-        "y": 6.279857346647646
+        "x": 0.7655777460770326,
+        "y": 5.9473493975903615
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.3527590361445787,
-        "y": 7.204036144578313
+        "x": 1.40451367237853,
+        "y": 6.871528195521028
       },
       "isLocked": false,
-      "linkedName": "Depot Intake 2 Pos"
+      "linkedName": "intaking Depot"
     },
     {
       "anchor": {
@@ -107,7 +107,7 @@
   "folder": "Middle Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -138.99091309842993
+    "rotation": -179.56856403156743
   },
   "useDefaultConstraints": true
 }

@@ -67,10 +67,13 @@ public final class Autos {
         return new PreviewAuto("Middle Depot");
     }*/
 
+    public static PreviewAuto middleDepot(){
+        return new PreviewAuto("Middle Depot New Robot");
+    }
+
     public static PreviewAuto middleScoreTest(){
         return new PreviewAuto("Middle Depot Abandoned");
     }
-
     public static PreviewAuto middleScoreTestTest(){
         return new PreviewAuto("Middle Depot Testing Edition V2");
     }

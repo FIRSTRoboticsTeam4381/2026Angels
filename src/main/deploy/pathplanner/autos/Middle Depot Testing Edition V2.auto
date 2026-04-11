@@ -17,22 +17,35 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "pivotDown"
+                  "name": "pivotMiddle"
                 }
               }
             ]
           }
         },
         {
-          "type": "path",
+          "type": "deadline",
           "data": {
-            "pathName": "Depot to Depot Intake"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "1st Depot Intake to 2nd Depot Intake"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "pivotDown"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 1.0
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Depot to Depot Intake"
+                }
+              }
+            ]
           }
         },
         {

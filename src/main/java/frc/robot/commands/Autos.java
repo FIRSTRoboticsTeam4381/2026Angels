@@ -48,6 +48,10 @@ public final class Autos {
         return new PreviewAuto("Left Bump Score");
     }
 
+    public static PreviewAuto DefenseAuto(){
+        return new PreviewAuto("Defense Auto");
+    }
+
     // TODO add pathplanner autos here. Example:
     //public static PreviewAuto Front3Note(){
     //    return new PreviewAuto("Front3NoteAuto");

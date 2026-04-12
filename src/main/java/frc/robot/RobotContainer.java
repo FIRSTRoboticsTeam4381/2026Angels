@@ -83,6 +83,7 @@ public class RobotContainer {
     autoChooser.addOption("Right Bump Shoot", Autos.rightBumpShoot());
     autoChooser.addOption("Right Bump double shoot", Autos.rightBumpDoubleShootTest());
     autoChooser.addOption("Middle Depot", Autos.middleDepot());
+    autoChooser.addOption("Defense Auto", Autos.DefenseAuto());
     //autoChooser.addOption("Left Score", Autos.leftScoreAuto());
     //autoChooser.addOption("Right Score", Autos.rightScoreAuto());
     //autoChooser.addOption("Middle Depot", Autos.middleScoreTestTest());

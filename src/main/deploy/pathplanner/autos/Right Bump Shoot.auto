@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right Bump Start to Middle"
+                  "pathName": "[TEST]"
                 }
               },
               {
@@ -40,7 +40,7 @@
                     {
                       "type": "path",
                       "data": {
-                        "pathName": "Right Bump Middle to Intake Start"
+                        "pathName": "Right Bump Intake"
                       }
                     },
                     {
@@ -119,7 +119,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "shoot"
+                  "name": "autounJam"
                 }
               },
               {
@@ -151,7 +151,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "pivotMiddle"
+                              "name": "pivotUp"
                             }
                           },
                           {

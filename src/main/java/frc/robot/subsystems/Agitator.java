@@ -40,7 +40,7 @@ public class Agitator extends SubsystemBase {
 
   SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
-      this.smartCurrentLimit(70);
+      this.smartCurrentLimit(80);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
      // this.encoder.
@@ -50,6 +50,7 @@ public class Agitator extends SubsystemBase {
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
       this.smartCurrentLimit(80);
+      //changed current limit from 70  to 80 to work with new belt testing cahnge back to 70 if we go back to ornage belts if needed
       this.signals.primaryEncoderVelocityAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
       

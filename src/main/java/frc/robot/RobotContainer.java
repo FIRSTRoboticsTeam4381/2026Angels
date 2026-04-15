@@ -78,10 +78,10 @@ public class RobotContainer {
     // Set up autonomous picker
     // Add any autos you want to be able to select below
     autoChooser.setDefaultOption("None", Autos.none());
-    autoChooser.addOption("Test", Autos.testAuto());
+    //autoChooser.addOption("Test", Autos.testAuto());
     autoChooser.addOption("Left Bump Shoot", Autos.LeftBumpShoot());
     autoChooser.addOption("Right Bump Shoot", Autos.rightBumpShoot());
-    autoChooser.addOption("Right Bump double shoot", Autos.rightBumpDoubleShootTest());
+    //autoChooser.addOption("Right Bump double shoot", Autos.rightBumpDoubleShootTest());
     autoChooser.addOption("Middle Depot", Autos.middleDepot());
     autoChooser.addOption("Defense Auto", Autos.DefenseAuto());
     //autoChooser.addOption("Left Score", Autos.leftScoreAuto());

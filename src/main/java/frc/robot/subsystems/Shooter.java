@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 import java.util.function.Supplier;
 
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.config.RobotConfig;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkFlex;
@@ -19,6 +20,7 @@ import com.revrobotics.spark.config.SparkFlexConfig;
 
 import edu.wpi.first.epilogue.Logged;
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.FunctionalCommand;
@@ -53,6 +55,10 @@ public InterpolatingDoubleTreeMap passtable;
           shoottable.put(3.1, 2915.0);
           shoottable.put(3.8, 3225.0);
           shoottable.put(5.3, 3400.0);
+
+          Preferences.initDouble("ShootSpeedTrim", 0);
+          //SmartDashboard.getEntry("ShootSpeedTrim").setDefaultDouble(0);
+          //SmartDashboard.getEntry("ShootSpeedTrim").setPersistent();
         }
 
       public void passSetUp()
@@ -139,7 +145,8 @@ public InterpolatingDoubleTreeMap passtable;
   public double shootVelocityFromDistance()
   {
     double distance = AutoAim.distanceToHub();
-      return shoottable.get(distance);
+      return shoottable.get(distance) + Preferences.getDouble("ShootSpeedTrim", 0);
+      //SmartDashboard.getNumber("ShootSpeedTrim", 0)
   }
 
   public double passVelocityFromDistance()

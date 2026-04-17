@@ -82,6 +82,10 @@ public final class Autos {
         return new PreviewAuto("Middle Depot Testing Edition V2");
     }
 
+    public static PreviewAuto middleShooty(){
+        return new PreviewAuto("Middle Auto");
+    }
+
     /*public static PreviewAuto leftScoreClose(){
         return new PreviewAuto("Left Score Close");
     }

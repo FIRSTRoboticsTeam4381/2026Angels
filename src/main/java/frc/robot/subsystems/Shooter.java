@@ -66,7 +66,8 @@ public InterpolatingDoubleTreeMap passtable;
           passtable.put(5.95, 2650.0);
           passtable.put(11.32, 4006.2);
           passtable.put(8.18, 3552.2);
-          passtable.put(15.4, 4300.0);
+          passtable.put(12.99, 4350.0);
+          passtable.put(15.4, 4700.0);
         }
 
   public Shooter() {

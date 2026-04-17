@@ -78,7 +78,7 @@ public class IntakePivot extends SubsystemBase {
     NamedCommands.registerCommand("pivotDown", down());
     NamedCommands.registerCommand("pivotUp", up());
     NamedCommands.registerCommand("pivotMiddle", middle());
-
+    NamedCommands.registerCommand("middleAutoIntake", MiddleAutoIntake());
 
 
     SmartDashboard.putData("Subsystem/IntakePivot",this);
@@ -99,6 +99,11 @@ public class IntakePivot extends SubsystemBase {
 
   public Command pivottoPosition(double target, double range) {
     return new SparkPosition(pivot, target, range, this).withName("pivottoPosition");
+  }
+
+  public Command MiddleAutoIntake()
+  {
+    return new InstantCommand(() -> pivot.set(-0.055), this).repeatedly();
   }
   //all numbers will be changed
  /*public Command fullopen() {

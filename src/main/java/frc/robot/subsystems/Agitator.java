@@ -28,24 +28,24 @@ import frc.robot.CanIDs;
 public class Agitator extends SubsystemBase {
 
   /** Creates a new Agitator. */
- public SparkFlex agitator; 
+ //public SparkFlex agitator; 
  public SparkFlex funnel; 
- public SparkFlex funnel2;
+ public SparkFlex funnelLower;
 
  public Agitator(){
 
-  agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
+  //agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
-  funnel2 = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID_2, MotorType.kBrushless);
+  funnelLower = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID_2, MotorType.kBrushless);
 
-  SparkFlexConfig agitatorConfig = new SparkFlexConfig()
+  /*SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
       this.smartCurrentLimit(80);
       this.signals.primaryEncoderVelocityAlwaysOn(true);
       this.idleMode(IdleMode.kBrake);
      // this.encoder.
      this.inverted(true);
-  }};
+  }};*/
 
   SparkFlexConfig funnelConfig = new SparkFlexConfig()
   {{
@@ -59,12 +59,11 @@ public class Agitator extends SubsystemBase {
   SparkFlexConfig funnelConfig2 = new SparkFlexConfig()
   {{
     this.apply(funnelConfig);
-    this.follow(funnel,true);
   }};
   
-    agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
+    //agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
     funnel.configure(funnelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
-    funnel2.configure(funnelConfig2, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
+    funnelLower.configure(funnelConfig2, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
 
     NamedCommands.registerCommand("agitatorMove", agitatorMove());
@@ -74,8 +73,9 @@ public class Agitator extends SubsystemBase {
 
    this.setDefaultCommand(
     new FunctionalCommand(() -> {
-      agitator.set(0);
+      //agitator.set(0);
       funnel.set(0);
+      funnelLower.set(0);
      }, () -> {}, (killed) -> {}, () -> {return false;}, this));
    
     SmartDashboard.putData("Subsystem/Agitator",this);
@@ -92,16 +92,16 @@ public class Agitator extends SubsystemBase {
 
 public Command FunnelMove(){//fire
 return new InstantCommand(
-  ()-> {agitator.set(1); funnel.set(1);},this).withName("FunnelMove").repeatedly();//agitator.set(1);
+  ()-> {funnel.set(1); funnelLower.set(1); },this).withName("FunnelMove").repeatedly();//agitator.set(1); -funnel setting we removed-
   
 }
 
 public Command autounJam()
 {
   return new SequentialCommandGroup(
-    new InstantCommand(()-> {agitator.set(1); funnel.set(1);},this),
+    new InstantCommand(()-> { funnel.set(1); funnelLower.set(1); },this), // agitator.set(1); -funnel setting we removed-
     new WaitCommand(2),
-    new InstantCommand(()-> {agitator.set(-1); funnel.set(1);},this),
+    new InstantCommand(()-> { funnel.set(-1); funnelLower.set(1); },this), // agitator.set(-1); -funnel setting we removed-
     new WaitCommand(0.5)
   ).repeatedly();
 }
@@ -113,11 +113,11 @@ return new InstantCommand(
 
 public Command agitatorMove(){
   return new InstantCommand(
-  ()-> {agitator.set(1); funnel.set(0);},this).withName("agitatorMove").repeatedly();
+  ()-> { funnel.set(1); funnelLower.set(0); },this).withName("agitatorMove").repeatedly();// agitator.set(1); -funnel setting we removed-
 }
 
 public Command FunnelMoveReverse(){
 return new InstantCommand(
-  () -> {agitator.set(-1); funnel.set(-1);},this).withName("FunnelMoveReverse").repeatedly();//agitator.set(-1);
+  () -> { funnel.set(-1); funnelLower.set(-1); },this).withName("FunnelMoveReverse").repeatedly();// agitator.set(-1); -funnel setting we removed-
   
 }}

@@ -30,13 +30,13 @@ public class Agitator extends SubsystemBase {
   /** Creates a new Agitator. */
  //public SparkFlex agitator; 
  public SparkFlex funnel; 
- public SparkFlex funnelLower;
+ public SparkFlex agitator; //may need to rename, haven't tested which motor is which
 
  public Agitator(){
 
   //agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
   funnel = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID, MotorType.kBrushless);
-  funnelLower = new SparkFlex(CanIDs.FUNNEL_MOTOR_ID_2, MotorType.kBrushless);
+  agitator = new SparkFlex(CanIDs.AGITATOR_MOTOR_ID, MotorType.kBrushless);
 
   /*SparkFlexConfig agitatorConfig = new SparkFlexConfig()
   {{
@@ -58,12 +58,12 @@ public class Agitator extends SubsystemBase {
 
   SparkFlexConfig funnelConfig2 = new SparkFlexConfig()
   {{
-    this.apply(funnelConfig);
-  }};
+    this.apply(funnelConfig); //may need to be reversed
+     }};
   
     //agitator.configure(agitatorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
     funnel.configure(funnelConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters); 
-    funnelLower.configure(funnelConfig2, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+    agitator.configure(funnelConfig2, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
 
     NamedCommands.registerCommand("agitatorMove", agitatorMove());
@@ -75,7 +75,7 @@ public class Agitator extends SubsystemBase {
     new FunctionalCommand(() -> {
       //agitator.set(0);
       funnel.set(0);
-      funnelLower.set(0);
+      agitator.set(0);
      }, () -> {}, (killed) -> {}, () -> {return false;}, this));
    
     SmartDashboard.putData("Subsystem/Agitator",this);
@@ -92,16 +92,16 @@ public class Agitator extends SubsystemBase {
 
 public Command FunnelMove(){//fire
 return new InstantCommand(
-  ()-> {funnel.set(1); funnelLower.set(1); },this).withName("FunnelMove").repeatedly();//agitator.set(1); -funnel setting we removed-
+  ()-> {funnel.set(1); agitator.set(1); },this).withName("FunnelMove").repeatedly();//agitator.set(1); -funnel setting we removed-
   
 }
 
 public Command autounJam()
 {
   return new SequentialCommandGroup(
-    new InstantCommand(()-> { funnel.set(1); funnelLower.set(1); },this), // agitator.set(1); -funnel setting we removed-
+    new InstantCommand(()-> { funnel.set(1); agitator.set(1); },this), // agitator.set(1); -funnel setting we removed-
     new WaitCommand(2),
-    new InstantCommand(()-> { funnel.set(-1); funnelLower.set(1); },this), // agitator.set(-1); -funnel setting we removed-
+    new InstantCommand(()-> { funnel.set(-1); agitator.set(1); },this), // agitator.set(-1); -funnel setting we removed-
     new WaitCommand(0.5)
   ).repeatedly();
 }
@@ -113,11 +113,11 @@ return new InstantCommand(
 
 public Command agitatorMove(){
   return new InstantCommand(
-  ()-> { funnel.set(1); funnelLower.set(0); },this).withName("agitatorMove").repeatedly();// agitator.set(1); -funnel setting we removed-
+  ()-> { funnel.set(1); agitator.set(0); },this).withName("agitatorMove").repeatedly();// agitator.set(1); -funnel setting we removed-
 }
 
 public Command FunnelMoveReverse(){
 return new InstantCommand(
-  () -> { funnel.set(-1); funnelLower.set(-1); },this).withName("FunnelMoveReverse").repeatedly();// agitator.set(-1); -funnel setting we removed-
+  () -> { funnel.set(-1); agitator.set(-1); },this).withName("FunnelMoveReverse").repeatedly();// agitator.set(-1); -funnel setting we removed-
   
 }}

@@ -147,7 +147,7 @@ public Command up()
 {
 return new SequentialCommandGroup
 (
-  pivottoPosition(0.34, 0.01).until(pivot.getForwardSoftLimit()::isReached), //0.33
+  pivottoPosition(0.33, 0.01).until(pivot.getForwardSoftLimit()::isReached), //0.33
   new InstantCommand(() -> pivot.set(0), this) 
 ).withName("Up");
 }
@@ -156,7 +156,7 @@ public Command down()
  {
   return new SequentialCommandGroup
   (
-    pivottoPosition(-0.01, 0.01).until(pivot.getReverseSoftLimit()::isReached)
+    pivottoPosition(-0.015, 0.01).until(pivot.getReverseSoftLimit()::isReached)//-0.01
    //new InstantCommand(() -> pivot.set(0), this)
   ).withName("Down");
 }

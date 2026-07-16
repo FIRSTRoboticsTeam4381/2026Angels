@@ -52,6 +52,10 @@ public final class Autos {
         return new PreviewAuto("Defense Auto");
     }
 
+    public static PreviewAuto LeftScoreClose(){
+        return new PreviewAuto("Left Score Trench");
+    }
+
     // TODO add pathplanner autos here. Example:
     //public static PreviewAuto Front3Note(){
     //    return new PreviewAuto("Front3NoteAuto");

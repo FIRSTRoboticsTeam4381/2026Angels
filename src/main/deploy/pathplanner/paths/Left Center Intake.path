@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.7739918032786886,
-        "y": 6.960729508196721
+        "x": 6.609450819672131,
+        "y": 4.624459016393441
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.824311475409836,
-        "y": 5.300180327868852
+        "x": 7.579901639342101,
+        "y": 4.660401639346736
       },
       "isLocked": false,
       "linkedName": "Left Neutral Zone"
     },
     {
       "anchor": {
-        "x": 7.7739918032786886,
-        "y": 4.909216867469879
+        "x": 7.7596147540983615,
+        "y": 6.860090163934425
       },
       "prevControl": {
-        "x": 7.7596147540983615,
-        "y": 6.325356211732174
+        "x": 7.968081967213115,
+        "y": 4.193147540983606
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Left Center Intake"
+      "linkedName": "left neutral zone rotated"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5935953420669581,
+      "rotationDegrees": 90.0
+    }
+  ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
@@ -68,13 +73,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -90.0
+    "rotation": 90.65106038022952
   },
   "reversed": false,
   "folder": "Left Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -90.0
+    "rotation": -0.8363753254223641
   },
   "useDefaultConstraints": true
 }

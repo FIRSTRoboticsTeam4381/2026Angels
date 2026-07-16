@@ -26,12 +26,6 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Left Center Intake"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
             "pathName": "Left Trench To Shoot"
           }
         },

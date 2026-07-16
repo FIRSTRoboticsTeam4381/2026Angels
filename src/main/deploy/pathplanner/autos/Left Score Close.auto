@@ -26,7 +26,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Left Center Intake"
+            "pathName": "Left Middle Close Pivot"
           }
         },
         {
@@ -241,12 +241,6 @@
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Left Shoot Close To Intake 2"
           }
         }
       ]

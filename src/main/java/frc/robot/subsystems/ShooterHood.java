@@ -120,7 +120,7 @@ public Command joystickcontrol(Supplier<Double> joystickMove)
     hoodShootTable.put(5.19, 0.256472);
     hoodShootTable.put(3.43, 0.219386);
     hoodShootTable.put(3.49, 0.222079);*/
-    hoodShootTable.put(1.5, 0.1855);
+    hoodShootTable.put(1.3, 0.160697);
     hoodShootTable.put(2.28, 0.186391);
     hoodShootTable.put(3.1, 0.224874);
     hoodShootTable.put(3.8, 0.239113);

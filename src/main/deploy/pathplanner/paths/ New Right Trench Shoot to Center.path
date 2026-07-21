@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.9919156626506025,
-        "y": 0.6474096385542167
+        "x": 3.5710843373493972,
+        "y": 0.6146265060240967
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.991915662650602,
-        "y": 0.6474096385542167
+        "x": 4.571084337349397,
+        "y": 0.6146265060240967
       },
       "isLocked": false,
-      "linkedName": "Right Shoot"
+      "linkedName": null
     },
     {
       "anchor": {
@@ -25,10 +25,15 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Neutral Zone"
+      "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5369294605809118,
+      "rotationDegrees": 180.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -48,7 +53,7 @@
   "folder": "Right Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 64.47253384880491
+    "rotation": 179.65479272671544
   },
   "useDefaultConstraints": true
 }

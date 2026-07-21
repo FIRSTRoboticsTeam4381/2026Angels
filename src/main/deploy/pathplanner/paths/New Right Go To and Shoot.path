@@ -3,32 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.9919156626506025,
-        "y": 0.6474096385542167
+        "x": 7.61,
+        "y": 3.193566265060241
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.991915662650602,
-        "y": 0.6474096385542167
+        "x": 6.425304424591638,
+        "y": 0.2771554584861584
       },
       "isLocked": false,
-      "linkedName": "Right Shoot"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.610128388017117,
-        "y": 0.75
+        "x": 2.9919156626506025,
+        "y": 0.6474096385542167
       },
       "prevControl": {
-        "x": 6.610128388017117,
-        "y": 0.7500000000000001
+        "x": 5.256300908552241,
+        "y": 0.5875052669695173
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Neutral Zone"
+      "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.9219917012448109,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,13 +47,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": 64.47253384880491
   },
   "reversed": false,
   "folder": "Right Side Autos",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 64.47253384880491
+    "rotation": 90.0
   },
   "useDefaultConstraints": true
 }

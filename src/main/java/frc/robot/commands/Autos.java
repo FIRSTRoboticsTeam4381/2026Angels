@@ -53,7 +53,7 @@ public final class Autos {
     }
 
     public static PreviewAuto LeftScoreClose(){
-        return new PreviewAuto("Left Score Trench");
+        return new PreviewAuto("Left Score Close");
     }
 
     // TODO add pathplanner autos here. Example:
@@ -62,11 +62,11 @@ public final class Autos {
     //}
    /*  public static PreviewAuto leftScoreAuto(){
         return new PreviewAuto("Left Score");
-    }
+    }*/
 
-    public static PreviewAuto rightScoreAuto(){
-        return new PreviewAuto("Right Score");
-    }
+    //public static PreviewAuto rightScoreAuto(){
+    //    return new PreviewAuto("Right Score");
+    //}
 
     public static PreviewAuto rightScoreCloseAuto(){
         return new PreviewAuto("Right Score Close");

@@ -82,7 +82,7 @@ public class RobotContainer {
     autoChooser.addOption("Left Bump Shoot", Autos.LeftBumpShoot());
     autoChooser.addOption("Right Bump Shoot", Autos.rightBumpShoot());
     //autoChooser.addOption("Right Bump double shoot", Autos.rightBumpDoubleShootTest());
-    autoChooser.addOption("Middle Depot", Autos.middleDepot());
+    //autoChooser.addOption("Middle Depot", Autos.middleDepot());
     autoChooser.addOption("Defense Auto", Autos.DefenseAuto());
     autoChooser.addOption("Middle Shoot", Autos.middleShooty());
     autoChooser.addOption("Left Score Trench", Autos.LeftScoreClose());
@@ -91,7 +91,7 @@ public class RobotContainer {
     //autoChooser.addOption("Middle Depot", Autos.middleScoreTestTest());
     //autoChooser.addOption("Middle Depot", Autos.middleScoreTest());
     //autoChooser.addOption("Left Score Close", Autos.leftScoreClose());
-    //autoChooser.addOption("Right Score Close", Autos.rightScoreCloseAuto());
+    autoChooser.addOption("Right Score Trench", Autos.rightScoreCloseAuto());
     //autoChooser.addOption("Double Left Shoot Close", Autos.doubleLeftShoot());
     //autoChooser.addOption("Double Right Shoot Close", Autos.doubleRightShoot());
     // Add auto controls to the dashboard

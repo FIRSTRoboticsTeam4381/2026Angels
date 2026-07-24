@@ -73,7 +73,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 5.0
+                  "waitTime": 10.0
                 }
               },
               {
@@ -111,7 +111,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "pivotMiddle"
+                              "name": "pivotUp"
                             }
                           }
                         ]
@@ -149,7 +149,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "pivotMiddle"
+                              "name": "pivotUp"
                             }
                           }
                         ]
@@ -187,7 +187,7 @@
                           {
                             "type": "named",
                             "data": {
-                              "name": "pivotMiddle"
+                              "name": "pivotUp"
                             }
                           }
                         ]

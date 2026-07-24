@@ -148,13 +148,19 @@
                 }
               },
               {
+                "type": "named",
+                "data": {
+                  "name": "autoAimSwerve"
+                }
+              },
+              {
                 "type": "sequential",
                 "data": {
                   "commands": [
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 4.125
+                        "waitTime": 2.75
                       }
                     },
                     {

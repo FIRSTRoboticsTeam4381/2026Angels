@@ -87,7 +87,7 @@ public final class Autos {
     }
 
     public static PreviewAuto middleShooty(){
-        return new PreviewAuto("Middle Auto");
+        return new PreviewAuto("Middle Shoot");
     }
 
     /*public static PreviewAuto leftScoreClose(){

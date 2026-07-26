@@ -5,7 +5,7 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "deadline",
           "data": {
             "commands": [
               {
@@ -24,15 +24,9 @@
           }
         },
         {
-          "type": "deadline",
+          "type": "parallel",
           "data": {
             "commands": [
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 10.0
-                }
-              },
               {
                 "type": "named",
                 "data": {
@@ -42,13 +36,19 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "autounJam"
+                  "name": "autoAimSwerve"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "autoAimSwerve"
+                  "name": "pivotMiddle"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autounJam"
                 }
               }
             ]

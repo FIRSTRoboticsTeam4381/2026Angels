@@ -59,7 +59,7 @@ public class ShooterHood extends SubsystemBase
       this.idleMode(IdleMode.kBrake);
       this.inverted(true);
       closedLoop.feedForward.sv(0.76127, 21.166);
-      closedLoop.p(5.3492);
+      closedLoop.p(5.5492); //5.3492
     }};
      hoodedmotor1.configure(hoodedmotor1Config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     

@@ -50,11 +50,11 @@ public InterpolatingDoubleTreeMap passtable;
           shoottable.put(5.19, 3819.3);
           shoottable.put(3.43, 3418.7);
           shoottable.put(3.49, 3552.2);*/
-          shoottable.put(1.5, 2756.0);
+          shoottable.put(1.5, 2756.0);//edited
           shoottable.put(2.28, 2835.5);
-          shoottable.put(3.1, 2915.0);
-          shoottable.put(3.8, 3225.0);
-          shoottable.put(5.3, 3400.0);
+          //shoottable.put(3.1, 2915.0); ignore
+          shoottable.put(3.8, 3225.0);//edited
+          shoottable.put(5.3, 3418.0);//needs a bit more editing
 
           Preferences.initDouble("ShootSpeedTrim", 0);
           //SmartDashboard.getEntry("ShootSpeedTrim").setDefaultDouble(0);
